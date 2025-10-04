@@ -1,0 +1,73 @@
+@import "tailwindcss";
+@plugin "daisyui";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Gooey animated background for each card */
+.goo-card {
+  position: relative;
+  overflow: visible;                    /* let blobs extend outside */
+  filter: url(#goo);                    /* apply goo filter to children/pseudos */
+  --blob1: #2563eb;                     /* left blob color   (blue) */
+  --blob2: #0ea5a6;                     /* right blob color  (teal) */
+  --blob-opacity: 0.25;                 /* overall softness */
+  --size: 180px;                        /* base blob size */
+  --spread: 40px;                       /* how far they travel */
+}
+
+/* two blobs: left (::before) and right (::after) */
+.goo-card::before,
+.goo-card::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: var(--size);
+  height: var(--size);
+  transform: translateY(-50%);
+  border-radius: 50%;
+  filter: blur(18px);
+  opacity: var(--blob-opacity);
+  pointer-events: none;
+  z-index: 0;                           /* behind the image */
+}
+
+/* left blob */
+.goo-card::before {
+  left: -24px;
+  background: radial-gradient(circle at 30% 30%, var(--blob1), transparent 60%);
+  animation: floatLeft 6.5s ease-in-out infinite;
+}
+
+/* right blob */
+.goo-card::after {
+  right: -24px;
+  background: radial-gradient(circle at 70% 70%, var(--blob2), transparent 60%);
+  animation: floatRight 7.2s ease-in-out infinite alternate;
+}
+
+/* ensure the content (image) sits above blobs */
+.goo-card > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* motion */
+@keyframes floatLeft {
+  0%   { transform: translate(-10px, -50%) scale(1.0); }
+  50%  { transform: translate(calc(-10px - var(--spread)), -55%) scale(1.08); }
+  100% { transform: translate(-10px, -50%) scale(1.0); }
+}
+@keyframes floatRight {
+  0%   { transform: translate(10px, -50%) scale(1.0); }
+  50%  { transform: translate(calc(10px + var(--spread)), -45%) scale(0.95); }
+  100% { transform: translate(10px, -50%) scale(1.0); }
+}
+
+/* Respect users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .goo-card::before,
+  .goo-card::after {
+    animation: none;
+  }
+}

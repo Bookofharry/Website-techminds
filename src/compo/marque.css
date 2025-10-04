@@ -1,0 +1,104 @@
+/* Container */
+.marquee {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  --marquee-gap: 1.25rem;
+  --marquee-duration: 20s;
+  --marquee-gradient: 10px;
+  
+}
+div{
+  background-color: transparent;
+}
+
+/* Edge fades for a premium look */
+.marquee__fade {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: var(--marquee-gradient);
+  z-index: 2;
+  pointer-events: none;
+}
+.marquee__fade--left {
+  left: 0;
+  background: linear-gradient(to right, rgba(0,0,0,0.28), transparent);
+}
+.marquee__fade--right {
+  right: 0;
+  background: linear-gradient(to left, rgba(0,0,0,0.28), transparent);
+}
+
+/* Track holds duplicated content side-by-side */
+.marquee__track {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--marquee-gap);
+  white-space: nowrap;
+  will-change: transform;
+  animation: marquee-left var(--marquee-duration) linear infinite;
+  padding-inline: var(--marquee-gradient); /* keep items out of fade area */
+}
+
+/* Items can wrap anything (chips, logos, small cards…) */
+.marquee__item {
+  flex: 0 0 auto;
+}
+
+/* Direction control */
+.marquee.marquee--right .marquee__track {
+  animation-name: marquee-right;
+}
+
+/* Pause on hover */
+.marquee.marquee--pause-on-hover:hover .marquee__track {
+  animation-play-state: paused;
+}
+
+/* Keyframes */
+@keyframes marquee-left {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%); /* because we duplicated content */
+  }
+}
+@keyframes marquee-right {
+  from {
+    transform: translateX(-50%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .marquee__track {
+    animation: none;
+    transform: translateX(0);
+  }
+}
+
+/* --- Optional: pretty “pill” items if you want quick styling --- */
+.marquee-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  padding: .5rem .9rem;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.16);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  color: #eef6ff;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.18);
+}
+.marquee-pill img {
+  width: 28px;
+  height: 28px;
+  border-radius: 999px;
+  object-fit: cover;
+}

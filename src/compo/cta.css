@@ -1,0 +1,62 @@
+/* ==== Business CTA Animations (scoped with bcta- prefix) ==== */
+
+/* Soft grid that slowly rotates */
+.bcta-animated-grid {
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.04) 1px, transparent 1px);
+  background-size: 24px 24px, 24px 24px;
+  animation: bcta-grid-rotate 60s linear infinite;
+}
+
+@keyframes bcta-grid-rotate {
+  0%   { transform: rotate(0deg) scale(1);   opacity: 0.7; }
+  50%  { transform: rotate(180deg) scale(1.02); opacity: 0.5; }
+  100% { transform: rotate(360deg) scale(1);  opacity: 0.7; }
+}
+
+/* Floating / morphing blobs */
+@keyframes bcta-blob {
+  0%   { transform: translate(0px, 0px) scale(1); }
+  33%  { transform: translate(20px, -30px) scale(1.1); }
+  66%  { transform: translate(-15px, 25px) scale(0.95); }
+  100% { transform: translate(0px, 0px) scale(1); }
+}
+.bcta-animate-blob { animation: bcta-blob 18s ease-in-out infinite; }
+.bcta-animation-delay-2000 { animation-delay: 2s; }
+.bcta-animation-delay-4000 { animation-delay: 4s; }
+
+/* Drifting radial spotlight (very subtle) */
+.bcta-animated-spotlight {
+  background:
+    radial-gradient(600px 300px at 20% 30%, rgba(59, 130, 246, 0.08), transparent 60%),
+    radial-gradient(500px 250px at 80% 70%, rgba(236, 72, 153, 0.08), transparent 60%);
+  animation: bcta-spotlight-move 30s ease-in-out infinite;
+}
+
+@keyframes bcta-spotlight-move {
+  0%   { background-position: 20% 30%, 80% 70%; }
+  50%  { background-position: 30% 20%, 70% 80%; }
+  100% { background-position: 20% 30%, 80% 70%; }
+}
+
+/* Dark mode tuning (works with Tailwind's .dark class) */
+.dark .bcta-animated-grid {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+}
+.dark .bcta-animated-spotlight {
+  background:
+    radial-gradient(600px 300px at 20% 30%, rgba(59, 130, 246, 0.12), transparent 60%),
+    radial-gradient(500px 250px at 80% 70%, rgba(236, 72, 153, 0.12), transparent 60%);
+}
+
+/* Accessibility: respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .bcta-animated-grid,
+  .bcta-animate-blob,
+  .bcta-animated-spotlight {
+    animation: none !important;
+  }
+}

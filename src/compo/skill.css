@@ -1,0 +1,99 @@
+/* ===== HeroSplit animations (hsplit- prefix) ===== */
+
+/* 1) Conic halo: subtle, centered between columns, white-friendly */
+.hsplit .hsplit-halo {
+  position: absolute;
+  top: 50%;
+  left: 52%;
+  width: clamp(24rem, 60vw, 70rem);
+  aspect-ratio: 1 / 1;
+  border-radius: 9999px;
+  filter: blur(34px) saturate(1.05);
+  opacity: 0.9;
+  background:
+    conic-gradient(
+      from 0deg,
+      rgba(59,130,246,0.22) 0deg,
+      rgba(14,165,233,0.18) 90deg,
+      rgba(236,72,153,0.16) 180deg,
+      rgba(99,102,241,0.2) 270deg,
+      rgba(59,130,246,0.22) 360deg
+    );
+  mask: radial-gradient(circle at 50% 50%, black 38%, transparent 68%);
+  transform: translate(-50%, -50%);
+  animation: hsplit-halo-spin 30s linear infinite, hsplit-halo-breathe 7s ease-in-out infinite;
+}
+@keyframes hsplit-halo-spin { to { transform: translate(-50%, -50%) rotate(360deg); } }
+@keyframes hsplit-halo-breathe {
+  0%,100% { filter: blur(34px); }
+  50%     { filter: blur(40px); }
+}
+
+/* 2) Thin diagonal sheen sweeping across the whole section */
+.hsplit .hsplit-sheen {
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(
+    120deg,
+    transparent 0%,
+    rgba(59,130,246,0.05) 20%,
+    rgba(99,102,241,0.05) 40%,
+    rgba(236,72,153,0.04) 60%,
+    transparent 80%
+  );
+  background-size: 200% 200%;
+  animation: hsplit-sheen-move 26s ease-in-out infinite;
+}
+@keyframes hsplit-sheen-move {
+  0%   { background-position: 0% 0%; opacity: .7; }
+  50%  { background-position: 100% 100%; opacity: .5; }
+  100% { background-position: 0% 0%; opacity: .7; }
+}
+
+/* 3) Drifting pills (rounded rectangles) */
+.hsplit .hsplit-pill {
+  position: absolute;
+  height: 12px;
+  width: 120px;
+  border-radius: 9999px;
+  background: linear-gradient(90deg, rgba(59,130,246,0.18), rgba(14,165,233,0.12));
+  filter: blur(0.3px);
+  box-shadow: 0 0 22px rgba(59,130,246,0.25);
+  animation: hsplit-pill-drift 18s ease-in-out infinite;
+}
+.hsplit .hsplit-pill-a { top: 14%; left: 8%; transform: rotate(-12deg); animation-delay: 0s; }
+.hsplit .hsplit-pill-b { bottom: 12%; right: 10%; transform: rotate(8deg);  animation-delay: 3s; }
+
+@keyframes hsplit-pill-drift {
+  0%   { transform: translate(0,0) rotate(var(--rot,0deg)); opacity: .9; }
+  25%  { transform: translate(18px,-14px) rotate(calc(var(--rot,0deg) + 6deg)); opacity: .8; }
+  50%  { transform: translate(-14px,12px) rotate(calc(var(--rot,0deg) + 10deg)); opacity: .65; }
+  75%  { transform: translate(10px,-8px) rotate(calc(var(--rot,0deg) + 7deg)); opacity: .8; }
+  100% { transform: translate(0,0) rotate(var(--rot,0deg)); opacity: .9; }
+}
+
+/* Dark mode tweaks */
+.dark .hsplit .hsplit-halo {
+  background:
+    conic-gradient(
+      from 0deg,
+      rgba(59,130,246,0.32) 0deg,
+      rgba(14,165,233,0.28) 90deg,
+      rgba(236,72,153,0.25) 180deg,
+      rgba(99,102,241,0.3) 270deg,
+      rgba(59,130,246,0.32) 360deg
+    );
+}
+.dark .hsplit .hsplit-pill {
+  background: linear-gradient(90deg, rgba(59,130,246,0.28), rgba(14,165,233,0.2));
+  box-shadow: 0 0 24px rgba(59,130,246,0.35);
+}
+
+/* Motion safety */
+@media (prefers-reduced-motion: reduce) {
+  .hsplit .hsplit-halo,
+  .hsplit .hsplit-sheen,
+  .hsplit .hsplit-pill {
+    animation: none !important;
+  }
+}

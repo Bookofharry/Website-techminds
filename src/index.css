@@ -1,0 +1,37 @@
+@import "tailwindcss";
+@plugin "daisyui";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 1) Remove browser default margins */
+html, body, #root {
+  height: 100%;
+}
+body {
+  margin: 0;            /* <-- clears default body margin */
+}
+
+/* 2) If you're wrapping Menubar in .card, it adds padding. Remove it or reset it. */
+.card {
+  margin: 0 !important;
+  padding: 0 !important;
+  border: none !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+/* 3) Make the Menubar flush edge-to-edge */
+.custom-menubar {
+  margin: 0 !important;
+  border-radius: 0 !important;
+  width: 100%;
+}
+
+/* Optional: tighten internal spacing if you want it ultra-compact */
+.custom-menubar .p-menubar-root-list {
+  padding: 0;
+}
+.custom-menubar .p-menuitem > .p-menuitem-content {
+  padding: 0.75rem 1rem; /* adjust to taste */
+}

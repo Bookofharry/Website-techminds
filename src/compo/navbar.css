@@ -1,0 +1,102 @@
+@import "tailwindcss";
+@plugin "daisyui";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+/* Shared theme tokens */
+.custom-menubar {
+  --menu-bg: #001f54;   /* navy */
+  --text:    #ffffff;
+  /* --hover:   #2563eb;    */
+  border: none;
+  padding: 10px;
+}
+
+/* Base (desktop) */
+.custom-menubar {
+  background: var(--menu-bg) !important;
+  color: var(--text);
+}
+.custom-menubar .p-menuitem-link,
+.custom-menubar .p-menuitem-icon,
+.custom-menubar .p-submenu-icon {
+  color: var(--text);
+}
+.custom-menubar .p-menuitem-link:hover {
+  background: var(--hover);
+  color: #000000;
+}
+
+/* Dropdown lists */
+.custom-menubar .p-submenu-list {
+  background: #06285f;
+  border: 1px solid rgba(255,255,255,.15);
+}
+.custom-menubar .p-submenu-list .p-menuitem-link { color: #f5f9ff; }
+.custom-menubar .p-submenu-list .p-menuitem-link:hover {
+  background: var(--hover);
+  color: #000000;
+}
+
+/* MOBILE FIXES */
+@media (max-width: 960px) {
+  /* When menu is expanded on mobile, Menubar gets this class */
+  .custom-menubar.p-menubar-mobile-active {
+    background: var(--menu-bg) !important;
+    color: var(--text);
+  }
+
+  /* The slide-down root list uses a surface (white) by default—override it */
+  .custom-menubar .p-menubar-root-list {
+    background: var(--menu-bg) !important;
+    border: none !important;
+  }
+
+  /* Links inside the mobile panel */
+  .custom-menubar .p-menubar-root-list .p-menuitem-link {
+    color: var(--text) !important;
+  }
+  .custom-menubar .p-menubar-root-list .p-menuitem-link:hover {
+    background: var(--hover) !important;
+    color: #ffffff !important;
+  }
+
+  /* Mobile hamburger button (three bars) */
+  .custom-menubar .p-menubar-button {
+    color: var(--text) !important;
+  }
+
+  /* Submenus inside the mobile panel */
+  .custom-menubar .p-submenu-list {
+    background: var(--menu-bg) !important;
+    border: none !important;
+  }
+}
+
+/* Optional: ensure the panel overlays content properly */
+.custom-menubar { z-index: 1000; }
+
+/* Brand area */
+.custom-menubar .brand {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  text-decoration: none;
+  color: #fff;                 /* matches your white text on navy */
+  padding: .25rem .5rem;
+}
+
+.custom-menubar .brand-logo {
+  height: 36px;                /* adjust to your bar height */
+  width: auto;
+  display: block;
+}
+
+/* Hide the text on small screens, keep logo visible */
+@media (max-width: 640px) {
+  .custom-menubar .brand-name { display: none; }
+}
+
+/* If your logo is dark and you don't have a light version, you can invert it:
+.custom-menubar .brand-logo { filter: brightness(0) invert(1); }
+*/
