@@ -19,7 +19,7 @@ function Testimonial(){
       <div className="mt-8 text-center md:mt-16 md:order-3">
 
         <Link  className="pb-2 text-base font-bold leading-7 text-gray-900 transition-all duration-200 border-b-2 border-gray-900 hover:border-gray-600 font-pj focus:outline-none focus:ring-1 focus:ring-gray-900 focus:ring-offset-2 hover:text-gray-600"
-to='https://www.google.com/search?q=Tech+Minds+Academy&stick=H4sIAAAAAAAA_-NgU1I1qDA0MElJSTE3MzFKM7UwMje1MqhItLQ0NbRINTVLSjEzTjIyW8QqFJKanKHgm5mXUqzgmJyYkppbCQDwM4OVPgAAAA&hl=en&mat=CQ8clRqSUkxoElYBYJahaQRf0bS_zcFZdxWYsjaMbYbQRhDVWwgjuYcWonlHwYdUuHsRatDMDr5XtHq8SCoIU3ZTo-Yy1MgAEci6yFi7e3yiKN8p-xYH25gdQ6MZDS8z8A&authuser=4#mpd=~7515472665639197711/customers/reviews'>Check all reviews</Link>
+to='https://www.google.com/search?q=Tech+Minds+Academy&stick=H4sIAAAAAAAA_-NgU1I1qDA0MElJSTE3MzFKM7UwMje1MqhItLQ0NbRINTVLSjEzTjIyW8QqFJKanKHgm5mXUqzgmJyYkppbCQDwM4OVPgAAAA&hl=en&mat=CQ8clRqSUkxoElYBYJahaQRf0bS_zcFZdxWYsjaMbYbQRhDVWwgjuYcWonlHwYdUuHsRatDMDr5XtHq8SCoIU3ZTo-Yy1MgAEci6yFi7e3yiKN8p-xYH25gdQ6MZDS8z8A&authuser=4#mpd=~7515472665639197711/customers/reviews'>Check All Google Reviews</Link>
       </div>
 
       <div className="relative mt-10 md:mt-24 md:order-2">

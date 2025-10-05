@@ -5,6 +5,7 @@ import HeroSplit from "../compo/SkillCard"
 import DownloadCta from "../compo/cta2"
 import Learn from "../compo/Learn"
 import Faq from "../compo/loading"
+import Numbers from "../compo/stat"
 function Home(){
     return(
        <div> 
@@ -13,6 +14,7 @@ function Home(){
         <DownloadCta />
        <Thank />
        <Testimonial />
+       <Numbers />
        <Faq />
        </div>
     )

@@ -1,4 +1,5 @@
 import React, { useMemo, useRef, useState } from "react";
+import { Link } from "react-router-dom";
 
 const Faq = () => {
   const items = useMemo(
@@ -154,12 +155,8 @@ const Faq = () => {
 
         <p className="mt-10 text-center text-gray-600">
           Didn’t find what you need?{" "}
-          <a
-            href="/contact"
-            className="font-medium text-blue-600 transition-all duration-200 hover:text-blue-700 hover:underline focus:text-blue-700"
-          >
-            Talk to our support team
-          </a>
+
+          <Link className="font-medium text-blue-600 transition-all duration-200 hover:text-blue-700 hover:underline focus:text-blue-700" to='/contact'>Talk to our support team</Link>
           .
         </p>
       </div>
