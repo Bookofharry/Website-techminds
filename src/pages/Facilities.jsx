@@ -12,7 +12,7 @@ function Facilities() {
 
 
 
-        {/* THE PEOPLE AND FACILITIES */}
+        <h1>Facilities</h1>
 
  
     </div>

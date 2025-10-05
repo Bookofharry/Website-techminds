@@ -1,17 +1,9 @@
-// import Progress from "../compo/progress"
-// import { useState } from "react"
+
 function DataScience(){
 
-    // function remove(){
-    //     setTimeout(() => {
-    //         setStatus(() => true)
-    //     },2000)
-    // }
-    // const [status,setStatus] = useState(false)
-    // remove()
     return(
         <div>
-            {/* {(!status) ? <Progress /> : <span></span>} */}
+            <h1>Data Science</h1>
 
         </div>
     )

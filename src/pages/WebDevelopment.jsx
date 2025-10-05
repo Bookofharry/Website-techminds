@@ -1,17 +1,9 @@
-import Progress from "../compo/progress"
-import { useState } from "react"
+
 function WebDevelopment(){
 
-    function remove(){
-        setTimeout(() => {
-            setStatus(() => true)
-        },2000)
-    }
-    const [status,setStatus] = useState(false)
-    remove()
     return(
         <div>
-            {(!status) ? <Progress /> : <span></span>}
+            <h1>Web Dev</h1>
 
         </div>
     )
