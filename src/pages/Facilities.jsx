@@ -1,10 +1,14 @@
-import "../App.css";
 import TechMindsMarqueeShowcase from "../compo/show";
+import KidsRes from "../compo/kidsachievements";
+import Picture from "../compo/PictureTemplate";
+
 function Facilities() {
   return (
-    <div className="p-4 sm:p-6">
+    <div >
 
         <TechMindsMarqueeShowcase />
+        <KidsRes/>
+        <Picture/>
 
 
 
@@ -12,7 +16,7 @@ function Facilities() {
 
 
 
-        <h1>Facilities</h1>
+    
 
  
     </div>
