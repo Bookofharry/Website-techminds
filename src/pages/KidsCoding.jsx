@@ -1,7 +1,6 @@
 
 import Kids from "../compo/kids"
-import KidsRes from "../compo/kidsachievements"
-import KidsShowcase from "../compo/KidsShowCase"
+import KidsCodeOverview from "../compo/add"
 import Picture from "../compo/PictureTemplate"
 function KidsCoding(){
 
@@ -12,7 +11,7 @@ function KidsCoding(){
           
             {/* <Progress /> */}
             <Kids />
-            <KidsRes />
+            <KidsCodeOverview/>
             {/* <KidsShowcase /> */}
             <Picture />
 

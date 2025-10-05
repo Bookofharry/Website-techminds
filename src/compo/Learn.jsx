@@ -1,6 +1,6 @@
 // src/components/Learn.jsx
 import '../chatgpt.css';
-
+import { Link } from 'react-router-dom';
 export default function Learn() {
   return (
     <section className="relative overflow-hidden py-20 sm:py-28">
@@ -61,18 +61,13 @@ export default function Learn() {
 
             {/* CTA row */}
             <div className="mt-8 flex flex-wrap items-center gap-4">
-              <a
-                href="#get-started"
-                className="inline-flex items-center justify-center rounded-xl px-5 py-3 text-sm font-semibold text-white shadow-lg transition-transform hover:scale-[1.02] focus:outline-none focus:ring-2 focus:ring-emerald-400/60 active:scale-95 bg-gradient-to-r from-emerald-600 to-cyan-600"
-              >
-                Get Started
-              </a>
-              <a
-                href="#curriculum"
+              <a href="tel:+2348147328332" className="inline-flex items-center justify-center rounded-xl px-5 py-3 text-sm font-semibold text-white shadow-lg transition-transform hover:scale-[1.02] focus:outline-none focus:ring-2 focus:ring-emerald-400/60 active:scale-95 bg-gradient-to-r from-emerald-600 to-cyan-600">Call Now</a>
+              <Link
+                to="/"
                 className="inline-flex items-center justify-center rounded-xl border border-gray-900/10 bg-white/50 px-5 py-3 text-sm font-semibold text-gray-900 backdrop-blur-sm transition-colors hover:bg-white/80 dark:border-white/15 dark:bg-white/10 dark:text-white dark:hover:bg-white/15"
               >
                 View Curriculum
-              </a>
+              </Link>
             </div>
 
             {/* tiny badges */}

@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 export default function DownloadCta() {
   return (
     <section className="relative overflow-hidden bg-white dark:bg-gray-900">
@@ -27,7 +28,7 @@ export default function DownloadCta() {
         <div className="mt-6 flex items-center justify-center gap-3 flex-wrap">
           {/* Physical Classes */}
           <a
-            href="#"
+            
             className="btn-raise shine inline-flex items-center justify-center px-4 py-2.5 text-sm text-white bg-gray-900 rounded-lg shadow transition-transform hover:-translate-y-0.5 hover:shadow-xl dark:bg-gray-800"
           >
             {/* Unique: Pin + Campus, with pulsing locator */}
@@ -72,12 +73,12 @@ export default function DownloadCta() {
                 <circle cx="32" cy="23" r="2.4" className="animate-ping" fill="currentColor" fillOpacity="0.25" />
               </g>
             </svg>
-            <span>Physical Classes</span>
+            <Link to="facilities"><span>Physical Classes</span></Link>
           </a>
 
           {/* Online Classes */}
           <a
-            href="#"
+            
             className="btn-raise shine inline-flex items-center justify-center px-4 py-2.5 text-sm text-white bg-blue-600 rounded-lg shadow transition-transform hover:-translate-y-0.5 hover:shadow-xl"
           >
             {/* Unique: Laptop + Play badge + Wi-Fi breath */}
@@ -113,7 +114,7 @@ export default function DownloadCta() {
               <path d="M25 33a7 7 0 0 1 14 0" stroke="currentColor" strokeOpacity="0.7" strokeWidth="2" strokeLinecap="round" className="animate-pulse" />
               <path d="M28 33a4 4 0 0 1 8 0" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
             </svg>
-            <span>Online Classes</span>
+            <Link ><span>Online Classes</span></Link>
           </a>
         </div>
       </div>

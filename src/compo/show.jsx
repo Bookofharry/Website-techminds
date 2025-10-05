@@ -3,7 +3,7 @@ import r1 from "../assets/rachael.jpg";
 import r2 from "../assets/instructor.jpeg";
 import r3 from "../assets/class.jpeg";
 import r4 from "../assets/testimonials.jpeg";
-import React from "react";
+import { Link } from "react-router-dom";
 
 const Chip = ({ img, text, accent = "indigo" }) => (
   <div
@@ -145,15 +145,15 @@ export default function TechMindsMarqueeShowcase() {
 
         {/* CTA */}
         <div className="mt-6 flex items-center justify-center gap-3">
-          <a
-            href="#apply"
+          <Link
+            to="/application"
             className="inline-flex items-center rounded-full bg-gradient-to-r from-indigo-600 to-blue-600 px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition-all hover:from-indigo-500 hover:to-blue-500 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
           >
             Apply now
             <svg className="ml-2 h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
               <path d="M10.293 3.293a1 1 0 011.414 0l5 5a.997.997 0 01.083 1.32l-.083.094-5 5a1 1 0 01-1.497-1.32l.083-.094L13.585 10H4a1 1 0 01-.117-1.993L4 8h9.585l-3.292-3.293a1 1 0 010-1.414z" />
             </svg>
-          </a>
+          </Link>
           <a
             href="#schedule"
             className="inline-flex items-center rounded-full border border-white/20 bg-white/10 px-5 py-2.5 text-sm font-semibold text-white backdrop-blur transition-all hover:bg-white/20"
