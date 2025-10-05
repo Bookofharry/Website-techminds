@@ -20,12 +20,9 @@ export default function DownloadCta() {
           Try something really different right now.
         </h2>
 
-        <p className="block max-w-4xl mt-4 text-gray-500 dark:text-gray-300">
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Esse iure tenetur commodi ipsam
-          error voluptate magni. Adipisci repudiandae ullam commodi iusto reprehenderit suscipit
-          facere voluptatem, eaque maiores minima. Neque, officiis.
-        </p>
-
+<p className="block max-w-4xl mt-4 text-gray-500 dark:text-gray-300">
+  Learn in our Abuja campus or online. Practical, mentor-led classes that turn beginners into job-ready talent. <br /> Learn Web & App Development, UI/UX, Data Science & more. Start building real projects today.
+</p>
         {/* Buttons on one line with hover lift + shine */}
         <div className="mt-6 flex items-center justify-center gap-3 flex-wrap">
           {/* Physical Classes */}
@@ -33,9 +30,47 @@ export default function DownloadCta() {
             href="#"
             className="btn-raise shine inline-flex items-center justify-center px-4 py-2.5 text-sm text-white bg-gray-900 rounded-lg shadow transition-transform hover:-translate-y-0.5 hover:shadow-xl dark:bg-gray-800"
           >
-            <svg className="w-5 h-5 mr-2 fill-current" viewBox="0 0 512 512" aria-hidden="true">
-              <path d="M407,0H105C47.1,0,0,47.1,0,105v302c0,57.9,47.1,105,105,105h302c57.9,0,105-47.1,105-105V105C512,47.1,464.9,0,407,0z M482,407c0,41.4-33.6,75-75,75H105c-41.4,0-75-33.6-75-75V105c0-41.4,33.6-75,75-75h302c41.4,0,75,33.6,75,75V407z" />
-              <path d="M305.6,123.5c-1.7-6.5-5.9-11.8-11.6-15.2c-11.9-6.9-27.3-2.8-34.2,9.2L256,124.2l-3.8-6.7c-6.9-11.9-22.2-16-34.2-9.2c-11.9,6.9-16,22.2-9.1,34.2l18.3,31.7L159.7,291H110.5c-13.8,0-25,11.2-25,25s11.2,25,25,25h189.9l-28.9-50h-54.1l85.7-148.5C306.5,136.7,307.4,129.9,305.6,123.5z" />
+            {/* Unique: Pin + Campus, with pulsing locator */}
+            <svg
+              className="w-5 h-5 mr-2"
+              viewBox="0 0 64 64"
+              fill="none"
+              aria-hidden="true"
+            >
+              {/* soft inner glow */}
+              <radialGradient id="physGlow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(32 28) rotate(90) scale(18 18)">
+                <stop stopColor="currentColor" stopOpacity="0.25" />
+                <stop offset="1" stopColor="currentColor" stopOpacity="0" />
+              </radialGradient>
+              <circle cx="32" cy="28" r="18" fill="url(#physGlow)" />
+
+              {/* map pin */}
+              <path
+                d="M32 8c9.94 0 18 8 18 17.86 0 6.71-3.52 11.67-8.09 16.93-2.66 3.09-5.7 6.16-7.77 10.03a3 3 0 0 1-5.28 0c-2.07-3.87-5.1-6.94-7.77-10.03C17.52 37.53 14 32.57 14 25.86 14 16 22.06 8 32 8Z"
+                stroke="currentColor"
+                strokeWidth="2.2"
+                strokeLinejoin="round"
+              />
+
+              {/* tiny campus inside pin */}
+              <path
+                d="M22 29h20v10a2 2 0 0 1-2 2H24a2 2 0 0 1-2-2V29Z"
+                fill="currentColor"
+                fillOpacity="0.22"
+              />
+              <path
+                d="M20 29h24M24 41h16M26 29l6-4 6 4M31 41v-6h2v6"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+
+              {/* subtle pulsing locator dot */}
+              <g>
+                <circle cx="32" cy="23" r="2.4" fill="currentColor" />
+                <circle cx="32" cy="23" r="2.4" className="animate-ping" fill="currentColor" fillOpacity="0.25" />
+              </g>
             </svg>
             <span>Physical Classes</span>
           </a>
@@ -45,13 +80,38 @@ export default function DownloadCta() {
             href="#"
             className="btn-raise shine inline-flex items-center justify-center px-4 py-2.5 text-sm text-white bg-blue-600 rounded-lg shadow transition-transform hover:-translate-y-0.5 hover:shadow-xl"
           >
+            {/* Unique: Laptop + Play badge + Wi-Fi breath */}
             <svg
-              className="w-5 h-5 mr-2 fill-current"
-              viewBox="-28 0 512 512.00075"
-              xmlns="http://www.w3.org/2000/svg"
+              className="w-5 h-5 mr-2"
+              viewBox="0 0 64 64"
+              fill="none"
               aria-hidden="true"
             >
-              <path d="m432.32 215.121-361.516-208.723c-14.777-8.531-32.422-8.531-47.203 0-14.176 8.637-22.621 23.594-22.621 40.27v417.445c0 17.066 8.824 32.348 23.602 40.879 7.39 4.266 15.496 6.398 23.602 6.398s16.215-2.133 23.602-6.398l361.52-208.723c14.777-8.531 23.602-23.812 23.602-40.879s-8.824-32.348-23.605-40.879z" />
+              {/* soft screen glow */}
+              <linearGradient id="screenGlow" x1="16" y1="14" x2="48" y2="38" gradientUnits="userSpaceOnUse">
+                <stop stopColor="currentColor" stopOpacity="0.18" />
+                <stop offset="1" stopColor="currentColor" stopOpacity="0.05" />
+              </linearGradient>
+
+              {/* laptop body */}
+              <rect x="12" y="14" width="40" height="26" rx="3.5" stroke="currentColor" strokeWidth="2.2" />
+              <rect x="16" y="18" width="32" height="18" rx="2" fill="url(#screenGlow)" />
+
+              {/* camera notch */}
+              <circle cx="32" cy="18.5" r="0.9" fill="currentColor" />
+
+              {/* play badge */}
+              <circle cx="38.5" cy="27" r="6.2" fill="currentColor" fillOpacity="0.18" />
+              <path d="M36.5 23.8v6.4l5.4-3.2-5.4-3.2Z" fill="currentColor" />
+
+              {/* base */}
+              <path d="M8 44h48" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" />
+              <rect x="18" y="46" width="28" height="3" rx="1.2" fill="currentColor" />
+
+              {/* Wi-Fi waves (gentle 'breathing' via animate-pulse on one arc) */}
+              <path d="M22 33a10 10 0 0 1 20 0" stroke="currentColor" strokeOpacity="0.55" strokeWidth="2" strokeLinecap="round" />
+              <path d="M25 33a7 7 0 0 1 14 0" stroke="currentColor" strokeOpacity="0.7" strokeWidth="2" strokeLinecap="round" className="animate-pulse" />
+              <path d="M28 33a4 4 0 0 1 8 0" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
             </svg>
             <span>Online Classes</span>
           </a>

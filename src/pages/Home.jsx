@@ -4,16 +4,16 @@ import Testimonial from "../compo/testimonial"
 import HeroSplit from "../compo/SkillCard"
 import DownloadCta from "../compo/cta2"
 import Learn from "../compo/Learn"
+import Faq from "../compo/loading"
 function Home(){
     return(
        <div> 
         <HeroSplit />
         <Learn />
-        {/* <BusinessCtaSection /> */}
         <DownloadCta />
        <Thank />
        <Testimonial />
-
+       <Faq />
        </div>
     )
 }

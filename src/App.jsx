@@ -57,7 +57,6 @@ function App(){
 
 
       </Routes>
-      <br /><br />
       <Footer />
     
     </BrowserRouter>
