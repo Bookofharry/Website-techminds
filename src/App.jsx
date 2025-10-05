@@ -9,6 +9,7 @@ import Home from './pages/Home'
 import WebDev from './pages/WebDevelopment'
 import Footer from './compo/footer'
 import Mail from './pages/Mail'
+import Application from './pages/Application'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 
 function App(){
@@ -53,8 +54,10 @@ function App(){
         <Route path='/programs/software-engineering/app-development' element={<AppDev />}/>
 
         <Route path='/contact' element={<Contact/>}/>
+        <Route path='/application' element={<Application/>}/>
 
         <Route path='/mail' element={<Mail />}/>
+        <Route path='/programs/cloud-computing' element={ <h1>Cloud</h1>}/>
         
 
 

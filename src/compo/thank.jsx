@@ -2,6 +2,7 @@ import App from '../assets/app.png'
 import Web from '../assets/web.png'
 import Kids from '../assets/kidss.png'
 import Cloud from '../assets/cloud.jpeg'
+import { Link } from 'react-router-dom'
 function Thank() {
   const courses = [
     {
@@ -11,6 +12,7 @@ function Thank() {
       badge: "In-Demand",
       duration: "8–12 weeks",
       mentorLed: true,
+      link: '/programs/software-engineering/web-development' 
     },
     {
       title: "App Development",
@@ -18,6 +20,7 @@ function Thank() {
       img: App,
       duration: "10–14 weeks",
       mentorLed: true,
+      link: '/programs/software-engineering/app-development'
     },
     {
       title: "Cloud Computing",
@@ -26,13 +29,15 @@ function Thank() {
       badge: "New",
       duration: "12 weeks",
       mentorLed: true,
+      link: '/programs/cloud-computing'
     },
     {
       title: "Coding for Kids",
       price: 150000,
       img: Kids,
-      duration: "6–8 weeks",
-      mentorLed: false,
+      duration: "10–12 weeks",
+      mentorLed: true,
+      link: '/programs/coding-for-kids-engineering'
     },
   ];
 
@@ -148,12 +153,8 @@ function Thank() {
                 {/* CTA row */}
                 <div className="mt-4 flex flex-col-reverse items-stretch gap-2 sm:flex-row sm:items-center sm:justify-between">
                   {/* secondary link (optional) */}
-                  <a
-                    href="#"
-                    className="inline-flex items-center justify-center rounded-full border border-slate-300/80 px-3 py-1.5 text-xs font-medium text-slate-700 transition-colors hover:bg-slate-100 dark:border-slate-700 dark:text-slate-200 dark:hover:bg-slate-800 sm:w-auto"
-                  >
-                    Course details
-                  </a>
+  
+                  <Link to={c.link} className="inline-flex items-center justify-center rounded-full border border-slate-300/80 px-3 py-1.5 text-xs font-medium text-slate-700 transition-colors hover:bg-slate-100 dark:border-slate-700 dark:text-slate-200 dark:hover:bg-slate-800 sm:w-auto">Course Details</Link>
 
                   {/* primary — View syllabus (mobile full width, desktop auto) */}
                   <a

@@ -1,5 +1,6 @@
 import "./skill.css";
 import image from "../assets/join.jpg";
+import { Link } from "react-router-dom";
 
 export default function HeroSplit() {
   return (
@@ -39,12 +40,7 @@ export default function HeroSplit() {
           </p>
 
           <div className="inline-flex w-full mt-6 sm:w-auto">
-            <button
-              type="button"
-              className="inline-flex items-center justify-center w-full px-6 py-2 text-sm text-white duration-300 bg-gray-900 rounded-lg hover:bg-gray-800 focus:outline-none focus-visible:ring-2 focus-visible:ring-gray-400 focus-visible:ring-offset-2 dark:bg-gray-800 dark:hover:bg-gray-700"
-            >
-              Start Now
-            </button>
+            <Link className="inline-flex items-center justify-center w-full px-6 py-2 text-sm text-white duration-300 bg-gray-900 rounded-lg hover:bg-gray-800 focus:outline-none focus-visible:ring-2 focus-visible:ring-gray-400 focus-visible:ring-offset-2 dark:bg-gray-800 dark:hover:bg-gray-700" to='/application'>Start Now</Link>
           </div>
         </div>
       </div>
