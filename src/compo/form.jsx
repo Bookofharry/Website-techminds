@@ -62,7 +62,7 @@ export default function ContactSection() {
 
         <div className="p-4 py-6 rounded-lg bg-gray-50 dark:bg-gray-800 md:p-8">
 
-          <h1 style={{fontSize : '30px', textAlign: 'center', color: 'blue', textTransform: 'uppercase'}}>Send Us An Email and Hear from Us</h1><br /><br />
+
           <form id="contact-form" onSubmit={handleSubmit}>
             <div className="-mx-2 md:items-center md:flex">
               <div className="flex-1 px-2">
