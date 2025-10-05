@@ -1,17 +1,17 @@
-import Progress from "../compo/progress"
-import { useState } from "react"
+// import Progress from "../compo/progress"
+// import { useState } from "react"
 function DataScience(){
 
-    function remove(){
-        setTimeout(() => {
-            setStatus(() => true)
-        },2000)
-    }
-    const [status,setStatus] = useState(false)
-    remove()
+    // function remove(){
+    //     setTimeout(() => {
+    //         setStatus(() => true)
+    //     },2000)
+    // }
+    // const [status,setStatus] = useState(false)
+    // remove()
     return(
         <div>
-            {(!status) ? <Progress /> : <span></span>}
+            {/* {(!status) ? <Progress /> : <span></span>} */}
 
         </div>
     )

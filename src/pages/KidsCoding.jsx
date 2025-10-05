@@ -1,17 +1,18 @@
-import Progress from "../compo/progress"
-import { useState } from "react"
+// import Progress from "../compo/progress"
+import Kids from "../compo/kids"
+import KidsRes from "../compo/kidsachievements"
+import KidsShowcase from "../compo/KidsShowCase"
 function KidsCoding(){
 
-    function remove(){
-        setTimeout(() => {
-            setStatus(() => true)
-        },2000)
-    }
-    const [status,setStatus] = useState(false)
-    remove()
+
     return(
         <div>
-            {(!status) ? <Progress /> : <span></span>}
+         
+          
+            {/* <Progress /> */}
+            <Kids />
+            <KidsRes />
+            <KidsShowcase />
 
         </div>
     )
