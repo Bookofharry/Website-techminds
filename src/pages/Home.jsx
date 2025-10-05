@@ -1,4 +1,4 @@
-import BusinessCtaSection from "../compo/cta"
+// import BusinessCtaSection from "../compo/cta"
 import Thank from "../compo/thank"
 import Testimonial from "../compo/testimonial"
 import HeroSplit from "../compo/SkillCard"
@@ -9,10 +9,10 @@ function Home(){
        <div> 
         <HeroSplit />
         <Learn />
-        <BusinessCtaSection />
+        {/* <BusinessCtaSection /> */}
+        <DownloadCta />
        <Thank />
        <Testimonial />
-        <DownloadCta />
 
        </div>
     )

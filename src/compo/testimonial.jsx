@@ -7,10 +7,10 @@ function Testimonial(){
     <div className="flex flex-col items-center">
       <div className="text-center">
         <p className="text-lg font-medium text-gray-600 font-pj">
-          2,157 people have said how good Rareblocks
+          Alot of People have said how Effective TechMinds BootCamp is
         </p>
         <h2 className="mt-4 text-3xl font-bold text-gray-900 sm:text-4xl xl:text-5xl font-pj">
-          Our happy clients say about us
+          What Our Past Students say about us
         </h2>
       </div>
 
