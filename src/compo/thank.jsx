@@ -1,6 +1,6 @@
-import App from '../assets/app.jpeg'
-import Web from '../assets/web.jpeg'
-import Kids from '../assets/kids.jpeg'
+import App from '../assets/app.png'
+import Web from '../assets/web.png'
+import Kids from '../assets/kidss.png'
 import Cloud from '../assets/cloud.jpeg'
 function Thank() {
   const courses = [
