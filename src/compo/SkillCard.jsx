@@ -29,11 +29,11 @@ export default function HeroSplit() {
         {/* Content side */}
         <div className="relative max-w-xl px-6 py-12 lg:max-w-5xl lg:w-1/2">
           <h2 className="text-2xl font-semibold text-gray-900 dark:text-white md:text-3xl">
-            Build Your New <span className="text-blue-600">Idea</span>
+            Build Your New <span className="text-blue-600">IDEA</span>
           </h2>
 
           <p className="mt-4 text-gray-600 dark:text-gray-300">
-            Turn that spark into something real. At Tech Minds Academy, you’ll learn the modern tools,
+            Turn that spark into something real. <br /> At Tech Minds Academy, you’ll learn the modern tools,
             gain hands-on experience, and get mentorship that shortens your learning curve. From your
             first wireframe to your first deployed app, we’re with you—step by step.
           </p>

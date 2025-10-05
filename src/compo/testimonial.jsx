@@ -1,3 +1,5 @@
+import Logo from '../assets/Logo.png'
+import { Link } from 'react-router-dom'
 function Testimonial(){
     return(
         <div>
@@ -7,7 +9,7 @@ function Testimonial(){
     <div className="flex flex-col items-center">
       <div className="text-center">
         <p className="text-lg font-medium text-gray-600 font-pj">
-          Alot of People have said how Effective TechMinds BootCamp is
+          Alot of People have said how Effective Tech Minds BootCamp is
         </p>
         <h2 className="mt-4 text-3xl font-bold text-gray-900 sm:text-4xl xl:text-5xl font-pj">
           What Our Past Students say about us
@@ -15,13 +17,9 @@ function Testimonial(){
       </div>
 
       <div className="mt-8 text-center md:mt-16 md:order-3">
-        <a
-          href="#"
-          title=""
-          className="pb-2 text-base font-bold leading-7 text-gray-900 transition-all duration-200 border-b-2 border-gray-900 hover:border-gray-600 font-pj focus:outline-none focus:ring-1 focus:ring-gray-900 focus:ring-offset-2 hover:text-gray-600"
-        >
-          Check all 2,157 reviews
-        </a>
+
+        <Link  className="pb-2 text-base font-bold leading-7 text-gray-900 transition-all duration-200 border-b-2 border-gray-900 hover:border-gray-600 font-pj focus:outline-none focus:ring-1 focus:ring-gray-900 focus:ring-offset-2 hover:text-gray-600"
+to='https://www.google.com/search?q=Tech+Minds+Academy&stick=H4sIAAAAAAAA_-NgU1I1qDA0MElJSTE3MzFKM7UwMje1MqhItLQ0NbRINTVLSjEzTjIyW8QqFJKanKHgm5mXUqzgmJyYkppbCQDwM4OVPgAAAA&hl=en&mat=CQ8clRqSUkxoElYBYJahaQRf0bS_zcFZdxWYsjaMbYbQRhDVWwgjuYcWonlHwYdUuHsRatDMDr5XtHq8SCoIU3ZTo-Yy1MgAEci6yFi7e3yiKN8p-xYH25gdQ6MZDS8z8A&authuser=4#mpd=~7515472665639197711/customers/reviews'>Check all reviews</Link>
       </div>
 
       <div className="relative mt-10 md:mt-24 md:order-2">
@@ -84,8 +82,7 @@ function Testimonial(){
 
                 <blockquote className="flex-1 mt-8">
                   <p className="text-lg leading-relaxed text-gray-900 font-pj">
-                    “You made it so simple. My new site is so much faster and easier to work with
-                    than my old site. I just choose the page, make the change.”
+                    Excellent Tech Academy!!!
                   </p>
                 </blockquote>
               </div>
@@ -93,12 +90,12 @@ function Testimonial(){
               <div className="flex items-center mt-8">
                 <img
                   className="flex-shrink-0 object-cover rounded-full w-11 h-11"
-                  src="https://cdn.rareblocks.xyz/collection/clarity/images/testimonial/4/avatar-male-1.png"
+                  src={Logo}
                   alt=""
                 />
                 <div className="ml-4">
-                  <p className="text-base font-bold text-gray-900 font-pj">Leslie Alexander</p>
-                  <p className="mt-0.5 text-sm font-pj text-gray-600">Freelance React Developer</p>
+                  <p className="text-base font-bold text-gray-900 font-pj">Oluwa-Pelumi</p>
+                  <p className="mt-0.5 text-sm font-pj text-gray-600">Fullstack Developer</p>
                 </div>
               </div>
             </div>
@@ -117,8 +114,7 @@ function Testimonial(){
 
                 <blockquote className="flex-1 mt-8">
                   <p className="text-lg leading-relaxed text-gray-900 font-pj">
-                    “Simply the best. Better than all the rest. I’d recommend this product to
-                    beginners and advanced users.”
+My time spent with Tech minds has been amazing the experience is memorable. They have great teachers and amazing teaching methods.
                   </p>
                 </blockquote>
               </div>
@@ -126,12 +122,12 @@ function Testimonial(){
               <div className="flex items-center mt-8">
                 <img
                   className="flex-shrink-0 object-cover rounded-full w-11 h-11"
-                  src="https://cdn.rareblocks.xyz/collection/clarity/images/testimonial/4/avatar-male-2.png"
+                  src={Logo}
                   alt=""
                 />
                 <div className="ml-4">
-                  <p className="text-base font-bold text-gray-900 font-pj">Jacob Jones</p>
-                  <p className="mt-0.5 text-sm font-pj text-gray-600">Digital Marketer</p>
+                  <p className="text-base font-bold text-gray-900 font-pj">Godwin Ukpoju</p>
+                  <p className="mt-0.5 text-sm font-pj text-gray-600">Frontend Developer</p>
                 </div>
               </div>
             </div>
@@ -150,8 +146,7 @@ function Testimonial(){
 
                 <blockquote className="flex-1 mt-8">
                   <p className="text-lg leading-relaxed text-gray-900 font-pj">
-                    “I cannot believe that I have got a brand new landing page after getting Omega.
-                    It was super easy to edit and publish.”
+                  My experience with Tech minds was splendid, the staff are competent and promising.
                   </p>
                 </blockquote>
               </div>
@@ -159,12 +154,12 @@ function Testimonial(){
               <div className="flex items-center mt-8">
                 <img
                   className="flex-shrink-0 object-cover rounded-full w-11 h-11"
-                  src="https://cdn.rareblocks.xyz/collection/clarity/images/testimonial/4/avatar-female.png"
+                  src={Logo}
                   alt=""
                 />
                 <div className="ml-4">
-                  <p className="text-base font-bold text-gray-900 font-pj">Jenny Wilson</p>
-                  <p className="mt-0.5 text-sm font-pj text-gray-600">Graphic Designer</p>
+                  <p className="text-base font-bold text-gray-900 font-pj">Asmua Bello</p>
+                  <p className="mt-0.5 text-sm font-pj text-gray-600">Frontend Developer</p>
                 </div>
               </div>
             </div>
