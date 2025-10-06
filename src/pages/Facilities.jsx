@@ -7,8 +7,8 @@ function Facilities() {
     <div >
 
         <TechMindsMarqueeShowcase />
-        <KidsRes/>
         <Picture/>
+        <KidsRes/>
 
 
 

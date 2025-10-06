@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
 function Application({ onSubmit }) {
   const [values, setValues] = useState({
@@ -56,7 +56,6 @@ function Application({ onSubmit }) {
       if (typeof onSubmit === "function") {
         await onSubmit(values);
       } else {
-        // demo fallback
         await new Promise((r) => setTimeout(r, 900));
         console.log("Application submitted:", values);
       }
@@ -75,44 +74,73 @@ function Application({ onSubmit }) {
     }
   };
 
+  // --- UI tokens (switched to emerald/green)
   const inputBase =
-    "block w-full h-11 pr-5 pl-12 py-2.5 text-base font-normal shadow-xs text-gray-900 dark:text-slate-100 bg-transparent border rounded-full placeholder-gray-400 focus:outline-none transition";
-  const borderOk = "border-gray-300 focus:border-indigo-500";
-  const borderErr = "border-red-400 focus:border-red-500";
+    "block w-full h-11 pr-4 pl-12 py-2.5 text-base font-normal text-gray-900 dark:text-slate-100 bg-white/70 dark:bg-slate-900/70 border rounded-xl placeholder-gray-400 focus:outline-none transition";
+  const ok =
+    "border-slate-300 hover:border-slate-400 focus:border-emerald-600 focus:ring-2 focus:ring-emerald-500/30";
+  const err =
+    "border-red-400 hover:border-red-500 focus:border-red-500 focus:ring-2 focus:ring-red-400/30";
+
+  const labelCls =
+    "mb-2 flex items-center text-sm font-medium text-slate-700 dark:text-slate-300";
+
+  const iconWrap =
+    "pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3 text-slate-400";
 
   return (
     <section className="py-8">
-      <div className="mx-auto w-full max-w-xl rounded-2xl border border-slate-200 bg-white/90 p-6 shadow-sm backdrop-blur dark:border-slate-800 dark:bg-slate-900/70">
-        <h2 className="text-xl font-semibold text-slate-900 dark:text-white">
-          Apply in Minutes
-        </h2>
-        <p className="mt-1 text-sm text-slate-600 dark:text-slate-300">
-           We’ll follow up with next steps.
-        </p>
+      <div className="mx-auto w-full max-w-2xl rounded-3xl border border-slate-200 bg-white/90 p-6 shadow-md backdrop-blur dark:border-slate-800 dark:bg-slate-900/70 sm:p-8">
+        {/* Header */}
+        <div className="flex items-start justify-between">
+          <div>
+            <h2 className="text-2xl font-black tracking-tight text-slate-900 dark:text-white">
+              Quick Application
+            </h2>
+            <p className="mt-1 text-sm text-slate-600 dark:text-slate-300">
+              Tell us a few details—{" "}
+              <span className="font-medium">we’ll reach out with next steps.</span>
+            </p>
+          </div>
+          {/* tiny reassurance badge */}
+          <div className="hidden sm:inline-flex items-center gap-2 rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-[11px] font-semibold text-slate-600 dark:border-slate-700 dark:bg-slate-800/60 dark:text-slate-300">
+            <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2">
+              <path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3Z" />
+              <path d="M9 12l2 2 4-4" />
+            </svg>
+            Safe & private
+          </div>
+        </div>
 
+        {/* Success toast */}
         {sent && (
-          <div className="mt-4 rounded-lg border border-emerald-300 bg-emerald-50 px-4 py-3 text-sm text-emerald-800 dark:border-emerald-700 dark:bg-emerald-900/40 dark:text-emerald-200">
-            ✅ Application received! We’ll reach out shortly.
+          <div
+            role="status"
+            aria-live="polite"
+            className="mt-4 flex items-center gap-3 rounded-xl border border-emerald-300 bg-emerald-50 px-4 py-3 text-sm text-emerald-800 dark:border-emerald-700 dark:bg-emerald-900/40 dark:text-emerald-200"
+          >
+            <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="2">
+              <path d="M20 7L10 17l-6-6" />
+            </svg>
+            Application received! We’ll contact you soon.
           </div>
         )}
 
-        <form className="mt-6 space-y-5" onSubmit={handleSubmit} noValidate>
+        <form className="mt-6 grid grid-cols-1 gap-5" onSubmit={handleSubmit} noValidate>
           {/* Name */}
           <div className="relative">
-            <label
-              htmlFor="name"
-              className="mb-2 flex items-center text-sm font-medium text-gray-600 dark:text-slate-300"
-            >
-              Name
-              <svg width="7" height="7" className="ml-1" viewBox="0 0 7 7" fill="none">
-                <path d="M3.11222 6.04545L3.20668 3.94744L1.43679 5.08594L0.894886 4.14134L2.77415 3.18182L0.894886 2.2223L1.43679 1.2777L3.20668 2.41619L3.11222 0.318182H4.19105L4.09659 2.41619L5.86648 1.2777L6.40838 2.2223L4.52912 3.18182L6.40838 4.14134L5.86648 5.08594L4.09659 3.94744L4.19105 6.04545H3.11222Z" fill="#EF4444"/>
-              </svg>
+            <label htmlFor="name" className={labelCls}>
+              Full Name
+              <span className="ml-2 rounded-full bg-slate-100 px-2 py-0.5 text-[11px] font-semibold text-slate-600 ring-1 ring-slate-200 dark:bg-slate-800 dark:text-slate-300 dark:ring-slate-700">
+                Required
+              </span>
             </label>
 
             <div className="relative text-gray-500 focus-within:text-gray-900 dark:focus-within:text-white">
-              <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
-                <svg className="ml-1 stroke-current" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                  <path d="M20 21V20.1429C20 19.0805 20 18.5493 19.8997 18.1099C19.5578 16.6119 18.3881 15.4422 16.8901 15.1003C16.4507 15 15.9195 15 14.8571 15H10C8.13623 15 7.20435 15 6.46927 15.3045C5.48915 15.7105 4.71046 16.4892 4.30448 17.4693C4 18.2044 4 19.1362 4 21M16 7C16 9.20914 14.2091 11 12 11C9.79086 11 8 9.20914 8 7C8 4.79086 9.79086 3 12 3C14.2091 3 16 4.79086 16 7Z" strokeWidth="1.6" strokeLinecap="round"/>
+              <div className={iconWrap}>
+                <svg className="ml-1 stroke-current" width="22" height="22" viewBox="0 0 24 24" fill="none">
+                  <path d="M20 21v-1c0-1.1 0-1.65-.1-2.09a4 4 0 0 0-3.01-3.01C16.45 14.01 15.92 14 14.86 14H10c-1.86 0-2.79 0-3.53.31a4 4 0 0 0-2.17 2.17C4 17.21 4 18.14 4 20.01V21" strokeWidth="1.6" strokeLinecap="round"/>
+                  <circle cx="12" cy="7" r="4" strokeWidth="1.6"/>
                 </svg>
               </div>
               <input
@@ -123,8 +151,8 @@ function Application({ onSubmit }) {
                 value={values.name}
                 onChange={handleChange}
                 aria-invalid={!!errors.name}
-                className={`${inputBase} ${errors.name ? borderErr : borderOk}`}
-                placeholder="Enter Name"
+                className={`${inputBase} ${errors.name ? err : ok}`}
+                placeholder="e.g., John T. Adewale"
               />
             </div>
             {errors.name && <p className="mt-1 text-xs text-red-600">{errors.name}</p>}
@@ -132,20 +160,14 @@ function Application({ onSubmit }) {
 
           {/* Email */}
           <div className="relative">
-            <label
-              htmlFor="email"
-              className="mb-2 flex items-center text-sm font-medium text-gray-600 dark:text-slate-300"
-            >
-              Email
-              <svg width="7" height="7" className="ml-1" viewBox="0 0 7 7" fill="none">
-                <path d="M3.11222 6.04545L3.20668 3.94744L1.43679 5.08594L0.894886 4.14134L2.77415 3.18182L0.894886 2.2223L1.43679 1.2777L3.20668 2.41619L3.11222 0.318182H4.19105L4.09659 2.41619L5.86648 1.2777L6.40838 2.2223L4.52912 3.18182L6.40838 4.14134L5.86648 5.08594L4.09659 3.94744L4.19105 6.04545H3.11222Z" fill="#EF4444"/>
-              </svg>
+            <label htmlFor="email" className={labelCls}>
+              Email Address
             </label>
-
             <div className="relative text-gray-500 focus-within:text-gray-900 dark:focus-within:text-white">
-              <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
-                <svg className="ml-1 stroke-current" width="24" height="24" viewBox="0 0 24 24">
-                  <path d="M3.54887 6.73325L7.76737 9.36216C9.82591 10.645 10.8552 11.2864 11.9999 11.2863C13.1446 11.2861 14.1737 10.6443 16.2318 9.36081L20.4611 6.72333M11 20H13C16.7712 20 18.6569 20 19.8284 18.8284C21 17.6569 21 15.7712 21 12C21 8.22876 21 6.34315 19.8284 5.17157C18.6569 4 16.7712 4 13 4H11C7.22876 4 5.34315 4 4.17157 5.17157C3 6.34315 3 8.22876 3 12C3 15.7712 3 17.6569 4.17157 18.8284C5.34315 20 7.22876 20 11 20Z" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
+              <div className={iconWrap}>
+                <svg className="ml-1 stroke-current" width="22" height="22" viewBox="0 0 24 24" fill="none">
+                  <path d="M4 6h16v12H4z" strokeWidth="1.6" />
+                  <path d="M4 7l8 6 8-6" strokeWidth="1.6" />
                 </svg>
               </div>
               <input
@@ -156,29 +178,29 @@ function Application({ onSubmit }) {
                 value={values.email}
                 onChange={handleChange}
                 aria-invalid={!!errors.email}
-                className={`${inputBase} ${errors.email ? borderErr : borderOk}`}
-                placeholder="Enter Email"
+                className={`${inputBase} ${errors.email ? err : ok}`}
+                placeholder="you@example.com"
               />
             </div>
-            {errors.email && <p className="mt-1 text-xs text-red-600">{errors.email}</p>}
+            <div className="mt-1 flex items-center justify-between">
+              {errors.email ? (
+                <p className="text-xs text-red-600">{errors.email}</p>
+              ) : (
+                <p className="text-xs text-slate-500 dark:text-slate-400">We’ll only email about your application.</p>
+              )}
+            </div>
           </div>
 
           {/* Country */}
           <div className="relative">
-            <label
-              htmlFor="country"
-              className="mb-2 flex items-center text-sm font-medium text-gray-600 dark:text-slate-300"
-            >
+            <label htmlFor="country" className={labelCls}>
               Country
-              <svg width="7" height="7" className="ml-1" viewBox="0 0 7 7" fill="none">
-                <path d="M3.11222 6.04545L3.20668 3.94744L1.43679 5.08594L0.894886 4.14134L2.77415 3.18182L0.894886 2.2223L1.43679 1.2777L3.20668 2.41619L3.11222 0.318182H4.19105L4.09659 2.41619L5.86648 1.2777L6.40838 2.2223L4.52912 3.18182L6.40838 4.14134L5.86648 5.08594L4.09659 3.94744L4.19105 6.04545H3.11222Z" fill="#EF4444"/>
-              </svg>
             </label>
-
             <div className="relative text-gray-500 focus-within:text-gray-900 dark:focus-within:text-white">
-              <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
-                <svg xmlns="http://www.w3.org/2000/svg" className="ml-1" fill="none" height="20" viewBox="0 0 448 512">
-                  <path d="M48 24C48 10.7 37.3 0 24 0S0 10.7 0 24V64 350.5 400v88c0 13.3 10.7 24 24 24s24-10.7 24-24V388l80.3-20.1c41.1-10.3 84.6-5.5 122.5 13.4c44.2 22.1 95.5 24.8 141.7 7.4l34.7-13c12.5-4.7 20.8-16.6 20.8-30V66.1c0-23-24.2-38-44.8-27.7l-9.6 4.8c-46.3 23.2-100.8 23.2-147.1 0c-35.1-17.6-75.4-22-113.5-12.5L48 52V24z" fill="currentColor"/>
+              <div className={iconWrap}>
+                <svg width="22" height="22" viewBox="0 0 24 24" className="ml-1" fill="none" stroke="currentColor">
+                  <path d="M12 2a9 9 0 1 0 .001 18.001A9 9 0 0 0 12 2Z" strokeWidth="1.6"/>
+                  <path d="M2 12h20M12 2a15 15 0 0 1 0 20" strokeWidth="1.2" />
                 </svg>
               </div>
               <input
@@ -188,8 +210,8 @@ function Application({ onSubmit }) {
                 value={values.country}
                 onChange={handleChange}
                 aria-invalid={!!errors.country}
-                className={`${inputBase} ${errors.country ? borderErr : borderOk}`}
-                placeholder="Enter Country"
+                className={`${inputBase} ${errors.country ? err : ok}`}
+                placeholder="e.g., Nigeria"
               />
             </div>
             {errors.country && <p className="mt-1 text-xs text-red-600">{errors.country}</p>}
@@ -197,20 +219,13 @@ function Application({ onSubmit }) {
 
           {/* Phone */}
           <div className="relative">
-            <label
-              htmlFor="phone"
-              className="mb-2 flex items-center text-sm font-medium text-gray-600 dark:text-slate-300"
-            >
+            <label htmlFor="phone" className={labelCls}>
               Phone Number
-              <svg width="7" height="7" className="ml-1" viewBox="0 0 7 7" fill="none">
-                <path d="M3.11222 6.04545L3.20668 3.94744L1.43679 5.08594L0.894886 4.14134L2.77415 3.18182L0.894886 2.2223L1.43679 1.2777L3.20668 2.41619L3.11222 0.318182H4.19105L4.09659 2.41619L5.86648 1.2777L6.40838 2.2223L4.52912 3.18182L6.40838 4.14134L5.86648 5.08594L4.09659 3.94744L4.19105 6.04545H3.11222Z" fill="#EF4444"/>
-              </svg>
             </label>
-
             <div className="relative text-gray-500 focus-within:text-gray-900 dark:focus-within:text-white">
-              <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
-                <svg className="ml-1 stroke-current" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                  <path d="M5.02623 10.2611L12.7387 17.9736C14.4091 19.6439 17.1173 19.6439 18.7877 17.9736C19.4559 17.3054 19.4559 16.2221 18.7877 15.554L16.6454 13.4116C16.1582 12.9244 15.3683 12.9244 14.8811 13.4116C14.3939 13.8988 13.604 13.8988 13.1168 13.4116L9.23534 9.53015C8.74814 9.04295 8.74814 8.25305 9.23534 7.76585C9.72253 7.27865 9.72253 6.48875 9.23534 6.00155L7.44584 4.21205C6.77768 3.5439 5.69439 3.5439 5.02623 4.21205C3.35584 5.88244 3.35584 8.59067 5.02623 10.2611Z" strokeWidth="1.6"/>
+              <div className={iconWrap}>
+                <svg className="ml-1 stroke-current" width="22" height="22" viewBox="0 0 24 24" fill="none">
+                  <path d="M5 5l2 2c.5.5.5 1.3 0 1.8l-.7.7a2 2 0 0 0 0 2.8l5.4 5.4a2 2 0 0 0 2.8 0l.7-.7c.5-.5 1.3-.5 1.8 0l2 2" strokeWidth="1.6" strokeLinecap="round"/>
                 </svg>
               </div>
               <input
@@ -221,30 +236,27 @@ function Application({ onSubmit }) {
                 value={values.phone}
                 onChange={handleChange}
                 aria-invalid={!!errors.phone}
-                className={`${inputBase} ${errors.phone ? borderErr : borderOk}`}
-                placeholder="Enter Phone No"
+                className={`${inputBase} ${errors.phone ? err : ok}`}
+                placeholder="+234 801 234 5678"
               />
             </div>
-            {errors.phone && <p className="mt-1 text-xs text-red-600">{errors.phone}</p>}
+            {errors.phone ? (
+              <p className="mt-1 text-xs text-red-600">{errors.phone}</p>
+            ) : (
+              <p className="mt-1 text-xs text-slate-500 dark:text-slate-400">Include country code if outside Nigeria.</p>
+            )}
           </div>
 
           {/* Course */}
           <div className="relative">
-            <label
-              htmlFor="course"
-              className="mb-2 flex items-center text-sm font-medium text-gray-600 dark:text-slate-300"
-            >
+            <label htmlFor="course" className={labelCls}>
               Course
-              <svg width="7" height="7" className="ml-1" viewBox="0 0 7 7" fill="none">
-                <path d="M3.11222 6.04545L3.20668 3.94744L1.43679 5.08594L0.894886 4.14134L2.77415 3.18182L0.894886 2.2223L1.43679 1.2777L3.20668 2.41619L3.11222 0.318182H4.19105L4.09659 2.41619L5.86648 1.2777L6.40838 2.2223L4.52912 3.18182L6.40838 4.14134L5.86648 5.08594L4.09659 3.94744L4.19105 6.04545H3.11222Z" fill="#EF4444"/>
-              </svg>
             </label>
-
             <div className="relative text-gray-500 focus-within:text-gray-900 dark:focus-within:text-white">
-              <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
-                <svg className="ml-1" width="22" height="22" viewBox="0 0 24 24" fill="none">
-                  <path d="M4 19.5C4 18.1193 5.11929 17 6.5 17H20" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round"/>
-                  <path d="M20 5H7.5C5.567 5 4 6.567 4 8.5V19.5" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round"/>
+              <div className={iconWrap}>
+                <svg className="ml-1" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                  <path d="M4 19.5C4 18.1 5.1 17 6.5 17H20" strokeWidth="1.6" strokeLinecap="round"/>
+                  <path d="M20 5H7.5C5.6 5 4 6.6 4 8.5V19.5" strokeWidth="1.6" strokeLinecap="round"/>
                 </svg>
               </div>
               <select
@@ -253,7 +265,7 @@ function Application({ onSubmit }) {
                 value={values.course}
                 onChange={handleChange}
                 aria-invalid={!!errors.course}
-                className={`${inputBase} pr-10 ${errors.course ? borderErr : borderOk}`}
+                className={`${inputBase} pr-10 ${errors.course ? err : ok}`}
               >
                 <option value="" disabled>
                   Select a course
@@ -268,36 +280,111 @@ function Application({ onSubmit }) {
             {errors.course && <p className="mt-1 text-xs text-red-600">{errors.course}</p>}
           </div>
 
-          {/* Terms */}
-          <div className="flex items-center">
-            <input
-              id="accept"
-              name="accept"
-              type="checkbox"
-              checked={values.accept}
-              onChange={handleChange}
-              className="mr-2 h-5 w-5 appearance-none rounded-md border border-gray-300 hover:border-indigo-500 hover:bg-indigo-100 checked:border-indigo-500 checked:bg-indigo-100"
-            />
-            <label htmlFor="accept" className="text-sm text-gray-600 dark:text-slate-300">
-              I accept{" "}
-              <a href="#" className="font-medium text-indigo-600 hover:underline">
-                terms &amp; conditions
-              </a>
-              .
+          {/* Terms — custom checkbox with GREEN checkmark */}
+          <div className="relative">
+            <label htmlFor="accept" className="group flex cursor-pointer items-start gap-3">
+              <input
+                id="accept"
+                name="accept"
+                type="checkbox"
+                checked={values.accept}
+                onChange={handleChange}
+                aria-invalid={!!errors.accept}
+                aria-describedby="accept-help"
+                className="peer sr-only"
+              />
+              <span
+                className={[
+                  "relative mt-0.5 inline-flex h-6 w-6 items-center justify-center rounded-md",
+                  // base box
+                  "border border-slate-300 bg-white shadow-sm dark:border-slate-700/70 dark:bg-slate-800",
+                  "transition-all duration-300 group-hover:border-emerald-400",
+                  // focus ring
+                  "peer-focus-visible:outline peer-focus-visible:outline-2 peer-focus-visible:outline-emerald-500 peer-focus-visible:outline-offset-2",
+                  // checked state: keep light box, green border + subtle glow
+                  "peer-checked:border-emerald-600 peer-checked:shadow-[0_0_0_4px_rgba(16,185,129,0.15)]",
+                  errors.accept ? "ring-1 ring-red-400/70" : "",
+                ].join(" ")}
+              >
+                {/* GREEN checkmark */}
+                <svg
+                  viewBox="0 0 24 24"
+                  className={[
+                    "h-4 w-4 text-emerald-600 dark:text-emerald-400",
+                    "transition-transform duration-300",
+                    "peer-checked:scale-100 peer-checked:opacity-100",
+                    "scale-75 opacity-0",
+                  ].join(" ")}
+                  aria-hidden
+                >
+                  <path
+                    d="M5 13l4 4L19 7"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="3"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+                {/* subtle highlight on check */}
+                <span
+                  className={[
+                    "pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity duration-300",
+                    "peer-checked:opacity-100",
+                    "bg-[radial-gradient(120%_120%_at_0%_0%,_rgba(16,185,129,0.08)_0%,_transparent_60%)]",
+                  ].join(" ")}
+                />
+              </span>
+
+              <span className="text-sm leading-6 text-slate-700 dark:text-slate-300">
+                I agree to the{" "}
+                <a href="#" className="font-semibold text-emerald-700 underline-offset-2 hover:underline dark:text-emerald-400">
+                  Terms &amp; Conditions
+                </a>{" "}
+                and consent to be contacted about my application.
+                <span className="ml-2 inline-flex items-center rounded-full bg-slate-100 px-2 py-0.5 text:[11px] text-[11px] font-semibold text-slate-600 ring-1 ring-slate-200 dark:bg-slate-800 dark:text-slate-300 dark:ring-slate-700">
+                  Required
+                </span>
+              </span>
             </label>
+
+            <p
+              id="accept-help"
+              className={["mt-2 text-xs", errors.accept ? "text-red-600" : "text-slate-500 dark:text-slate-400"].join(" ")}
+            >
+              {errors.accept ? errors.accept : "We never share your details without permission."}
+            </p>
           </div>
-          {errors.accept && <p className="text-xs text-red-600">{errors.accept}</p>}
 
           {/* Submit */}
           <div className="flex items-center justify-center pt-1">
             <button
               type="submit"
               disabled={submitting}
-              className="flex h-12 w-52 items-center justify-center rounded-full bg-indigo-600 text-white text-base font-semibold leading-7 shadow-sm transition-all duration-300 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 disabled:opacity-50"
+              className={[
+                "inline-flex h-12 w-56 items-center justify-center rounded-full",
+                "bg-emerald-600 text-white text-base font-semibold leading-7 shadow-sm transition-all duration-300",
+                "hover:bg-emerald-700 focus:outline-none focus:ring-2 focus:ring-emerald-500",
+                "disabled:cursor-not-allowed disabled:opacity-60",
+              ].join(" ")}
             >
-              {submitting ? "Submitting…" : "Create Account"}
+              {submitting ? (
+                <span className="inline-flex items-center gap-2">
+                  <svg className="h-4 w-4 animate-spin" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <path d="M12 3a9 9 0 1 1-9 9" />
+                  </svg>
+                  Submitting…
+                </span>
+              ) : (
+                "Submit Application"
+              )}
             </button>
           </div>
+
+          {/* tiny privacy footnote */}
+          <p className="mx-auto max-w-lg text-center text-[12px] text-slate-500 dark:text-slate-400">
+            By submitting, you agree to be contacted about admission. You can opt out anytime.
+          </p>
         </form>
       </div>
     </section>

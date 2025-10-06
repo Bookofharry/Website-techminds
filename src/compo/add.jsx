@@ -1,5 +1,3 @@
-import React from "react";
-
 export default function KidsCodeOverview() {
   const navy = "#0b2a6b";
   const icon = "h-7 w-7 text-[#0b2a6b] dark:text-[#6f8ac5]";

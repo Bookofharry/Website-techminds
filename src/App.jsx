@@ -11,11 +11,13 @@ import Footer from './compo/footer'
 import Mail from './pages/Mail'
 import Application from './pages/Application'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import ScrollToTop from "./ScroolTop";
 
 function App(){
 
   return (
     <BrowserRouter>
+    <ScrollToTop />
       {/* Navigation Bar Needs to be Worked On */}
       <nav>
         <NavBar/>  
