@@ -181,15 +181,10 @@ export default function KidsCodeOverview() {
             </div>
 
             <div className="mt-6 space-y-3">
+            
               <a
-                href="#kids-trial"
+                href="tel:+2348147328332"
                 className="inline-flex w-full items-center justify-center rounded-full bg-[#0b2a6b] px-6 py-3 text-[15px] font-extrabold text-white shadow-md transition hover:opacity-95 focus:outline-none focus:ring-2 focus:ring-[#0b2a6b]"
-              >
-                Book a Trial Class
-              </a>
-              <a
-                href="tel:+2340000000000"
-                className="inline-flex w-full items-center justify-center rounded-full border border-[#0b2a6b]/30 bg-white px-6 py-3 text-[15px] font-extrabold text-[#0b2a6b] shadow-sm transition hover:bg-slate-50 dark:bg-slate-900"
               >
                 Speak With a Mentor
               </a>

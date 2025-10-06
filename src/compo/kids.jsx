@@ -1,4 +1,4 @@
-
+import { Link } from "react-router-dom";
 
 function Kids() {
   return (
@@ -196,8 +196,8 @@ function Kids() {
 
         {/* CTA */}
         <div className="mt-12 flex flex-col items-center justify-center gap-3 sm:flex-row">
-          <a
-            href="#"
+          <Link
+            to='/application'
             className="inline-flex items-center justify-center rounded-lg bg-blue-600 px-5 py-3 text-sm font-semibold text-white shadow transition hover:-translate-y-0.5 hover:bg-blue-700 hover:shadow-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
           >
             Enroll your child — Next Cohort
@@ -209,7 +209,7 @@ function Kids() {
             >
               <path d="M10.293 15.707a1 1 0 010-1.414L12.586 12H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 111.414-1.414l4.001 4a1 1 0 010 1.414l-4.001 4a1 1 0 01-1.414 0z" />
             </svg>
-          </a>
+          </Link>
           <a
             href="https://mega.nz/file/Y2UCEJ5S#TCxuwPMsD23x61OQRsGmMxAbQnAQRo4N-7EI2un5YsQ"
             className="inline-flex items-center justify-center rounded-lg border border-gray-300 bg-white px-5 py-3 text-sm font-semibold text-gray-700 shadow-sm transition hover:-translate-y-0.5 hover:border-gray-400 hover:shadow focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"

@@ -1,4 +1,4 @@
-import ClassRoom from '../assets/class.jpeg'
+import ClassRoom from '../assets/chimobi.jpeg'
 import Fortune from '../assets/fortune.jpeg'
 import Rachael2 from '../assets/rachael1.jpeg'
 import SpaceGuy from '../assets/classsection.jpeg'
