@@ -181,7 +181,6 @@ export default function KidsCodeOverview() {
             </div>
 
             <div className="mt-6 space-y-3">
-            
               <a
                 href="tel:+2348147328332"
                 className="inline-flex w-full items-center justify-center rounded-full bg-[#0b2a6b] px-6 py-3 text-[15px] font-extrabold text-white shadow-md transition hover:opacity-95 focus:outline-none focus:ring-2 focus:ring-[#0b2a6b]"
