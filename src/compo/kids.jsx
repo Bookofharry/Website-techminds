@@ -1,4 +1,4 @@
-import React from "react";
+
 
 function Kids() {
   return (
@@ -211,7 +211,7 @@ function Kids() {
             </svg>
           </a>
           <a
-            href="#"
+            href="https://mega.nz/file/Y2UCEJ5S#TCxuwPMsD23x61OQRsGmMxAbQnAQRo4N-7EI2un5YsQ"
             className="inline-flex items-center justify-center rounded-lg border border-gray-300 bg-white px-5 py-3 text-sm font-semibold text-gray-700 shadow-sm transition hover:-translate-y-0.5 hover:border-gray-400 hover:shadow focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
           >
             Download parent guide (PDF)

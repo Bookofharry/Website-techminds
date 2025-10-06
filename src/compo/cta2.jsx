@@ -114,7 +114,7 @@ export default function DownloadCta() {
               <path d="M25 33a7 7 0 0 1 14 0" stroke="currentColor" strokeOpacity="0.7" strokeWidth="2" strokeLinecap="round" className="animate-pulse" />
               <path d="M28 33a4 4 0 0 1 8 0" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
             </svg>
-            <Link ><span>Online Classes</span></Link>
+            <Link to='https://wa.me/message/LQOG4H5IQZ2HA1' ><span>Online Classes</span></Link>
           </a>
         </div>
       </div>
