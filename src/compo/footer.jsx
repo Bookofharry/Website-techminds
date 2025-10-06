@@ -1,4 +1,4 @@
-import React from 'react';
+
 import Logo from '../assets/Logo.png';
 
 const Footer = () => {
@@ -25,7 +25,7 @@ const Footer = () => {
               {/* X (formerly Twitter) */}
               <li>
                 <a
-                  href="#"
+                  href="https://x.com/ACADTechMinds?t=HBukmrSZAIub1-iPsfnb6Q&s=08"
                   aria-label="Tech Minds on X"
                   title="Follow us on X"
                   className="flex items-center justify-center text-white bg-gray-800 rounded-full w-7 h-7 transition-all duration-200 hover:bg-blue-600 focus:bg-blue-600 hover:scale-110 active:scale-95 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/60"
@@ -39,7 +39,7 @@ const Footer = () => {
               {/* Facebook */}
               <li>
                 <a
-                  href="#"
+                  href="https://www.facebook.com/share/1BdiHsz9Xf/"
                   aria-label="Facebook"
                   className="flex items-center justify-center text-white bg-gray-800 rounded-full w-7 h-7 transition-all duration-200 hover:bg-blue-600 focus:bg-blue-600 hover:scale-110 active:scale-95 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/60"
                 >
@@ -52,7 +52,7 @@ const Footer = () => {
               {/* Instagram (modern outline) */}
               <li>
                 <a
-                  href="#"
+                  href="https://www.instagram.com/tmindsacademy?utm_source=qr&igsh=MTN5aWhneGtmbjAz"
                   aria-label="Instagram"
                   title="Follow us on Instagram"
                   className="flex items-center justify-center text-white bg-gray-800 rounded-full w-7 h-7 transition-all duration-200 hover:bg-blue-600 focus:bg-blue-600 hover:scale-110 active:scale-95 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/60"
@@ -75,7 +75,7 @@ const Footer = () => {
               {/* GitHub */}
               <li>
                 <a
-                  href="#"
+                  href="https://github.com/Tech-Minds-Academy"
                   aria-label="GitHub"
                   className="flex items-center justify-center text-white bg-gray-800 rounded-full w-7 h-7 transition-all duration-200 hover:bg-blue-600 focus:bg-blue-600 hover:scale-110 active:scale-95 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/60"
                 >

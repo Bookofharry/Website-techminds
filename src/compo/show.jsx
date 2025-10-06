@@ -107,13 +107,13 @@ export default function TechMindsMarqueeShowcase() {
         {/* headline */}
         <div className="mx-auto max-w-3xl text-center">
           <span className="inline-flex items-center rounded-full bg-white/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-wider ring-1 ring-white/15">
-            Tech Minds Academy
+            Conducive learning environment
           </span>
           <h2 className="mt-3 text-2xl font-extrabold leading-tight tracking-tight sm:text-3xl">
-            Learn fast. Build real. Launch your tech career.
+            Learn fast. Build real. Earn Through your Tech career.
           </h2>
           <p className="mx-auto mt-2 max-w-2xl text-sm text-slate-200/90">
-            Abuja (Bwari) campus & live-online cohorts. Mentor-led, project-based, and portfolio-driven.
+            Mentor-led, project-based, and portfolio-driven.
           </p>
         </div>
 

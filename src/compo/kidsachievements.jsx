@@ -40,7 +40,7 @@ const KidsRes = () => {
       ),
     },
     {
-      title: "Friendly Instructors",
+      title: "Competent Instructors",
       desc: "Patient, mentor-led guidance with code reviews, pair programming, and real feedback.",
       icon: (
         <svg viewBox="0 0 24 24" className={iconCls} aria-hidden {...stroke}>
@@ -115,10 +115,10 @@ const KidsRes = () => {
             Tech Minds Facilities
           </span>
           <h2 className="mt-3 text-[28px] leading-[1.15] font-black tracking-[-0.02em] text-slate-900 sm:text-4xl xl:text-5xl dark:text-white">
-            Everything you need to learn—<span className="underline decoration-4 underline-offset-4 decoration-indigo-500">without friction</span>
+            Everything you <span className="text-red-400">NEED</span> to learn without friction
           </h2>
           <p className="mx-auto mt-3 max-w-2xl text-[15.5px] leading-7 text-slate-700 sm:text-base dark:text-slate-300">
-            Constant power. Fast internet. Friendly mentors. Modern tools. Abuja (Bwari) campus & live-online—built to keep you shipping.
+            Constant power. Fast internet. Dedicated and Equiped Instructors. Modern tools. Abuja (Bwari) campus & live-online—built to keep you shipping.
           </p>
         </div>
 
@@ -161,20 +161,21 @@ const KidsRes = () => {
         {/* CTA — unchanged */}
         <div className="mx-auto mt-10 max-w-3xl text-center sm:mt-12">
           <p className="text-[14.5px] text-slate-700 dark:text-slate-300 sm:text-sm">
-            Book a tour of our Bwari campus or try a live-online class—same tools, same mentors, same outcomes.
+            Speak to a Mentor on Phone or try an- online class.
+             Same tools, Same mentors, Same outcomes.
           </p>
           <div className="mt-4 flex flex-col items-stretch justify-center gap-3 sm:flex-row">
             <a
               href="tel:+2348147328332"
               className="inline-flex w-full items-center justify-center rounded-full bg-indigo-600 px-6 py-3 text-[15px] font-extrabold text-white shadow-md transition-all hover:bg-indigo-500 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 sm:w-auto"
             >
-              Book a campus tour
+              Speak to a Mentor
               <svg className="ml-2 h-4 w-4" viewBox="0 0 20 20" fill="currentColor" aria-hidden>
                 <path d="M10.293 3.293a1 1 0 011.414 0l5 5a.997.997 0 01.083 1.32l-.083.094-5 5a1 1 0 01-1.497-1.32l.083-.094L13.585 10H4a1 1 0 01-.117-1.993L4 8h9.585l-3.292-3.293a1 1 0 010-1.414z" />
               </svg>
             </a>
             <a
-              href="#join-online"
+              href="https://youtube.com/@techmindsacademy?si=Ax1CrghyAPFT4KZq"
               className="inline-flex w-full items-center justify-center rounded-full border border-slate-300 bg-white px-6 py-3 text-[15px] font-extrabold text-slate-800 transition-all hover:bg-slate-100 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-200 sm:w-auto"
             >
               Join an online class
