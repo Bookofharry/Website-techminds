@@ -1,18 +1,21 @@
-import ClassRoom from '../assets/classsection.jpeg'
+import ClassRoom from '../assets/class.jpeg'
 import Fortune from '../assets/fortune.jpeg'
-import Rachael from '../assets/rachael.jpeg'
+import Rachael2 from '../assets/rachael1.jpeg'
+import SpaceGuy from '../assets/classsection.jpeg'
+import James from '../assets/class2.jpeg'
+import Class from '../assets/instructor.jpeg'
 /**
  * DaisyUI carousel that maps over an images array.
  * Pass your own list via the `images` prop, or it falls back to the demo list.
  */
 function Picture({
   images = [
-    { src: Rachael, alt: "Photo 1" },
+    { src: Rachael2, alt: "Photo 1" },
     { src: ClassRoom, alt: "Photo 2" },
-    { src: Fortune, alt: "Photo 3" },
-    { src: "https://img.daisyui.com/images/stock/photo-1494253109108-2e30c049369b.webp", alt: "Photo 4" },
-    { src: Rachael, alt: "Photo 5" },
-    { src: Fortune, alt: "Photo 6" },
+    { src: James, alt: "Photo 3" },
+    { src: Class, alt: "Photo 4" },
+    // { src: Rachael2, alt: "Photo 5" },
+    { src: SpaceGuy, alt: "Photo 6" },
     { src: Fortune, alt: "Photo 7" },
   ],
   itemClassName = "carousel-item", // customize if you need different sizing
