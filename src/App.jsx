@@ -13,7 +13,7 @@ import Application from './pages/Application'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import ScrollToTop from "./ScroolTop";
 import NotFound from './pages/NotFound'
-import CoursesPage from './pages/courses'
+import CoursesPage from './pages/Course'
 
 function App(){
 
