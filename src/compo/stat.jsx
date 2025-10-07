@@ -9,10 +9,17 @@ const Numbers = () => {
           <h2 className="text-3xl font-bold leading-tight text-black sm:text-4xl lg:text-5xl">
             Our impact in numbers
           </h2>
-          <p className="mt-3 text-xl leading-relaxed text-gray-600 md:mt-8">
-            Tech Minds Academy—Abuja (Bwari) & online. Mentor-led, project-based training in{" "}
-            <span className="font-semibold text-gray-900">Web Development</span> and{" "}
-            <span className="font-semibold text-gray-900">Data Science</span>. Here’s a quick snapshot of our progress.
+          <p className="mt-3 text-xl leading-relaxed text-gray-700 md:mt-8">
+            Tech Minds Academy—Abuja (Bwari)
+            <br />
+            Mentor-led, project-based training in{" "}
+            <span className="font-semibold text-transparent bg-clip-text bg-gradient-to-r from-emerald-800 via-emerald-200 to-emerald-800 opacity-75">
+              DIGITAL
+            </span>{" "}
+            <span className="font-semibold text-transparent bg-clip-text bg-gradient-to-r from-emerald-800 via-emerald-200 to-emerald-800 opacity-75">
+              TECHNOLOGY
+            </span>
+            . <br /> Here’s a quick snapshot of our progress.
           </p>
         </div>
 
@@ -26,14 +33,14 @@ const Numbers = () => {
               </span>
             </h3>
             <p className="mt-4 text-xl font-medium text-gray-900">Years of training</p>
-            <p className="text-base mt-0.5 text-gray-500">Consistent, mentor-led cohorts since launch</p>
+            <p className="text-base mt-0.5 text-gray-500">Consistent, Mentor-led Cohorts</p>
           </div>
 
           {/* Projects */}
           <div className="group">
             <h3 className="font-bold text-7xl">
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-fuchsia-600 to-blue-600">
-                89
+                119+
               </span>
             </h3>
             <p className="mt-4 text-xl font-medium text-gray-900">Portfolio projects shipped</p>
@@ -48,7 +55,7 @@ const Numbers = () => {
               </span>
             </h3>
             <p className="mt-4 text-xl font-medium text-gray-900">Learners trained</p>
-            <p className="text-base mt-0.5 text-gray-500">On campus in Abuja (Bwari) & online</p>
+            <p className="text-base mt-0.5 text-gray-500">On campus in Abuja (Bwari) & Online</p>
           </div>
         </div>
       </div>

@@ -4,30 +4,85 @@
 @tailwind components;
 @tailwind utilities;
 /* Shared theme tokens */
+/* -------------------- Mobile layout fixes -------------------- */
+@media (max-width: 960px) {
+  /* Make each menu row a flex row so we can push the caret to the far right */
+  .custom-menubar .p-menubar-root-list .p-menuitem-link,
+  .custom-menubar .p-submenu-list .p-menuitem-link {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    /* Space text away from the caret; caret will sit at far right */
+  }
+
+  /* Push the submenu caret/chevron to the far right on ALL levels */
+  .custom-menubar .p-menubar-root-list .p-menuitem-link .p-submenu-icon,
+  .custom-menubar .p-submenu-list .p-menuitem-link .p-submenu-icon {
+    margin-left: auto;     /* key line: sends icon to the right edge */
+    order: 99;             /* ensure it comes last in the row */
+    font-size: 1.05rem;    /* slightly larger tap target icon */
+  }
+
+  /* Rotate caret when section is open (nice feedback) */
+  .custom-menubar .p-menuitem-active > .p-menuitem-content .p-submenu-icon,
+  .custom-menubar .p-menuitem-active > .p-menuitem-link .p-submenu-icon {
+    transform: rotate(180deg);
+    transition: transform .2s ease;
+  }
+
+  /* Make dropdown panels full-width and stacked (no awkward overlay) */
+  .custom-menubar .p-submenu-list {
+    position: static !important;  /* so it flows inside the slide-down panel */
+    width: 100% !important;
+    box-shadow: none !important;
+    background: var(--menu-bg) !important;
+    border: none !important;
+  }
+
+  /* Root slide-down panel styling */
+  .custom-menubar .p-menubar-root-list {
+    background: var(--menu-bg) !important;
+    border: none !important;
+  }
+
+  /* Links inside mobile panel */
+  .custom-menubar .p-menubar-root-list .p-menuitem-link {
+    color: var(--text) !important;
+    padding-inline: 0.75rem;      /* give room so caret doesn’t wrap */
+    min-height: 44px;             /* comfortable touch target */
+  }
+  .custom-menubar .p-menubar-root-list .p-menuitem-link:hover {
+    background: var(--hover) !important;
+    color: #ffffff !important;
+  }
+
+  /* Hamburger icon color */
+  .custom-menubar .p-menubar-button {
+    color: var(--text) !important;
+  }
+}
+
+/* -------------------- Existing theme bits (keep yours) -------------------- */
 .custom-menubar {
   --menu-bg: #001f54;   /* navy */
   --text:    #ffffff;
-  /* --hover:   #2563eb;    */
+  /* --hover:   #2563eb; */
   border: none;
   padding: 10px;
-}
-
-/* Base (desktop) */
-.custom-menubar {
   background: var(--menu-bg) !important;
   color: var(--text);
+  z-index: 1000;
 }
+
 .custom-menubar .p-menuitem-link,
 .custom-menubar .p-menuitem-icon,
-.custom-menubar .p-submenu-icon {
-  color: var(--text);
-}
+.custom-menubar .p-submenu-icon { color: var(--text); }
+
 .custom-menubar .p-menuitem-link:hover {
   background: var(--hover);
   color: #000000;
 }
 
-/* Dropdown lists */
 .custom-menubar .p-submenu-list {
   background: #06285f;
   border: 1px solid rgba(255,255,255,.15);
@@ -38,65 +93,14 @@
   color: #000000;
 }
 
-/* MOBILE FIXES */
-@media (max-width: 960px) {
-  /* When menu is expanded on mobile, Menubar gets this class */
-  .custom-menubar.p-menubar-mobile-active {
-    background: var(--menu-bg) !important;
-    color: var(--text);
-  }
-
-  /* The slide-down root list uses a surface (white) by default—override it */
-  .custom-menubar .p-menubar-root-list {
-    background: var(--menu-bg) !important;
-    border: none !important;
-  }
-
-  /* Links inside the mobile panel */
-  .custom-menubar .p-menubar-root-list .p-menuitem-link {
-    color: var(--text) !important;
-  }
-  .custom-menubar .p-menubar-root-list .p-menuitem-link:hover {
-    background: var(--hover) !important;
-    color: #ffffff !important;
-  }
-
-  /* Mobile hamburger button (three bars) */
-  .custom-menubar .p-menubar-button {
-    color: var(--text) !important;
-  }
-
-  /* Submenus inside the mobile panel */
-  .custom-menubar .p-submenu-list {
-    background: var(--menu-bg) !important;
-    border: none !important;
-  }
-}
-
-/* Optional: ensure the panel overlays content properly */
-.custom-menubar { z-index: 1000; }
-
 /* Brand area */
 .custom-menubar .brand {
   display: inline-flex;
   align-items: center;
   gap: .5rem;
   text-decoration: none;
-  color: #fff;                 /* matches your white text on navy */
+  color: #fff;
   padding: .25rem .5rem;
 }
-
-.custom-menubar .brand-logo {
-  height: 36px;                /* adjust to your bar height */
-  width: auto;
-  display: block;
-}
-
-/* Hide the text on small screens, keep logo visible */
-@media (max-width: 640px) {
-  .custom-menubar .brand-name { display: none; }
-}
-
-/* If your logo is dark and you don't have a light version, you can invert it:
-.custom-menubar .brand-logo { filter: brightness(0) invert(1); }
-*/
+.custom-menubar .brand-logo { height: 36px; width: auto; display: block; }
+@media (max-width: 640px) { .custom-menubar .brand-name { display: none; } }

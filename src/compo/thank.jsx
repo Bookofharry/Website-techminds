@@ -157,8 +157,8 @@ function Thank() {
                   <Link to={c.link} className="inline-flex items-center justify-center rounded-full border border-slate-300/80 px-3 py-1.5 text-xs font-medium text-slate-700 transition-colors hover:bg-slate-100 dark:border-slate-700 dark:text-slate-200 dark:hover:bg-slate-800 sm:w-auto">Course Details</Link>
 
                   {/* primary — View syllabus (mobile full width, desktop auto) */}
-                  <a
-                    href="#"
+                  <Link
+                    to="/syllabus"
                     aria-label={`View syllabus for ${c.title}`}
                     className="inline-flex w-full items-center justify-center rounded-full bg-gradient-to-r from-indigo-600 to-blue-600 px-4 py-2 text-xs font-semibold text-white shadow-sm transition-all hover:from-indigo-500 hover:to-blue-500 hover:shadow-md focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 dark:focus:ring-offset-slate-900 sm:w-auto"
                   >
@@ -171,7 +171,7 @@ function Thank() {
                     >
                       <path d="M10.293 3.293a1 1 0 011.414 0l5 5a.997.997 0 01.083 1.32l-.083.094-5 5a1 1 0 01-1.497-1.32l.083-.094L13.585 10H4a1 1 0 01-.117-1.993L4 8h9.585l-3.292-3.293a1 1 0 010-1.414z" />
                     </svg>
-                  </a>
+                  </Link>
                 </div>
               </div>
             </article>

@@ -14,6 +14,8 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import ScrollToTop from "./ScroolTop";
 import NotFound from './pages/NotFound'
 import CoursesPage from './pages/Course'
+import SyllabusPage from './pages/syllabus'
+import SchedulesPage from './pages/Schedule'
 
 function App(){
 
@@ -63,6 +65,8 @@ function App(){
 
         <Route path='/mail' element={<Mail />}/>
         <Route path='/courses' element={<CoursesPage />}/>
+        <Route path='/syllabus' element={<SyllabusPage />}/>
+        <Route path='/schedule' element={<SchedulesPage />}/>
         <Route path='/programs/cloud-computing' element={ <h1>Cloud</h1>}/>
         <Route path="*" element={<NotFound />} />
         
