@@ -115,7 +115,7 @@ const KidsRes = () => {
             Tech Minds Facilities
           </span>
           <h2 className="mt-3 text-[28px] leading-[1.15] font-black tracking-[-0.02em] text-slate-900 sm:text-4xl xl:text-5xl dark:text-white">
-            Everything you <span className="text-red-400">NEED</span> to learn without friction
+            Everything you <span className="text-red-400">NEED,</span> To learn without friction
           </h2>
           <p className="mx-auto mt-3 max-w-2xl text-[15.5px] leading-7 text-slate-700 sm:text-base dark:text-slate-300">
             Constant power. Fast internet. Dedicated and Equiped Instructors. Modern tools. Abuja (Bwari) campus & live-online—built to keep you shipping.

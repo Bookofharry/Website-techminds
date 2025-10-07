@@ -12,6 +12,8 @@ import Mail from './pages/Mail'
 import Application from './pages/Application'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import ScrollToTop from "./ScroolTop";
+import NotFound from './pages/NotFound'
+import CoursesPage from './pages/courses'
 
 function App(){
 
@@ -42,6 +44,7 @@ function App(){
         
         
         <Route path='/' element={<Home />}/>
+        <Route path='/index.html' element={<Home />}/>
 
         <Route path='/facilities' element={<Facilities />}/>
 
@@ -59,12 +62,18 @@ function App(){
         <Route path='/application' element={<Application/>}/>
 
         <Route path='/mail' element={<Mail />}/>
+        <Route path='/courses' element={<CoursesPage />}/>
         <Route path='/programs/cloud-computing' element={ <h1>Cloud</h1>}/>
+        <Route path="*" element={<NotFound />} />
         
 
 
       </Routes>
-      <Footer />
+      <Footer onSubscribe={(email) => {
+        // do anything here:
+        // send to API, analytics, show modal, etc.
+       
+      }} />
     
     </BrowserRouter>
   )
