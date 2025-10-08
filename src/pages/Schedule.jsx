@@ -2,12 +2,7 @@ import React, { useMemo, useRef, useState, useEffect } from "react";
 
 /**
  * Tech Minds Academy — Schedules Page (Data-Ready)
- * - Week navigation, sticky filters, search, “Jump to Today”
- * - Import real data: JSON / CSV / ICS (URL or file upload)
- * - Export filtered view: ICS / CSV + Print
- * - Brand accent: subtle green–white–green
- *
- * Drop in: <SchedulesPage />
+ * Always loads from top. No auto-scroll to Today on mount.
  */
 
 const BRAND_GRADIENT = "bg-gradient-to-r from-emerald-800 via-emerald-200 to-emerald-800";
@@ -43,7 +38,6 @@ function mkSession(track, level, format, title, instructor, location, day, start
 }
 
 function generateWeekSessions(weekMonday) {
-  // Map weekday string to date
   const dayOffset = { Mon: 0, Tue: 1, Wed: 2, Thu: 3, Fri: 4, Sat: 5, Sun: 6 };
   const sessions = TEMPLATE_SESSIONS.map((t, i) => {
     const d = new Date(weekMonday);
@@ -68,7 +62,6 @@ function generateWeekSessions(weekMonday) {
 }
 
 function toISO(d) {
-  // naive local ISO (YYYY-MM-DDTHH:mm:ss)
   const pad = (n) => String(n).padStart(2, "0");
   return `${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())}T${pad(d.getHours())}:${pad(d.getMinutes())}:00`;
 }
@@ -117,7 +110,7 @@ function toICS(sessions) {
   ];
   sessions.forEach((s) => {
     const uid = `${s.id || `${s.start}-${s.title}`}`.replace(/\s+/g, "-") + "@techmindsacademy.org";
-    const dtStart = s.start.replace(/[-:]/g, "").slice(0, 15); // expect local time
+    const dtStart = s.start.replace(/[-:]/g, "").slice(0, 15);
     const dtEnd = s.end.replace(/[-:]/g, "").slice(0, 15);
     const summary = escapeICS(`${s.title} — ${s.track}`);
     const location = escapeICS(s.location || "");
@@ -152,7 +145,6 @@ function toCSV(sessions) {
 }
 
 function parseCSV(text) {
-  // Tiny CSV parser that handles quotes and commas
   const rows = [];
   let i = 0, field = "", row = [], inQuotes = false;
   while (i < text.length) {
@@ -188,7 +180,6 @@ function parseCSV(text) {
 }
 
 function parseICS(text) {
-  // Minimal ICS parser (expects DTSTART/DTEND/SUMMARY/LOCATION/DESCRIPTION)
   const events = [];
   const blocks = text.split("BEGIN:VEVENT").slice(1);
   for (const block of blocks) {
@@ -203,14 +194,13 @@ function parseICS(text) {
     const LOCATION = get("LOCATION");
     const DESCRIPTION = get("DESCRIPTION");
 
-    // Parse SUMMARY "Title — Track"
     let title = SUMMARY, track = "Web Development";
     const parts = SUMMARY.split("—");
     if (parts.length >= 2) {
       title = parts[0].trim();
       track = parts.slice(1).join("—").trim();
     }
-    const meta = parseDescriptionMeta(DESCRIPTION); // Level/Format/Instructor
+    const meta = parseDescriptionMeta(DESCRIPTION);
     events.push({
       id: `ics-${events.length}`,
       title,
@@ -242,8 +232,7 @@ function decodeICS(text) {
   return String(text).replace(/\\n/g, "\n").replace(/\\,/g, ",").replace(/\\;/g, ";").replace(/\\\\/g, "\\");
 }
 function icsToISO(dt) {
-  // Accepts: 20251007T090000 or with TZID=...; strip params
-  const clean = dt.replace(/^.*:/, ""); // drop TZID=...
+  const clean = dt.replace(/^.*:/, "");
   const y = clean.slice(0,4), m = clean.slice(4,6), d = clean.slice(6,8);
   const hh = clean.slice(9,11), mm = clean.slice(11,13), ss = clean.slice(13,15);
   return `${y}-${m}-${d}T${hh}:${mm}:${ss || "00"}`;
@@ -258,12 +247,27 @@ export default function SchedulesPage() {
   const [format, setFormat] = useState("All Formats");
   const [query, setQuery] = useState("");
 
-  // Sessions: start with template for this week; you can import/replace.
+  // Sessions: template for this week (can be replaced via import)
   const [sessions, setSessions] = useState(() => generateWeekSessions(startOfWeek(new Date())));
 
   const weekStart = weekAnchor;
   const weekEnd = endOfWeek(weekAnchor);
   const today = new Date();
+  const todayId = dayKey(today);
+
+  /* NEW: Always load from top and disable browser scroll restoration */
+  useEffect(() => {
+    const prev = window.history.scrollRestoration;
+    try { window.history.scrollRestoration = "manual"; } catch {}
+    window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+    return () => {
+      try { window.history.scrollRestoration = prev || "auto"; } catch {}
+    };
+  }, []);
+
+  /* REMOVED: Auto-scroll to Today on mount
+     (We keep the "Jump to Today" button for manual scroll.)
+  */
 
   const filtered = useMemo(() => {
     return sessions
@@ -297,24 +301,24 @@ export default function SchedulesPage() {
     return map;
   }, [filtered]);
 
-  const todayId = dayKey(today);
-  useEffect(() => {
-    const inWeek = today >= weekStart && today < weekEnd;
-    if (inWeek) {
-      const el = document.getElementById(todayId);
-      if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [weekStart.toISOString()]);
-
   const icsLink = useRef(null);
   const csvLink = useRef(null);
   const fileInputRef = useRef(null);
+
+  function scrollTop() {
+    window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+  }
 
   function shiftWeek(delta) {
     const d = new Date(weekAnchor);
     d.setDate(d.getDate() + 7 * delta);
     setWeekAnchor(startOfWeek(d));
+    scrollTop(); // keep UX consistent when changing week
+  }
+
+  function goToThisWeek() {
+    setWeekAnchor(startOfWeek(new Date()));
+    scrollTop();
   }
 
   function exportICS() {
@@ -360,7 +364,6 @@ export default function SchedulesPage() {
       } else if (url.endsWith(".ics") || contentType.includes("text/calendar")) {
         setSessions(parseICS(text));
       } else {
-        // try JSON fallback
         try {
           const json = JSON.parse(text);
           setSessions(normalizeJSON(json));
@@ -369,13 +372,13 @@ export default function SchedulesPage() {
         }
       }
       setWeekAnchor(startOfWeek(new Date())); // jump back to current week
+      scrollTop(); // NEW: back to top after import
     } catch (e) {
       alert("Failed to load. Check the URL / CORS permissions.");
     }
   }
 
   function normalizeJSON(data) {
-    // Accept { sessions: [...] } or [...]
     const arr = Array.isArray(data) ? data : data.sessions || [];
     return arr.map((s, i) => ({
       id: s.id || `json-${i}`,
@@ -410,6 +413,7 @@ export default function SchedulesPage() {
         alert("Unsupported file type. Use .json, .csv, or .ics");
       }
       setWeekAnchor(startOfWeek(new Date()));
+      scrollTop(); // NEW: back to top after file import
     };
     reader.readAsText(file);
     e.target.value = ""; // reset so same file can be re-selected
@@ -438,15 +442,15 @@ export default function SchedulesPage() {
 
           {/* Actions */}
           <div className="mt-6 flex flex-wrap gap-3">
-            <button onClick={() => shiftWeek(-1)} className="rounded-2xl px-4 py-2 text-sm font-semibold text-gray-900 bg-white border border-gray-200 hover:border-gray-300 focus:outline-none focus:ring-2 focus:ring-emerald-700/20">
+            {/* <button onClick={() => shiftWeek(-1)} className="rounded-2xl px-4 py-2 text-sm font-semibold text-gray-900 bg-white border border-gray-200 hover:border-gray-300 focus:outline-none focus:ring-2 focus:ring-emerald-700/20">
               ← Previous Week
-            </button>
-            <button onClick={() => setWeekAnchor(startOfWeek(new Date()))} className="rounded-2xl px-4 py-2 text-sm font-semibold text-white bg-gray-900 hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-900/30">
+            </button> */}
+            <button onClick={goToThisWeek} className="rounded-2xl px-4 py-2 text-sm font-semibold text-white bg-gray-900 hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-900/30">
               This Week
             </button>
-            <button onClick={() => shiftWeek(1)} className="rounded-2xl px-4 py-2 text-sm font-semibold text-gray-900 bg-white border border-gray-200 hover:border-gray-300 focus:outline-none focus:ring-2 focus:ring-emerald-700/20">
+            {/* <button onClick={() => shiftWeek(1)} className="rounded-2xl px-4 py-2 text-sm font-semibold text-gray-900 bg-white border border-gray-200 hover:border-gray-300 focus:outline-none focus:ring-2 focus:ring-emerald-700/20">
               Next Week →
-            </button>
+            </button> */}
 
             <div className="flex-1" />
 

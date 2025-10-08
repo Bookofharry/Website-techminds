@@ -39,7 +39,7 @@ export default function NavBar() {
       ],
     },
     { label: "Contact", icon: "pi pi-envelope", template: linkTemplate("/contact") },
-    { label: "Courses", icon: "pi pi-book", template: linkTemplate("/courses") },
+    { label: "Courses", icon: "pi pi-book", template: linkTemplate("/programs") },
   ];
 
   const start = (

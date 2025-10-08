@@ -1,184 +1,194 @@
 import React, { useMemo, useRef, useState } from "react";
 
 /**
- * Tech Minds Academy — Digital Marketing Page (compact-ready)
+ * Tech Minds Academy — Cloud Computing Page (compact-ready)
  * Usage:
- *   <DigitalMarketingPage />          // normal
- *   <DigitalMarketingPage compact />  // no bottom gap after FAQs
+ *   <CloudComputingPage />           // normal
+ *   <CloudComputingPage compact />   // no bottom gap after FAQs
  */
 
 const BRAND_GRADIENT =
   "bg-gradient-to-r from-emerald-800 via-emerald-200 to-emerald-800";
 
-const DM_META = {
-  track: "Digital Marketing",
+const CC_META = {
+  track: "Cloud Computing",
   level: "Beginner → Intermediate",
   format: "On-Campus (Bwari) • Online (Live) • Hybrid",
   durationWeeks: 12,
   weeklyPace: "3 days/week • 2–3 hrs/session",
-  nextCohort: "Nov 18, 2025",
-  price: "₦230,000",
+  nextCohort: "Dec 9, 2025",
+  price: "₦280,000",
 };
 
 const OUTCOMES = [
-  "Create a full-funnel digital strategy that drives results",
-  "Plan and produce content that converts (copy + visuals)",
-  "Run paid campaigns on Meta & Google with smart budgets",
-  "Optimize websites for SEO and track growth with GA4",
-  "Set up email automations and report ROI with dashboards",
+  "Understand core cloud concepts: compute, storage, networking, IAM",
+  "Deploy workloads on AWS/Azure/GCP with best practices",
+  "Use Terraform for Infrastructure as Code (IaC)",
+  "Containerize apps with Docker and orchestrate with Kubernetes",
+  "Automate CI/CD and set up monitoring, logging, and alerting",
 ];
 
 const TOOLS = [
-  { name: "Strategy & Funnels", abbr: "SF" },
-  { name: "Copywriting", abbr: "Cp" },
-  { name: "Content Calendar", abbr: "CC" },
-  { name: "SEO (On/Off-Page)", abbr: "SEO" },
-  { name: "Google Ads", abbr: "GAds" },
-  { name: "Meta Ads", abbr: "MAds" },
-  { name: "GA4 & UTMs", abbr: "GA4" },
-  { name: "Email (Mailchimp)", abbr: "Em" },
-  { name: "Canva", abbr: "Cv" },
-  { name: "Landing Pages", abbr: "LP" },
-  { name: "A/B Testing", abbr: "A/B" },
-  { name: "CRM Basics", abbr: "CRM" },
+  { name: "AWS", abbr: "AWS" },
+  { name: "Azure", abbr: "Az" },
+  { name: "Google Cloud", abbr: "GCP" },
+  { name: "Linux & Bash", abbr: "Ln" },
+  { name: "Docker", abbr: "Dk" },
+  { name: "Kubernetes", abbr: "K8s" },
+  { name: "Terraform", abbr: "Tf" },
+  { name: "Git/GitHub", abbr: "Git" },
+  { name: "CI/CD (GHA)", abbr: "CI" },
+  { name: "Monitoring (CW/Stack)", abbr: "Mon" },
+  { name: "PostgreSQL (Managed)", abbr: "PG" },
+  { name: "VPC/Networking", abbr: "VPC" },
 ];
 
 const MODULES = [
   {
-    id: "dm-01",
-    title: "Foundations: Digital Strategy & Funnels",
+    id: "cc-01",
+    title: "Foundations: Cloud, Linux & Networking",
     duration: "2 weeks",
     lessons: [
-      "Personas, JTBD & customer journeys",
-      "Full-funnel mapping (Awareness → Retention)",
-      "Channels overview: SEO, Social, Paid, Email",
-      "Creative direction & brand voice basics",
+      "Cloud models (IaaS/PaaS/SaaS) and shared responsibility",
+      "Linux essentials, SSH, processes & permissions",
+      "Networking: IP, CIDR, subnets, DNS, load balancers",
+      "Identity & Access Management (principals, policies, roles)",
     ],
-    projects: ["Draft a funnel & strategy doc for a local SME"],
+    projects: ["Spin up a Linux VM, harden SSH, and host a static site"],
   },
   {
-    id: "dm-02",
-    title: "Content Marketing & Copywriting",
+    id: "cc-02",
+    title: "Compute & Storage on AWS/Azure/GCP",
     duration: "2 weeks",
     lessons: [
-      "Content pillars & editorial calendars",
-      "Copy frameworks (AIDA, PAS, 4C’s)",
-      "Design with Canva (templates, reels, carousels)",
-      "Landing page structure & offers",
+      "VMs & autoscaling groups, images, pricing models",
+      "Object storage (S3/Blob/GCS), lifecycle & cost controls",
+      "Block vs object vs file storage; backups & snapshots",
+      "Intro to managed DBs (RDS, Cloud SQL, Azure DB)",
     ],
-    projects: ["30-day content calendar + 3 landing page drafts"],
+    projects: ["Highly available static site with CDN + object storage"],
   },
   {
-    id: "dm-03",
-    title: "SEO: Traffic that Compounds",
+    id: "cc-03",
+    title: "Infrastructure as Code with Terraform",
     duration: "2 weeks",
     lessons: [
-      "Keyword research & search intent",
-      "On-page SEO: titles, meta, headings, internal links",
-      "Technical SEO basics (speed, mobile, sitemaps)",
-      "Off-page & local SEO; content optimization workflow",
+      "Providers, resources, state, variables & modules",
+      "Workspaces, remote state & state locking",
+      "Policy as code (sentinel-style) & tagging standards",
+      "Idempotency & review workflows",
     ],
-    projects: ["SEO brief + optimized blog post"],
+    projects: ["Terraform module: VPC + subnets + security groups"],
   },
   {
-    id: "dm-04",
-    title: "Paid Ads: Meta & Google",
+    id: "cc-04",
+    title: "Containers & Kubernetes",
     duration: "3 weeks",
     lessons: [
-      "Campaign structure & objectives",
-      "Audiences, creatives, budgets & pacing",
-      "Google Search/Display & Meta Ads setup (sandbox)",
-      "Optimization, retargeting, and compliance basics",
+      "Dockerfiles, multi-stage builds & registries",
+      "K8s core: Pods, Deployments, Services, Ingress",
+      "ConfigMaps/Secrets, HPA, rolling updates",
+      "Ingress controllers & managed K8s (EKS/AKS/GKE)",
     ],
-    projects: ["Simulated ad campaigns + performance report"],
+    projects: ["Deploy a containerized microservice to managed K8s"],
   },
   {
-    id: "dm-05",
-    title: "Analytics, CRO & Email",
-    duration: "2 weeks",
-    lessons: [
-      "GA4, UTMs & event tracking",
-      "Dashboards & KPI storytelling",
-      "A/B testing & landing page optimization",
-      "Email journeys & automations (welcome, nurture)",
-    ],
-    projects: ["GA4 dashboard + A/B test plan + email flow"],
-  },
-  {
-    id: "dm-06",
-    title: "Capstone & Portfolio",
+    id: "cc-05",
+    title: "Serverless & Event-Driven",
     duration: "1 week",
     lessons: [
-      "Campaign planning & budget sheet",
-      "Execution checklist & stakeholder updates",
-      "Final report & presentation skills",
+      "Functions-as-a-Service (Lambda/Functions)",
+      "API Gateways, events & queues (SQS/PubSub/Service Bus)",
+      "Patterns: fan-out, retry, idempotency",
     ],
-    projects: ["Capstone: multi-channel campaign with ROI report"],
+    projects: ["Serverless API + object storage trigger workflow"],
+  },
+  {
+    id: "cc-06",
+    title: "CI/CD, Observability & Cost",
+    duration: "1 week",
+    lessons: [
+      "GitHub Actions pipelines: build, test, deploy",
+      "Monitoring, logs & traces; SLOs & alerts",
+      "Budgets, tags & cost optimization basics",
+    ],
+    projects: ["CI/CD pipeline + dashboards & alerts for an app"],
+  },
+  {
+    id: "cc-07",
+    title: "Capstone & Readiness",
+    duration: "1 week",
+    lessons: [
+      "Design review, threat modeling & reliability checklist",
+      "Docs, runbooks & handover",
+      "Interview prep & portfolio polish",
+    ],
+    projects: ["Capstone: end-to-end cloud app with IaC + CI/CD"],
   },
 ];
 
 const PROJECT_GALLERY = [
   {
-    title: "FoodBox Abuja — Launch Sprint",
-    desc: "30-day content + Meta ads that drove first 200 orders.",
+    title: "HA Static Site + CDN",
+    desc: "Global delivery with object storage, CDN & IaC.",
   },
   {
-    title: "FinTech SEO Turnaround",
-    desc: "Technical fixes + content briefs → +120% organic sessions.",
+    title: "Microservice on Managed K8s",
+    desc: "Blue/green deploys, HPA and ingress routing.",
   },
   {
-    title: "Event Ticketing Funnel",
-    desc: "Google Ads + landing page CRO grew conversion to 6.8%.",
+    title: "Serverless Media Pipeline",
+    desc: "Auto-thumbnailer using events, queues & functions.",
   },
   {
-    title: "Edu Newsletter Revamp",
-    desc: "Automations & segmentation lifted CTR by 35%.",
+    title: "Observability Starter",
+    desc: "Dashboards, alerts & error budgets for a demo app.",
   },
 ];
 
 const INSTRUCTORS = [
   {
-    name: "Kemi B.",
-    role: "Performance Marketer",
-    bio: "Paid media strategy, budgeting & optimization.",
-    initials: "KB",
+    name: "Oluwaseun K.",
+    role: "Cloud/DevOps Engineer",
+    bio: "Terraform, Kubernetes & production pipelines.",
+    initials: "OK",
   },
   {
-    name: "Chuka E.",
-    role: "SEO Specialist",
-    bio: "Technical audits, content strategy & local SEO.",
-    initials: "CE",
+    name: "Fatima U.",
+    role: "SRE",
+    bio: "Reliability, observability & incident response.",
+    initials: "FU",
   },
   {
-    name: "Maryam S.",
-    role: "Content Lead",
-    bio: "Copy frameworks, brand voice & campaign storytelling.",
-    initials: "MS",
+    name: "Tunde A.",
+    role: "Cloud Architect",
+    bio: "Networking, security & cost optimization.",
+    initials: "TA",
   },
 ];
 
 const FAQS = [
   {
-    q: "Do I need prior marketing experience?",
-    a: "No. We start from strategy fundamentals and practice each channel with mentor guidance.",
+    q: "Do I need prior cloud experience?",
+    a: "No. Basic comfort with a computer helps. We start from Linux and core cloud ideas before moving to Terraform, containers, and K8s.",
   },
   {
-    q: "Will I run real ads?",
-    a: "We simulate campaign setup end-to-end. For real budgets, we use sandbox or small caps under instructor supervision.",
+    q: "Which cloud do we use?",
+    a: "You’ll see AWS, Azure, and GCP. Projects can be completed on any one; we highlight portable patterns across providers.",
   },
   {
-    q: "What portfolio pieces will I have?",
-    a: "A strategy doc, SEO brief, ad plan with creatives, GA4 dashboard, and a capstone multi-channel report.",
+    q: "Do I get hands-on labs?",
+    a: "Yes. Each module includes guided labs and a project. We simulate real-world scenarios with IaC and CI/CD.",
   },
   {
-    q: "Is there certification?",
-    a: "Yes—complete the projects to earn a Tech Minds Academy certificate. We also guide Google & Meta exam prep.",
+    q: "Certification prep?",
+    a: "We offer guidance for entry-level certs (AWS/Azure/GCP fundamentals) and share practice tips and question styles.",
   },
 ];
 
-export default function Digital({ compact = true, metaOverrides = {} }) {
+export default function CloudComputingPage({ compact = true, metaOverrides = {} }) {
   const [openId, setOpenId] = useState(MODULES[0].id);
-  const meta = { ...DM_META, ...metaOverrides };
+  const meta = { ...CC_META, ...metaOverrides };
 
   const syllabusJSON = useMemo(
     () =>
@@ -202,7 +212,7 @@ export default function Digital({ compact = true, metaOverrides = {} }) {
     const url = URL.createObjectURL(blob);
     if (jsonRef.current) {
       jsonRef.current.href = url;
-      jsonRef.current.download = "techminds-digital-marketing.json";
+      jsonRef.current.download = "techminds-cloud-computing.json";
       jsonRef.current.click();
       URL.revokeObjectURL(url);
     }
@@ -225,18 +235,18 @@ export default function Digital({ compact = true, metaOverrides = {} }) {
           </p>
           <h1 className="mt-2 text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl lg:text-5xl">
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-800 via-emerald-200 to-emerald-800">
-              Digital Marketing
+              Cloud Computing
             </span>{" "}
             Program
           </h1>
           <p className="mt-3 max-w-3xl text-gray-600">
-            Mentor-led, campaign-driven training that takes you from{" "}
+            Mentor-led, project-based training from{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-800 via-emerald-200 to-emerald-800">
-              strategy
+              foundations
             </span>{" "}
             to{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-800 via-emerald-200 to-emerald-800">
-              measurable results
+              production patterns
             </span>
             .
           </p>
@@ -289,7 +299,7 @@ export default function Digital({ compact = true, metaOverrides = {} }) {
               </dl>
               <div className="mt-5 flex flex-wrap gap-3">
                 <Badge>Mentor-led</Badge>
-                <Badge>Campaign-based</Badge>
+                <Badge>Project-based</Badge>
                 <Badge>Portfolio-ready</Badge>
               </div>
             </div>
@@ -298,17 +308,23 @@ export default function Digital({ compact = true, metaOverrides = {} }) {
           {/* Right: Outcomes + Tools */}
           <div className="lg:col-span-7">
             <div className="rounded-2xl border bg-white p-5 sm:p-6 shadow-sm">
-              <h2 className="text-lg font-bold text-gray-900">What you’ll achieve</h2>
+              <h2 className="text-lg font-bold text-gray-900">
+                What you’ll achieve
+              </h2>
               <ul className="mt-3 space-y-2">
                 {OUTCOMES.map((o, i) => (
                   <li key={i} className="flex items-start gap-2 text-gray-700">
-                    <span className={`mt-1 inline-block h-2 w-2 rounded-full ${BRAND_GRADIENT}`} />
+                    <span
+                      className={`mt-1 inline-block h-2 w-2 rounded-full ${BRAND_GRADIENT}`}
+                    />
                     <span>{o}</span>
                   </li>
                 ))}
               </ul>
 
-              <h3 className="mt-6 text-sm font-semibold text-gray-900">Tools you’ll master</h3>
+              <h3 className="mt-6 text-sm font-semibold text-gray-900">
+                Tools you’ll master
+              </h3>
               <div className="mt-2 flex flex-wrap gap-2">
                 {TOOLS.map((t) => (
                   <ToolPill key={t.name} label={t.name} abbr={t.abbr} />
@@ -334,7 +350,9 @@ export default function Digital({ compact = true, metaOverrides = {} }) {
                 module={m}
                 index={idx}
                 open={openId === m.id}
-                onToggle={() => setOpenId((v) => (v === m.id ? "" : m.id))}
+                onToggle={() =>
+                  setOpenId((v) => (v === m.id ? "" : m.id))
+                }
               />
             ))}
           </div>
@@ -345,11 +363,13 @@ export default function Digital({ compact = true, metaOverrides = {} }) {
       <section className="mx-auto mt-8 max-w-6xl px-4 sm:px-6 lg:px-8">
         <div className="rounded-2xl border bg-white p-5 sm:p-6 shadow-sm">
           <div className="flex items-center justify-between gap-3">
-            <h2 className="text-xl font-bold text-gray-900">Student Projects (Preview)</h2>
+            <h2 className="text-xl font-bold text-gray-900">
+              Student Projects (Preview)
+            </h2>
             <div className={`h-2 w-24 rounded-full ${BRAND_GRADIENT}`} />
           </div>
 
-        <div className="mt-4 overflow-x-auto">
+          <div className="mt-4 overflow-x-auto">
             <div className="min-w-max flex gap-4">
               {PROJECT_GALLERY.map((p, i) => (
                 <article
@@ -592,11 +612,7 @@ function FaqItem({ q, a }) {
           <path d="M6 9l6 6 6-6" />
         </svg>
       </button>
-      {open && (
-        <div id={`${id}-panel`} className="mt-2 text-sm text-gray-700">
-          {a}
-        </div>
-      )}
+      {open && <div id={`${id}-panel`} className="mt-2 text-sm text-gray-700">{a}</div>}
     </div>
   );
 }

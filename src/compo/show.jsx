@@ -154,12 +154,13 @@ export default function TechMindsMarqueeShowcase() {
               <path d="M10.293 3.293a1 1 0 011.414 0l5 5a.997.997 0 01.083 1.32l-.083.094-5 5a1 1 0 01-1.497-1.32l.083-.094L13.585 10H4a1 1 0 01-.117-1.993L4 8h9.585l-3.292-3.293a1 1 0 010-1.414z" />
             </svg>
           </Link>
-          <a
-            href="#schedule"
+          <Link
+            
             className="inline-flex items-center rounded-full border border-white/20 bg-white/10 px-5 py-2.5 text-sm font-semibold text-white backdrop-blur transition-all hover:bg-white/20"
+            to='/schedule'
           >
             See schedule
-          </a>
+          </Link>
         </div>
       </div>
     </section>

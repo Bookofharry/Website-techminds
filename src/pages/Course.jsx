@@ -1,27 +1,13 @@
-import { useMemo, useState } from "react";
+import { useMemo, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import App from '../assets/app.png'
-import Web from '../assets/web.png'
-import Kids from '../assets/kidss.png'
-import Cloud from '../assets/cloud.jpeg'
+import App from "../assets/app.png";
+import Web from "../assets/web.png";
+import Kids from "../assets/kidss.png";
+import Cloud from "../assets/cloud.jpeg";
 
 /**
  * Tech Minds Academy — Courses Page
- * Elegant, reassuring, and swift. No extra libs; Tailwind-first.
- *
- * Components included:
- * - CourseHero (headline + stats)
- * - FiltersBar (search, category, level, format, sort)
- * - CourseGrid (responsive grid)
- * - CourseCard (image, tags, title, meta, price, CTA)
- * - RatingStars (display-only)
- * - Pagination (previous/next + pages)
- * - EmptyState (for 0 results)
- * - SkeletonCard (loading placeholder)
- * - SyllabusModal (inline drawer-style modal)
- * - Breadcrumbs (optional nav)
- *
- * How to use: <CoursesPage /> as a route screen.
+ * Now with rock-solid Syllabus links (internal + external support)
  */
 
 export default function CoursesPage() {
@@ -29,7 +15,7 @@ export default function CoursesPage() {
   const initialCourses = useMemo(
     () => [
       {
-        id: "wd-101",
+        id: "software-engineering/web-development",
         title: "Web Development Bootcamp",
         category: "Web Development",
         level: "Beginner",
@@ -39,14 +25,19 @@ export default function CoursesPage() {
         duration: "12 weeks",
         lessons: 69,
         price: 300000,
-        image:
-          Web,
+        image: Web,
         tags: ["HTML", "CSS", "JavaScript", "React"],
-        instructor: { name: "Adaobi E.", avatar: "https://i.pravatar.cc/80?img=5" },
-        highlight: "From zero to job‑ready with projects",
+        instructor: { name: "Fortune E.", avatar: "https://i.pravatar.cc/80?img=5" },
+        highlight: "From zero to job-ready with projects",
+        syllabus: [
+          { title: "Module 1 • Web Foundations", url: "/syllabus/software-engineering/web-development/module-1" },
+          { title: "Module 2 • Layout & Responsive CSS", url: "/syllabus/software-engineering/web-development/module-2" },
+          { title: "Module 3 • JavaScript Essentials", url: "/syllabus/software-engineering/web-development/module-3" },
+          { title: "Full PDF", url: "https://cdn.techmindsacademy.org/syllabus/web-development.pdf" },
+        ],
       },
       {
-        id: "ds-201",
+        id: "data-science",
         title: "Data Science with Python",
         category: "Data",
         level: "Intermediate",
@@ -59,11 +50,17 @@ export default function CoursesPage() {
         image:
           "https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=1600&auto=format&fit=crop",
         tags: ["Python", "Pandas", "Numpy", "ML"],
-        instructor: { name: "Ibrahim S.", avatar: "https://i.pravatar.cc/80?img=12" },
-        highlight: "Hands‑on with real datasets",
+        instructor: { name: "James S.", avatar: "https://i.pravatar.cc/80?img=12" },
+        highlight: "Hands-on with real datasets",
+        syllabus: [
+          { title: "Module 1 • Python Refresher", url: "/syllabus/data-science/module-1" },
+          { title: "Module 2 • Data Wrangling (Pandas)", url: "/syllabus/data-science/module-2" },
+          { title: "Module 3 • ML Basics", url: "/syllabus/data-science/module-3" },
+          { title: "Full PDF", url: "https://cdn.techmindsacademy.org/syllabus/data-science.pdf" },
+        ],
       },
       {
-        id: "cc-150",
+        id: "cloud-computing", // fixed: removed stray quote
         title: "Cloud Computing Essentials",
         category: "Cloud",
         level: "Beginner",
@@ -73,14 +70,19 @@ export default function CoursesPage() {
         duration: "8 weeks",
         lessons: 48,
         price: 130000,
-        image:
-          Cloud,
+        image: Cloud,
         tags: ["AWS", "Azure", "DevOps"],
         instructor: { name: "Blessing U.", avatar: "https://i.pravatar.cc/80?img=22" },
         highlight: "Deploy, scale, and monitor apps",
+        syllabus: [
+          { title: "Module 1 • Cloud Basics", url: "/syllabus/cloud-computing/module-1" },
+          { title: "Module 2 • Compute & Storage", url: "/syllabus/cloud-computing/module-2" },
+          { title: "Module 3 • CI/CD & Monitoring", url: "/syllabus/cloud-computing/module-3" },
+          { title: "Full PDF", url: "https://cdn.techmindsacademy.org/syllabus/cloud-essentials.pdf" },
+        ],
       },
       {
-        id: "kids-101",
+        id: "coding-for-kids-engineering",
         title: "Coding for Kids",
         category: "Kids",
         level: "Beginner",
@@ -90,28 +92,37 @@ export default function CoursesPage() {
         duration: "6 weeks",
         lessons: 36,
         price: 80000,
-        image:
-          Kids,
+        image: Kids,
         tags: ["Scratch", "Logic", "Creativity"],
         instructor: { name: "Fortune O.", avatar: "https://i.pravatar.cc/80?img=32" },
         highlight: "Playful projects that teach logic",
+        syllabus: [
+          { title: "Module 1 • Scratch Basics", url: "/syllabus/coding-for-kids-engineering/module-1" },
+          { title: "Module 2 • Game Logic", url: "/syllabus/coding-for-kids-engineering/module-2" },
+          { title: "Parent Guide (PDF)", url: "https://cdn.techmindsacademy.org/syllabus/kids-parent-guide.pdf" },
+        ],
       },
       {
-        id: "app-220",
+        id: "software-engineering/app-development",
         title: "Mobile App Development",
         category: "App Development",
         level: "Intermediate",
         format: "Online",
         rating: 4.5,
         ratingCount: 176,
-        duration: "13 weeks",
+        duration: "14 weeks",
         lessons: 70,
         price: 400000,
-        image:
-          App,
+        image: App,
         tags: ["React Native", "APIs", "UI/UX"],
         instructor: { name: "Michael Greg.", avatar: "https://i.pravatar.cc/80?img=44" },
         highlight: "Build and publish real apps",
+        syllabus: [
+          { title: "Module 1 • RN Basics", url: "/syllabus/software-engineering/app-development/module-1" },
+          { title: "Module 2 • Navigation & State", url: "/syllabus/software-engineering/app-development/module-2" },
+          { title: "Module 3 • APIs & Auth", url: "/syllabus/software-engineering/app-development/module-3" },
+          { title: "Full PDF", url: "https://cdn.techmindsacademy.org/syllabus/app-development.pdf" },
+        ],
       },
     ],
     []
@@ -150,12 +161,6 @@ export default function CoursesPage() {
   const totalPages = Math.max(1, Math.ceil(filtered.length / pageSize));
   const paged = filtered.slice((page - 1) * pageSize, page * pageSize);
 
-  // Reset to page 1 when filters change
-  const resetAnd = (fn) => (e) => {
-    setPage(1);
-    fn(e);
-  };
-
   return (
     <main className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-blue-50 dark:from-gray-950 dark:via-gray-900 dark:to-gray-950">
       <div className="mx-auto max-w-7xl px-4 pb-16 pt-10 sm:px-6 lg:px-8">
@@ -189,7 +194,13 @@ export default function CoursesPage() {
             setSort(v);
           }}
           resultCount={filtered.length}
-          hasActiveFilters={category !== "All" || level !== "All" || format !== "All" || sort !== "popular" || query.trim() !== ""}
+          hasActiveFilters={
+            category !== "All" ||
+            level !== "All" ||
+            format !== "All" ||
+            sort !== "popular" ||
+            query.trim() !== ""
+          }
           onClear={() => {
             setQuery("");
             setCategory("All");
@@ -219,9 +230,15 @@ function Breadcrumbs() {
   return (
     <nav className="mb-6 text-sm text-gray-500 dark:text-gray-400" aria-label="Breadcrumb">
       <ol className="flex items-center gap-2">
-        <li><Link to="/" className="hover:text-gray-700 dark:hover:text-gray-200">Home</Link></li>
+        <li>
+          <Link to="/" className="hover:text-gray-700 dark:hover:text-gray-200">
+            Home
+          </Link>
+        </li>
         <li className="opacity-60">/</li>
-        <li aria-current="page" className="font-medium text-gray-700 dark:text-gray-200">Courses</li>
+        <li aria-current="page" className="font-medium text-gray-700 dark:text-gray-200">
+          Courses
+        </li>
       </ol>
     </nav>
   );
@@ -283,11 +300,18 @@ function FiltersBar({
               placeholder="Search courses, tags, topics…"
               className="w-full rounded-2xl border border-gray-200 bg-white px-4 py-2.5 text-sm shadow-sm outline-none transition focus:border-blue-500 focus:ring-2 focus:ring-blue-200 dark:border-white/10 dark:bg-white/10 dark:text-white"
             />
-            <span className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-gray-400">⌘K</span>
+            <span className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-gray-400">
+              ⌘K
+            </span>
           </label>
 
           {/* Category */}
-          <Select value={category} onChange={setCategory} label="Category" options={["All", "Web Development", "Data", "Cloud", "Kids", "App Development"]} />
+          <Select
+            value={category}
+            onChange={setCategory}
+            label="Category"
+            options={["All", "Web Development", "Data", "Cloud", "Kids", "App Development"]}
+          />
 
           {/* Level */}
           <Select value={level} onChange={setLevel} label="Level" options={["All", "Beginner", "Intermediate", "Advanced"]} />
@@ -298,12 +322,17 @@ function FiltersBar({
 
         {/* Sort */}
         <div className="flex items-center gap-3">
-          <Select value={sort} onChange={setSort} label="Sort" options={[
-            { label: "Most Popular", value: "popular" },
-            { label: "Top Rated", value: "rating" },
-            { label: "Price: Low to High", value: "priceLow" },
-            { label: "Price: High to Low", value: "priceHigh" },
-          ]} />
+          <Select
+            value={sort}
+            onChange={setSort}
+            label="Sort"
+            options={[
+              { label: "Most Popular", value: "popular" },
+              { label: "Top Rated", value: "rating" },
+              { label: "Price: Low to High", value: "priceLow" },
+              { label: "Price: High to Low", value: "priceHigh" },
+            ]}
+          />
           <span className="hidden text-xs text-gray-500 sm:inline dark:text-gray-400">{resultCount} results</span>
         </div>
       </div>
@@ -347,6 +376,23 @@ function CourseGrid({ courses }) {
   );
 }
 
+/** SmartLink: uses <Link> for internal routes, <a> for external URLs */
+function SmartLink({ to, children, className }) {
+  const isExternal = /^https?:\/\//i.test(to);
+  if (isExternal) {
+    return (
+      <a href={to} target="_blank" rel="noopener noreferrer" className={className}>
+        {children}
+      </a>
+    );
+  }
+  return (
+    <Link to={to} className={className}>
+      {children}
+    </Link>
+  );
+}
+
 function CourseCard({ course }) {
   const [open, setOpen] = useState(false);
   const {
@@ -364,6 +410,7 @@ function CourseCard({ course }) {
     tags,
     instructor,
     highlight,
+    syllabus = [],
   } = course;
 
   return (
@@ -379,7 +426,9 @@ function CourseCard({ course }) {
 
       <div className="space-y-3 p-4">
         <h3 className="line-clamp-2 text-base font-semibold text-gray-900 dark:text-white">
-          <Link to={`/courses/${id}`} className="after:absolute after:inset-0">{title}</Link>
+          <Link to={`${id}`} className="after:absolute after:inset-0">
+            {title}
+          </Link>
         </h3>
 
         <p className="line-clamp-2 text-sm text-gray-600 dark:text-gray-300">{highlight}</p>
@@ -403,7 +452,7 @@ function CourseCard({ course }) {
           </div>
           <div className="text-right">
             <div className="text-sm font-bold text-gray-900 dark:text-white">₦{price.toLocaleString()}</div>
-            <div className="text-[11px] text-gray-500">one‑time</div>
+            <div className="text-[11px] text-gray-500">one-time</div>
           </div>
         </div>
 
@@ -416,22 +465,29 @@ function CourseCard({ course }) {
 
         <div className="flex items-center gap-3 pt-2">
           <Link
-            to={`/enroll/${id}`}
+            to={`${id}}`}
             className="inline-flex flex-1 items-center justify-center rounded-2xl bg-blue-600 px-4 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
           >
             Enroll Now
           </Link>
-          <button
+
+          <p
             type="button"
             onClick={() => setOpen(true)}
             className="inline-flex items-center justify-center rounded-2xl border border-gray-200 bg-white px-4 py-2 text-sm font-semibold text-gray-900 shadow-sm transition hover:border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:border-white/10 dark:bg-white/10 dark:text-white"
           >
             Syllabus
-          </button>
+          </p>
         </div>
       </div>
 
-      {open && <SyllabusModal onClose={() => setOpen(false)} title={title} />}
+      {open && (
+        <SyllabusModal
+          onClose={() => setOpen(false)}
+          title={title}
+          items={syllabus}
+        />
+      )}
     </article>
   );
 }
@@ -441,7 +497,7 @@ function RatingStars({ value = 0 }) {
   const half = value - full >= 0.5;
   const total = 5;
   return (
-    <div className="flex items-center">
+    <div className="flex items-center" aria-label={`Rating: ${value} out of 5`}>
       {Array.from({ length: total }, (_, i) => {
         const filled = i < full || (i === full && half);
         return (
@@ -449,6 +505,8 @@ function RatingStars({ value = 0 }) {
             key={i}
             viewBox="0 0 20 20"
             className={`h-4 w-4 ${filled ? "fill-yellow-400" : "fill-gray-200 dark:fill-white/15"}`}
+            role="img"
+            aria-hidden="true"
           >
             <path d="M10 15l-5.878 3.09 1.122-6.545L.488 6.91l6.562-.954L10 0l2.95 5.956 6.562.954-4.756 4.635 1.122 6.545z" />
           </svg>
@@ -502,6 +560,7 @@ function Pagination({ page, setPage, totalPages }) {
                 ? "bg-blue-600 text-white shadow"
                 : "border border-gray-200 bg-white text-gray-700 hover:border-gray-300 dark:border-white/10 dark:bg-white/10 dark:text-white"
             }`}
+            aria-current={p === page ? "page" : undefined}
           >
             {p}
           </button>
@@ -533,25 +592,65 @@ function EmptyState() {
   );
 }
 
-function SyllabusModal({ onClose, title }) {
+/** Modal that lists syllabus links. Handles ESC & backdrop clicks. */
+function SyllabusModal({ onClose, title, items = [] }) {
+  // ESC to close
+  useEffect(() => {
+    const onKey = (e) => e.key === "Escape" && onClose();
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [onClose]);
+
+  const stop = (e) => e.stopPropagation();
+
   return (
-    <div className="fixed inset-0 z-50 flex items-end justify-center bg-black/40 p-0 sm:items-center sm:p-6">
-      <div className="w-full max-w-2xl translate-y-0 rounded-t-3xl bg-white p-6 shadow-xl sm:rounded-3xl dark:bg-gray-900">
+    <div
+      className="fixed inset-0 z-50 flex items-end justify-center bg-black/40 p-0 sm:items-center sm:p-6"
+      onClick={onClose}
+      role="dialog"
+      aria-modal="true"
+    >
+      <div
+        className="w-full max-w-2xl translate-y-0 rounded-t-3xl bg-white p-6 shadow-xl sm:rounded-3xl dark:bg-gray-900"
+        onClick={stop}
+      >
         <div className="flex items-start justify-between gap-4">
           <div>
             <h4 className="text-lg font-semibold text-gray-900 dark:text-white">Syllabus • {title}</h4>
-            <p className="mt-1 text-sm text-gray-600 dark:text-gray-300">A quick look at the modules you will cover.</p>
+            <p className="mt-1 text-sm text-gray-600 dark:text-gray-300">
+              Open a module or download the full PDF.
+            </p>
           </div>
-          <button onClick={onClose} className="rounded-xl border border-gray-200 bg-white px-3 py-1.5 text-sm shadow-sm hover:border-gray-300 dark:border-white/10 dark:bg-white/10 dark:text-white">
+          <button
+            onClick={onClose}
+            className="rounded-xl border border-gray-200 bg-white px-3 py-1.5 text-sm shadow-sm hover:border-gray-300 dark:border-white/10 dark:bg-white/10 dark:text-white"
+          >
             Close
           </button>
         </div>
 
         <ol className="mt-6 grid gap-3 text-sm text-gray-700 dark:text-gray-200">
-          <li className="rounded-2xl border border-gray-200 bg-white p-3 dark:border-white/10 dark:bg-white/10">1. Fundamentals & Tooling</li>
-          <li className="rounded-2xl border border-gray-200 bg-white p-3 dark:border-white/10 dark:bg-white/10">2. Core Concepts & Hands‑on Labs</li>
-          <li className="rounded-2xl border border-gray-200 bg-white p-3 dark:border-white/10 dark:bg-white/10">3. Projects & Collaboration</li>
-          <li className="rounded-2xl border border-gray-200 bg-white p-3 dark:border-white/10 dark:bg-white/10">4. Portfolio & Interview Prep</li>
+          {items.length === 0 && (
+            <li className="rounded-2xl border border-gray-200 bg-white p-3 dark:border-white/10 dark:bg-white/10">
+              Syllabus is being prepared. Please check back soon.
+            </li>
+          )}
+
+          {items.map((it, idx) => (
+            <li
+              key={it.url ?? idx}
+              className="flex items-center justify-between gap-3 rounded-2xl border border-gray-200 bg-white p-3 transition hover:border-blue-300 dark:border-white/10 dark:bg-white/10"
+            >
+              <span className="font-medium">{idx + 1}. {it.title}</span>
+              <SmartLink
+                to={it.url}
+                className="inline-flex items-center gap-1 rounded-lg border border-gray-200 bg-white px-3 py-1.5 text-xs font-semibold text-gray-900 shadow-sm transition hover:border-blue-300 dark:border-white/10 dark:bg-white/10 dark:text-white"
+              >
+                Open
+                <span aria-hidden>↗</span>
+              </SmartLink>
+            </li>
+          ))}
         </ol>
       </div>
     </div>

@@ -16,6 +16,7 @@ import NotFound from './pages/NotFound'
 import CoursesPage from './pages/Course'
 import SyllabusPage from './pages/syllabus'
 import SchedulesPage from './pages/Schedule'
+import CloudComputingPage from './pages/Cloud'
 
 function App(){
 
@@ -64,10 +65,10 @@ function App(){
         <Route path='/application' element={<Application/>}/>
 
         <Route path='/mail' element={<Mail />}/>
-        <Route path='/courses' element={<CoursesPage />}/>
+        <Route path='/programs' element={<CoursesPage />}/>
         <Route path='/syllabus' element={<SyllabusPage />}/>
         <Route path='/schedule' element={<SchedulesPage />}/>
-        <Route path='/programs/cloud-computing' element={ <h1>Cloud</h1>}/>
+        <Route path='/programs/cloud-computing' element={ <CloudComputingPage />}/>
         <Route path="*" element={<NotFound />} />
         
 
