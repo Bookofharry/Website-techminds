@@ -10,7 +10,7 @@ function Thank() {
       price: 300000,
       img: Web,
       badge: "In-Demand",
-      duration: "8–12 weeks",
+      duration: "12 weeks",
       mentorLed: true,
       link: '/programs/software-engineering/web-development' 
     },
@@ -18,7 +18,7 @@ function Thank() {
       title: "App Development",
       price: 400000,
       img: App,
-      duration: "10–14 weeks",
+      duration: "12–14 weeks",
       mentorLed: true,
       link: '/programs/software-engineering/app-development'
     },
@@ -35,7 +35,7 @@ function Thank() {
       title: "Coding for Kids",
       price: 150000,
       img: Kids,
-      duration: "10–12 weeks",
+      duration: "14 weeks",
       mentorLed: true,
       link: '/programs/coding-for-kids-engineering'
     },

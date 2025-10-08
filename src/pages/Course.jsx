@@ -27,7 +27,7 @@ export default function CoursesPage() {
         price: 300000,
         image: Web,
         tags: ["HTML", "CSS", "JavaScript", "React"],
-        instructor: { name: "Fortune E.", avatar: "https://i.pravatar.cc/80?img=5" },
+        instructor: { name: "Fortune ", avatar: "https://i.pravatar.cc/80?img=5" },
         highlight: "From zero to job-ready with projects",
         syllabus: [
           { title: "Module 1 • Web Foundations", url: "/syllabus/software-engineering/web-development/module-1" },
@@ -44,13 +44,13 @@ export default function CoursesPage() {
         format: "Online",
         rating: 4.7,
         ratingCount: 209,
-        duration: "10 weeks",
+        duration: "12 weeks",
         lessons: 75,
-        price: 180000,
+        price: 400000,
         image:
           "https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=1600&auto=format&fit=crop",
         tags: ["Python", "Pandas", "Numpy", "ML"],
-        instructor: { name: "James S.", avatar: "https://i.pravatar.cc/80?img=12" },
+        instructor: { name: "James ", avatar: "https://i.pravatar.cc/80?img=12" },
         highlight: "Hands-on with real datasets",
         syllabus: [
           { title: "Module 1 • Python Refresher", url: "/syllabus/data-science/module-1" },
@@ -67,12 +67,12 @@ export default function CoursesPage() {
         format: "Onsite",
         rating: 4.6,
         ratingCount: 143,
-        duration: "8 weeks",
+        duration: "12 weeks",
         lessons: 48,
-        price: 130000,
+        price: 600000,
         image: Cloud,
         tags: ["AWS", "Azure", "DevOps"],
-        instructor: { name: "Blessing U.", avatar: "https://i.pravatar.cc/80?img=22" },
+        instructor: { name: "Harry ", avatar: "https://i.pravatar.cc/80?img=22" },
         highlight: "Deploy, scale, and monitor apps",
         syllabus: [
           { title: "Module 1 • Cloud Basics", url: "/syllabus/cloud-computing/module-1" },
@@ -89,12 +89,12 @@ export default function CoursesPage() {
         format: "Onsite",
         rating: 4.9,
         ratingCount: 98,
-        duration: "6 weeks",
+        duration: "14 weeks",
         lessons: 36,
-        price: 80000,
+        price: 150000,
         image: Kids,
         tags: ["Scratch", "Logic", "Creativity"],
-        instructor: { name: "Fortune O.", avatar: "https://i.pravatar.cc/80?img=32" },
+        instructor: { name: "Fortune ", avatar: "https://i.pravatar.cc/80?img=32" },
         highlight: "Playful projects that teach logic",
         syllabus: [
           { title: "Module 1 • Scratch Basics", url: "/syllabus/coding-for-kids-engineering/module-1" },
@@ -115,7 +115,7 @@ export default function CoursesPage() {
         price: 400000,
         image: App,
         tags: ["React Native", "APIs", "UI/UX"],
-        instructor: { name: "Michael Greg.", avatar: "https://i.pravatar.cc/80?img=44" },
+        instructor: { name: "Michael", avatar: "https://i.pravatar.cc/80?img=44" },
         highlight: "Build and publish real apps",
         syllabus: [
           { title: "Module 1 • RN Basics", url: "/syllabus/software-engineering/app-development/module-1" },
@@ -250,16 +250,16 @@ function CourseHero() {
       <div className="flex flex-col items-start justify-between gap-6 sm:flex-row sm:items-center">
         <div>
           <h1 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-3xl">
-            Grow your skills with Tech Minds Academy
+            LEARN WITH THE GEEKS
           </h1>
           <p className="mt-2 max-w-prose text-sm text-gray-600 dark:text-gray-300">
             Learn modern tech the practical way—projects, mentorship, and career support in Abuja & online.
           </p>
         </div>
         <div className="grid grid-cols-3 gap-4">
-          <HeroStat label="Avg. Rating" value="4.7" />
-          <HeroStat label="Courses" value="120+" />
-          <HeroStat label="Graduates" value="1,500+" />
+          <HeroStat label="Instructors" value="7" />
+          <HeroStat label="Courses" value="10+" />
+          <HeroStat label="Graduates" value="400+" />
         </div>
       </div>
     </header>
@@ -447,12 +447,12 @@ function CourseCard({ course }) {
 
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <RatingStars value={rating} />
-            <span className="text-xs text-gray-500">({ratingCount})</span>
+            {/* <RatingStars value={rating} /> */}
+            {/* <span className="text-xs text-gray-500">({ratingCount})</span> */}
           </div>
           <div className="text-right">
             <div className="text-sm font-bold text-gray-900 dark:text-white">₦{price.toLocaleString()}</div>
-            <div className="text-[11px] text-gray-500">one-time</div>
+            <div className="text-[11px] text-gray-500">one-time/installment</div>
           </div>
         </div>
 
@@ -471,13 +471,13 @@ function CourseCard({ course }) {
             Enroll Now
           </Link>
 
-          <p
+          {/* <p
             type="button"
             onClick={() => setOpen(true)}
             className="inline-flex items-center justify-center rounded-2xl border border-gray-200 bg-white px-4 py-2 text-sm font-semibold text-gray-900 shadow-sm transition hover:border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:border-white/10 dark:bg-white/10 dark:text-white"
           >
             Syllabus
-          </p>
+          </p> */}
         </div>
       </div>
 

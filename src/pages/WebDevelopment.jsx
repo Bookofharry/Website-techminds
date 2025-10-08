@@ -1,5 +1,5 @@
 import React, { useMemo, useRef, useState } from "react";
-
+import { Link } from "react-router-dom";
 /**
  * Tech Minds Academy — Web Development Page (compact-ready)
  * Usage:
@@ -17,7 +17,7 @@ const WD_META = {
   durationWeeks: 12,
   weeklyPace: "3 days/week • 2–3 hrs/session",
   nextCohort: "Nov 4, 2025",
-  price: "₦250,000",
+  price: "₦300,000",
 };
 
 const OUTCOMES = [
@@ -141,19 +141,19 @@ const PROJECT_GALLERY = [
 
 const INSTRUCTORS = [
   {
-    name: "Ada Okon",
+    name: "Fortune Nwakanma",
     role: "Front-end Engineer",
     bio: "Design systems, accessibility & Tailwind craft.",
     initials: "AO",
   },
   {
-    name: "Zainab Ali",
+    name: "Ifeanyi O.",
     role: "React Instructor",
     bio: "Component architecture, forms & routing.",
     initials: "ZA",
   },
   {
-    name: "Ifeanyi O.",
+    name: "MIchael Amadi",
     role: "Backend/DevOps (Intro)",
     bio: "APIs, Express basics & deployments.",
     initials: "IO",
@@ -251,14 +251,14 @@ export default function WebDevelopmentPage({ compact = true, metaOverrides = {} 
 
           {/* Actions */}
           <div className="mt-6 flex flex-wrap gap-3">
-            <a
-              href="#apply"
+            <Link
+              to='/application'
               className="rounded-2xl px-4 py-2 text-sm font-semibold text-white bg-gray-900 hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-900/30"
             >
               Apply Now
-            </a>
+            </Link>
             <a
-              href="#contact"
+              href="Tel: 2348147328332"
               className="rounded-2xl px-4 py-2 text-sm font-semibold text-gray-900 bg-white border border-gray-200 hover:border-gray-300 focus:outline-none focus:ring-2 focus:ring-emerald-700/20"
             >
               Talk to Admissions
@@ -415,7 +415,7 @@ export default function WebDevelopmentPage({ compact = true, metaOverrides = {} 
 
           {/* Actions */}
           <div className="mt-6 flex flex-wrap gap-3">
-            <button
+            {/* <button
               onClick={handlePrint}
               className="rounded-2xl px-4 py-2 text-sm font-semibold text-white bg-gray-900 hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-900/30"
             >
@@ -426,7 +426,7 @@ export default function WebDevelopmentPage({ compact = true, metaOverrides = {} 
               className="rounded-2xl px-4 py-2 text-sm font-semibold text-gray-900 bg-white border border-gray-200 hover:border-gray-300 focus:outline-none focus:ring-2 focus:ring-emerald-700/20"
             >
               Export JSON
-            </button>
+            </button> */}
             <a ref={jsonRef} className="hidden" />
           </div>
         </div>

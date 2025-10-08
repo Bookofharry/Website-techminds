@@ -159,6 +159,7 @@ const Faq = () => {
           <Link className="font-medium text-blue-600 transition-all duration-200 hover:text-blue-700 hover:underline focus:text-blue-700" to='/contact'>Talk to our support team</Link>
           .
         </p>
+        
       </div>
     </section>
   );

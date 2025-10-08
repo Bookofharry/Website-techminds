@@ -28,6 +28,7 @@ export default function NavBar() {
         { label: "Coding For Kids Engineering", icon: "pi pi-bolt", template: linkTemplate("/programs/coding-for-kids-engineering") },
         { label: "Data Science", icon: "pi pi-server", template: linkTemplate("/programs/data-science") },
         { label: "Digital Marketing", icon: "pi pi-pencil", template: linkTemplate("/programs/digital-marketing") },
+        { label: "Cloud Computing", icon: "pi pi-pencil", template: linkTemplate("/programs/cloud-computing") },
         {
           label: "Software Engineering",
           icon: "pi pi-palette",

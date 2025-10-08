@@ -1,5 +1,5 @@
 import React, { useMemo, useRef, useState } from "react";
-
+import { Link } from "react-router-dom";
 /**
  * Tech Minds Academy — Digital Marketing Page (compact-ready)
  * Usage:
@@ -17,7 +17,7 @@ const DM_META = {
   durationWeeks: 12,
   weeklyPace: "3 days/week • 2–3 hrs/session",
   nextCohort: "Nov 18, 2025",
-  price: "₦230,000",
+  price: "₦200,000",
 };
 
 const OUTCOMES = [
@@ -138,7 +138,7 @@ const PROJECT_GALLERY = [
 
 const INSTRUCTORS = [
   {
-    name: "Kemi B.",
+    name: "Rachael B.",
     role: "Performance Marketer",
     bio: "Paid media strategy, budgeting & optimization.",
     initials: "KB",
@@ -243,30 +243,19 @@ export default function Digital({ compact = true, metaOverrides = {} }) {
 
           {/* Actions */}
           <div className="mt-6 flex flex-wrap gap-3">
-            <a
-              href="#apply"
+            <Link
+              to="/application"
               className="rounded-2xl px-4 py-2 text-sm font-semibold text-white bg-gray-900 hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-900/30"
             >
               Apply Now
-            </a>
-            <a
-              href="#contact"
+            </Link>
+            <Link
+              to="Tel: +234 814732 8332"
               className="rounded-2xl px-4 py-2 text-sm font-semibold text-gray-900 bg-white border border-gray-200 hover:border-gray-300 focus:outline-none focus:ring-2 focus:ring-emerald-700/20"
             >
               Talk to Admissions
-            </a>
-            <button
-              onClick={handlePrint}
-              className="rounded-2xl px-4 py-2 text-sm font-semibold text-white bg-gray-900 hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-900/30"
-            >
-              Print Page
-            </button>
-            <button
-              onClick={handleExportJSON}
-              className="rounded-2xl px-4 py-2 text-sm font-semibold text-gray-900 bg-white border border-gray-200 hover:border-gray-300 focus:outline-none focus:ring-2 focus:ring-emerald-700/20"
-            >
-              Export JSON
-            </button>
+            </Link>
+
             <a ref={jsonRef} className="hidden" />
           </div>
         </div>
@@ -406,18 +395,7 @@ export default function Digital({ compact = true, metaOverrides = {} }) {
 
           {/* Actions */}
           <div className="mt-6 flex flex-wrap gap-3">
-            <button
-              onClick={handlePrint}
-              className="rounded-2xl px-4 py-2 text-sm font-semibold text-white bg-gray-900 hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-900/30"
-            >
-              Print Page
-            </button>
-            <button
-              onClick={handleExportJSON}
-              className="rounded-2xl px-4 py-2 text-sm font-semibold text-gray-900 bg-white border border-gray-200 hover:border-gray-300 focus:outline-none focus:ring-2 focus:ring-emerald-700/20"
-            >
-              Export JSON
-            </button>
+
             <a ref={jsonRef} className="hidden" />
           </div>
         </div>

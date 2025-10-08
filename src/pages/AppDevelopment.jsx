@@ -1,5 +1,5 @@
 import React, { useMemo, useRef, useState } from "react";
-
+import { Link } from "react-router-dom";
 /**
  * Tech Minds Academy — App Development Page (compact-ready)
  * Usage:
@@ -14,10 +14,10 @@ const AD_META = {
   track: "App Development",
   level: "Beginner → Intermediate",
   format: "On-Campus (Bwari) • Online (Live) • Hybrid",
-  durationWeeks: 12,
+  durationWeeks: 14,
   weeklyPace: "3 days/week • 2–3 hrs/session",
   nextCohort: "Dec 2, 2025",
-  price: "₦270,000",
+  price: "₦400,000",
 };
 
 const OUTCOMES = [
@@ -123,9 +123,9 @@ const PROJECT_GALLERY = [
 ];
 
 const INSTRUCTORS = [
-  { name: "David Sule", role: "React Native Engineer", bio: "Navigation, device APIs & production patterns.", initials: "DS" },
-  { name: "Ada Okon", role: "Front-end → Mobile", bio: "Design systems, accessibility & TypeScript.", initials: "AO" },
-  { name: "Ifeanyi O.", role: "Backend/DevOps (Intro)", bio: "APIs, auth, and deployments.", initials: "IO" },
+  { name: "Michael Amadi", role: "React Native Engineer", bio: "Navigation, device APIs & production patterns.", initials: "DS" },
+  { name: "Michael Amadi", role: "Front-end → Mobile", bio: "Design systems, accessibility & TypeScript.", initials: "AO" },
+  { name: "Michael Amadi", role: "", bio: "APIs, auth, and deployments.", initials: "IO" },
 ];
 
 const FAQS = [
@@ -207,18 +207,13 @@ export default function AppDevelopment({ compact = true, metaOverrides = {} }) {
 
           {/* Actions */}
           <div className="mt-6 flex flex-wrap gap-3">
-            <a href="#apply" className="rounded-2xl px-4 py-2 text-sm font-semibold text-white bg-gray-900 hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-900/30">
+            <Link to="/application" className="rounded-2xl px-4 py-2 text-sm font-semibold text-white bg-gray-900 hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-900/30">
               Apply Now
-            </a>
-            <a href="#contact" className="rounded-2xl px-4 py-2 text-sm font-semibold text-gray-900 bg-white border border-gray-200 hover:border-gray-300 focus:outline-none focus:ring-2 focus:ring-emerald-700/20">
+            </Link>
+            <Link to="Tel: +2348147328332" className="rounded-2xl px-4 py-2 text-sm font-semibold text-gray-900 bg-white border border-gray-200 hover:border-gray-300 focus:outline-none focus:ring-2 focus:ring-emerald-700/20">
               Talk to Admissions
-            </a>
-            <button onClick={handlePrint} className="rounded-2xl px-4 py-2 text-sm font-semibold text-white bg-gray-900 hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-900/30">
-              Print Page
-            </button>
-            <button onClick={handleExportJSON} className="rounded-2xl px-4 py-2 text-sm font-semibold text-gray-900 bg-white border border-gray-200 hover:border-gray-300 focus:outline-none focus:ring-2 focus:ring-emerald-700/20">
-              Export JSON
-            </button>
+            </Link>
+
             <a ref={jsonRef} className="hidden" />
           </div>
         </div>
@@ -349,12 +344,7 @@ export default function AppDevelopment({ compact = true, metaOverrides = {} }) {
 
           {/* Actions */}
           <div className="mt-6 flex flex-wrap gap-3">
-            <button onClick={handlePrint} className="rounded-2xl px-4 py-2 text-sm font-semibold text-white bg-gray-900 hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-900/30">
-              Print Page
-            </button>
-            <button onClick={handleExportJSON} className="rounded-2xl px-4 py-2 text-sm font-semibold text-gray-900 bg-white border border-gray-200 hover:border-gray-300 focus:outline-none focus:ring-2 focus:ring-emerald-700/20">
-              Export JSON
-            </button>
+
             <a ref={jsonRef} className="hidden" />
           </div>
         </div>

@@ -125,7 +125,7 @@ const Footer = ({ onSubscribe }) => {
             <p className="text-sm font-semibold tracking-widest text-gray-400 uppercase">Company</p>
             <ul className="mt-6 space-y-4">
               <li><Link to="/" className="text-base text-black transition hover:text-blue-600 focus:text-blue-600">Home</Link></li>
-              <li><Link to="/courses" className="text-base text-black transition hover:text-blue-600 focus:text-blue-600">Courses</Link></li>
+              <li><Link to="/programs" className="text-base text-black transition hover:text-blue-600 focus:text-blue-600">Courses</Link></li>
               <li><Link to='/programs/coding-for-kids-engineering' className="text-base text-black transition hover:text-blue-600 focus:text-blue-600">Kids Program</Link></li>
               <li><Link to="https://techmindsacademyapp.netlify.app/" className="text-base text-black transition hover:text-blue-600 focus:text-blue-600">Portfolio</Link></li>
               <li><Link to="/facilities" className="text-base text-black transition hover:text-blue-600 focus:text-blue-600">Facilities</Link></li>
@@ -136,10 +136,12 @@ const Footer = ({ onSubscribe }) => {
           <nav aria-label="Help">
             <p className="text-sm font-semibold tracking-widest text-gray-400 uppercase">Help</p>
             <ul className="mt-6 space-y-4">
-              <li><a href="/contact" className="text-base text-black transition hover:text-blue-600 focus:text-blue-600">Customer Support</a></li>
-              <li><a href="/faq" className="text-base text-black transition hover:text-blue-600 focus:text-blue-600">FAQs</a></li>
-              <li><a href="/terms" className="text-base text-black transition hover:text-blue-600 focus:text-blue-600">Terms & Conditions</a></li>
-              <li><a href="/privacy" className="text-base text-black transition hover:text-blue-600 focus:text-blue-600">Privacy Policy</a></li>
+              <li><Link to="/contact" className="text-base text-black transition hover:text-blue-600 focus:text-blue-600">Customer Support</Link></li>
+              <li><Link to="/faq" className="text-base text-black transition hover:text-blue-600 focus:text-blue-600">FAQs</Link></li>
+              <li><Link to="/terms" className="text-base text-black transition hover:text-blue-600 focus:text-blue-600">Terms & Conditions</Link></li>
+              <li><Link to="/privacy" className="text-base text-black transition hover:text-blue-600 focus:text-blue-600">Privacy Policy</Link></li>
+              <li><Link to="/pricing" className="text-base text-black transition hover:text-blue-600 focus:text-blue-600">Admissions & Pricing</Link></li>
+             
             </ul>
           </nav>
 
