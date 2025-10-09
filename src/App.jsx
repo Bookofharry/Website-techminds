@@ -8,7 +8,7 @@ import Facilities from './pages/Facilities'
 import Home from './pages/Home'
 import WebDev from './pages/WebDevelopment'
 import Footer from './compo/footer'
-import Mail from './pages/Mail'
+
 import Application from './pages/Application'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import ScrollToTop from "./ScroolTop";

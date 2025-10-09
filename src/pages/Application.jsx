@@ -1,6 +1,6 @@
 import { useState } from "react";
 import emailjs from '@emailjs/browser';
-
+import { Link } from "react-router-dom";
 function Application({ onSubmit }) {
   const [values, setValues] = useState({
     name: "",
@@ -399,9 +399,9 @@ function Application({ onSubmit }) {
 
               <span className="text-sm leading-6 text-slate-700 dark:text-slate-300">
                 I agree to the{" "}
-                <a href="#" className="font-semibold text-emerald-700 underline-offset-2 hover:underline dark:text-emerald-400">
+                <Link to="/terms" className="font-semibold text-emerald-700 underline-offset-2 hover:underline dark:text-emerald-400">
                   Terms &amp; Conditions
-                </a>{" "}
+                </Link>{" "}
                 and consent to be contacted about my application.
                 <span className="ml-2 inline-flex items-center rounded-full bg-slate-100 px-2 py-0.5 text-[11px] font-semibold text-slate-600 ring-1 ring-slate-200 dark:bg-slate-800 dark:text-slate-300 dark:ring-slate-700">
                   Required

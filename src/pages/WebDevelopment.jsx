@@ -153,7 +153,7 @@ const INSTRUCTORS = [
     initials: "ZA",
   },
   {
-    name: "MIchael Amadi",
+    name: "Michael Amadi",
     role: "Backend/DevOps (Intro)",
     bio: "APIs, Express basics & deployments.",
     initials: "IO",
