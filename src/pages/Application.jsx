@@ -1,10 +1,12 @@
 import { useState } from "react";
+import emailjs from '@emailjs/browser';
 
 function Application({ onSubmit }) {
   const [values, setValues] = useState({
     name: "",
     email: "",
     country: "",
+    state: "",          // ⬅️ NEW: state/region
     phone: "",
     course: "",
     accept: false,
@@ -22,13 +24,21 @@ function Application({ onSubmit }) {
     "Data Science",
   ];
 
+  // Nigerian states + FCT
+  const STATE_OPTIONS_NG = [
+    "Abia","Adamawa","Akwa Ibom","Anambra","Bauchi","Bayelsa","Benue","Borno",
+    "Cross River","Delta","Ebonyi","Edo","Ekiti","Enugu","Gombe","Imo","Jigawa",
+    "Kaduna","Kano","Katsina","Kebbi","Kogi","Kwara","Lagos","Nasarawa","Niger",
+    "Ogun","Ondo","Osun","Oyo","Plateau","Rivers","Sokoto","Taraba","Yobe","Zamfara",
+    "Federal Capital Territory (FCT)"
+  ];
+
   const validators = {
-    name: (v) => (v.trim().length >= 2 ? "" : "Please enter your full name."),
-    email: (v) =>
-      /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i.test(v) ? "" : "Enter a valid email.",
-    country: (v) => (v.trim() ? "" : "Country is required."),
-    phone: (v) =>
-      /^\+?\d[\d\s()-]{6,}$/.test(v) ? "" : "Enter a valid phone number.",
+    name:   (v) => (v.trim().length >= 2 ? "" : "Please enter your full name."),
+    email:  (v) => (/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i.test(v) ? "" : "Enter a valid email."),
+    country:(v) => (v.trim() ? "" : "Country is required."),
+    state:  (v) => (v.trim() ? "" : "State/Region is required."), // ⬅️ NEW
+    phone:  (v) => (/^\+?\d[\d\s()-]{6,}$/.test(v) ? "" : "Enter a valid phone number."),
     course: (v) => (v ? "" : "Please select a course."),
     accept: (v) => (v ? "" : "You must accept the terms."),
   };
@@ -36,6 +46,17 @@ function Application({ onSubmit }) {
   const handleChange = (e) => {
     const { name, type, checked, value } = e.target;
     const next = { ...values, [name]: type === "checkbox" ? checked : value };
+
+    // If country changes away from Nigeria, keep existing state text;
+    // If country becomes Nigeria and current state isn't in list, reset it.
+    if (name === "country") {
+      const isNigeria = value.trim().toLowerCase() === "nigeria";
+      if (isNigeria === true) {
+        // if already a valid NG state keep it; else empty
+        if (!STATE_OPTIONS_NG.includes(values.state)) next.state = "";
+      }
+    }
+
     setValues(next);
     if (validators[name]) {
       setErrors((prev) => ({ ...prev, [name]: validators[name](next[name]) }));
@@ -54,16 +75,35 @@ function Application({ onSubmit }) {
     try {
       setSubmitting(true);
       if (typeof onSubmit === "function") {
-        await onSubmit(values);
+        await onSubmit(values); // ⬅️ includes values.state
       } else {
         await new Promise((r) => setTimeout(r, 900));
-        console.log("Application submitted:", values);
+        console.log(values)
+        try{
+          emailjs
+            .send('service_3bddktl', 'template_hvo9ver', values, {
+              publicKey: 'wmFyPdhB_TEULscHH',
+            })
+            .then(
+              (response) => {
+                console.log('SUCCESS!', response.status, response.text);
+              },
+              (err) => {
+                console.log('FAILED...', err);
+              },
+            );
+
+        }catch(err){
+            console.log(err)
+        }
+        console.log("Application submitted:", values); // ⬅️ logs state too
       }
       setSent(true);
       setValues({
         name: "",
         email: "",
         country: "",
+        state: "",   // ⬅️ reset
         phone: "",
         course: "",
         accept: false,
@@ -84,9 +124,10 @@ function Application({ onSubmit }) {
 
   const labelCls =
     "mb-2 flex items-center text-sm font-medium text-slate-700 dark:text-slate-300";
-
   const iconWrap =
     "pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3 text-slate-400";
+
+  const isNigeria = values.country.trim().toLowerCase() === "nigeria";
 
   return (
     <section className="py-8">
@@ -102,7 +143,6 @@ function Application({ onSubmit }) {
               <span className="font-medium">we’ll reach out with next steps.</span>
             </p>
           </div>
-          {/* tiny reassurance badge */}
           <div className="hidden sm:inline-flex items-center gap-2 rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-[11px] font-semibold text-slate-600 dark:border-slate-700 dark:bg-slate-800/60 dark:text-slate-300">
             <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2">
               <path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3Z" />
@@ -135,7 +175,6 @@ function Application({ onSubmit }) {
                 Required
               </span>
             </label>
-
             <div className="relative text-gray-500 focus-within:text-gray-900 dark:focus-within:text-white">
               <div className={iconWrap}>
                 <svg className="ml-1 stroke-current" width="22" height="22" viewBox="0 0 24 24" fill="none">
@@ -160,9 +199,7 @@ function Application({ onSubmit }) {
 
           {/* Email */}
           <div className="relative">
-            <label htmlFor="email" className={labelCls}>
-              Email Address
-            </label>
+            <label htmlFor="email" className={labelCls}>Email Address</label>
             <div className="relative text-gray-500 focus-within:text-gray-900 dark:focus-within:text-white">
               <div className={iconWrap}>
                 <svg className="ml-1 stroke-current" width="22" height="22" viewBox="0 0 24 24" fill="none">
@@ -193,9 +230,7 @@ function Application({ onSubmit }) {
 
           {/* Country */}
           <div className="relative">
-            <label htmlFor="country" className={labelCls}>
-              Country
-            </label>
+            <label htmlFor="country" className={labelCls}>Country</label>
             <div className="relative text-gray-500 focus-within:text-gray-900 dark:focus-within:text-white">
               <div className={iconWrap}>
                 <svg width="22" height="22" viewBox="0 0 24 24" className="ml-1" fill="none" stroke="currentColor">
@@ -217,11 +252,55 @@ function Application({ onSubmit }) {
             {errors.country && <p className="mt-1 text-xs text-red-600">{errors.country}</p>}
           </div>
 
+          {/* State / Region (dynamic) */}
+          <div className="relative">
+            <label htmlFor="state" className={labelCls}>
+              {isNigeria ? "State (Nigeria)" : "State / Region"}
+              <span className="ml-2 rounded-full bg-slate-100 px-2 py-0.5 text-[11px] font-semibold text-slate-600 ring-1 ring-slate-200 dark:bg-slate-800 dark:text-slate-300 dark:ring-slate-700">
+                Required
+              </span>
+            </label>
+
+            <div className="relative text-gray-500 focus-within:text-gray-900 dark:focus-within:text-white">
+              <div className={iconWrap}>
+                <svg className="ml-1 stroke-current" width="22" height="22" viewBox="0 0 24 24" fill="none">
+                  <path d="M6 9l6 6 6-6" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+              </div>
+
+              {isNigeria ? (
+                <select
+                  id="state"
+                  name="state"
+                  value={values.state}
+                  onChange={handleChange}
+                  aria-invalid={!!errors.state}
+                  className={`${inputBase} pr-10 ${errors.state ? err : ok}`}
+                >
+                  <option value="" disabled>Select a state</option>
+                  {STATE_OPTIONS_NG.map((s) => (
+                    <option key={s} value={s} className="text-slate-900">{s}</option>
+                  ))}
+                </select>
+              ) : (
+                <input
+                  id="state"
+                  name="state"
+                  type="text"
+                  value={values.state}
+                  onChange={handleChange}
+                  aria-invalid={!!errors.state}
+                  className={`${inputBase} ${errors.state ? err : ok}`}
+                  placeholder="e.g., Lagos / Texas / Onatario"
+                />
+              )}
+            </div>
+            {errors.state && <p className="mt-1 text-xs text-red-600">{errors.state}</p>}
+          </div>
+
           {/* Phone */}
           <div className="relative">
-            <label htmlFor="phone" className={labelCls}>
-              Phone Number
-            </label>
+            <label htmlFor="phone" className={labelCls}>Phone Number</label>
             <div className="relative text-gray-500 focus-within:text-gray-900 dark:focus-within:text-white">
               <div className={iconWrap}>
                 <svg className="ml-1 stroke-current" width="22" height="22" viewBox="0 0 24 24" fill="none">
@@ -249,9 +328,7 @@ function Application({ onSubmit }) {
 
           {/* Course */}
           <div className="relative">
-            <label htmlFor="course" className={labelCls}>
-              Course
-            </label>
+            <label htmlFor="course" className={labelCls}>Course</label>
             <div className="relative text-gray-500 focus-within:text-gray-900 dark:focus-within:text-white">
               <div className={iconWrap}>
                 <svg className="ml-1" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor">
@@ -267,13 +344,9 @@ function Application({ onSubmit }) {
                 aria-invalid={!!errors.course}
                 className={`${inputBase} pr-10 ${errors.course ? err : ok}`}
               >
-                <option value="" disabled>
-                  Select a course
-                </option>
+                <option value="" disabled>Select a course</option>
                 {courseOptions.map((opt) => (
-                  <option key={opt} value={opt} className="text-slate-900">
-                    {opt}
-                  </option>
+                  <option key={opt} value={opt} className="text-slate-900">{opt}</option>
                 ))}
               </select>
             </div>
@@ -296,17 +369,13 @@ function Application({ onSubmit }) {
               <span
                 className={[
                   "relative mt-0.5 inline-flex h-6 w-6 items-center justify-center rounded-md",
-                  // base box
                   "border border-slate-300 bg-white shadow-sm dark:border-slate-700/70 dark:bg-slate-800",
                   "transition-all duration-300 group-hover:border-emerald-400",
-                  // focus ring
                   "peer-focus-visible:outline peer-focus-visible:outline-2 peer-focus-visible:outline-emerald-500 peer-focus-visible:outline-offset-2",
-                  // checked state: keep light box, green border + subtle glow
                   "peer-checked:border-emerald-600 peer-checked:shadow-[0_0_0_4px_rgba(16,185,129,0.15)]",
                   errors.accept ? "ring-1 ring-red-400/70" : "",
                 ].join(" ")}
               >
-                {/* GREEN checkmark */}
                 <svg
                   viewBox="0 0 24 24"
                   className={[
@@ -317,16 +386,8 @@ function Application({ onSubmit }) {
                   ].join(" ")}
                   aria-hidden
                 >
-                  <path
-                    d="M5 13l4 4L19 7"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="3"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
+                  <path d="M5 13l4 4L19 7" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
-                {/* subtle highlight on check */}
                 <span
                   className={[
                     "pointer-events-none absolute inset-0 rounded-md opacity-0 transition-opacity duration-300",
@@ -342,16 +403,13 @@ function Application({ onSubmit }) {
                   Terms &amp; Conditions
                 </a>{" "}
                 and consent to be contacted about my application.
-                <span className="ml-2 inline-flex items-center rounded-full bg-slate-100 px-2 py-0.5 text:[11px] text-[11px] font-semibold text-slate-600 ring-1 ring-slate-200 dark:bg-slate-800 dark:text-slate-300 dark:ring-slate-700">
+                <span className="ml-2 inline-flex items-center rounded-full bg-slate-100 px-2 py-0.5 text-[11px] font-semibold text-slate-600 ring-1 ring-slate-200 dark:bg-slate-800 dark:text-slate-300 dark:ring-slate-700">
                   Required
                 </span>
               </span>
             </label>
 
-            <p
-              id="accept-help"
-              className={["mt-2 text-xs", errors.accept ? "text-red-600" : "text-slate-500 dark:text-slate-400"].join(" ")}
-            >
+            <p id="accept-help" className={["mt-2 text-xs", errors.accept ? "text-red-600" : "text-slate-500 dark:text-slate-400"].join(" ")}>
               {errors.accept ? errors.accept : "We never share your details without permission."}
             </p>
           </div>
@@ -381,7 +439,6 @@ function Application({ onSubmit }) {
             </button>
           </div>
 
-          {/* tiny privacy footnote */}
           <p className="mx-auto max-w-lg text-center text-[12px] text-slate-500 dark:text-slate-400">
             By submitting, you agree to be contacted about admission. You can opt out anytime.
           </p>

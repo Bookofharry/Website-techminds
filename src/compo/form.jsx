@@ -1,14 +1,14 @@
 import { useState } from "react";
 import Mail from "../pages/Mail";
-import emailjs from '@emailjs/browser';
+
 
 import { Navigate } from "react-router-dom";
 export default function ContactSection() {
   const [form, setForm] = useState({
-    firstName: "",
-    lastName: "",
-    email: "",
-    message: "",
+    FirstName: "",
+    LastName: "",
+    Email: "",
+    Message: "",
   });
   const [submitted, setSubmitted] = useState(false);
   const [next, nextSet] = useState(false);
@@ -26,30 +26,7 @@ export default function ContactSection() {
 
   function handleSubmit(e) {
     e.preventDefault();
-    try{
-      emailjs.send('service_89xjrbo', 'template_g7tg9y7', form, {
-        publicKey: '-zu_AKLUGbGPnAvcb',
-      })
-      .then(
-        (response) => {
-          console.log('SUCCESS!', response.status, response.text);
-        },
-        (err) => {
-          console.log('FAILED...', err);
-        },
-      );
-      setSubmitted(true);
-      // TODO: send form somewhere (fetch/axios)
-      console.log("Submitting form:", form);
-            // success → redirect
 
-
-    }catch(err){
-
-
-
-
-    }
   }
   if (next) return <Navigate to="/" replace />;
 
@@ -70,9 +47,9 @@ export default function ContactSection() {
                   First Name
                 </label>
                 <input
-                  id="firstName"
-                  name="firstName"               // <-- added
-                  value={form.firstName}
+                  id="FirstName"
+                  name="FirstName"               // <-- added
+                  value={form.FirstName}
                   onChange={handleChange}        // <-- fixed
                   type="text"
                   placeholder="John"
@@ -85,9 +62,9 @@ export default function ContactSection() {
                   Last Name
                 </label>
                 <input
-                  id="lastName"
-                  name="lastName"                // <-- added
-                  value={form.lastName}
+                  id="LastName"
+                  name="LastName"                // <-- added
+                  value={form.LastName}
                   onChange={handleChange}        // <-- fixed
                   type="text"
                   placeholder="Doe"
@@ -101,9 +78,9 @@ export default function ContactSection() {
                 Email address
               </label>
               <input
-                id="email"
-                name="email"                    // <-- added
-                value={form.email}
+                id="Email"
+                name="Email"                    // <-- added
+                value={form.Email}
                 onChange={handleChange}         // <-- fixed
                 type="email"
                 placeholder="johndoe@example.com"
@@ -116,9 +93,9 @@ export default function ContactSection() {
                 Message
               </label>
               <textarea
-                id="message"
-                name="message"                  // <-- added
-                value={form.message}
+                id="Message"
+                name="Message"                  // <-- added
+                value={form.Message}
                 onChange={handleChange}         // <-- fixed
                 className="block w-full h-32 px-5 py-2.5 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-lg md:h-56 dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40"
                 placeholder="Message"

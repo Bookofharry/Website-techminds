@@ -78,7 +78,7 @@ function App(){
         <Route path="/privacy" element={<PrivacyPolicy />} />
 
       
-        <Route path='/application' element={<Application/>}/>
+        <Route path='/application' element={<Application />}/>
 
         <Route path='/programs' element={<CoursesPage />}/>
 
