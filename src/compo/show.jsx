@@ -3,6 +3,20 @@ import r1 from "../assets/rachael.jpg";
 import r2 from "../assets/instructor.jpeg";
 import r3 from "../assets/class.jpeg";
 import r4 from "../assets/testimonials.jpeg";
+import ClassRoom from '../assets/chimobi.jpeg'
+import Fortune from '../assets/fortune.jpeg'
+import Rachael2 from '../assets/rachael1.jpeg'
+import SpaceGuy from '../assets/classsection.jpeg'
+import James from '../assets/class2.jpeg'
+import Class from '../assets/instructor.jpeg'
+
+import Host from '../assets/hosts.jpeg'
+import Md from '../assets/md.jpeg'
+import Speakers from '../assets/speakers.jpeg'
+import TalkFortune from '../assets/talkfortune.jpeg'
+import Conduct from '../assets/conduct.jpeg'
+import Everyone from '../assets/everyone.jpeg'
+
 import { Link } from "react-router-dom";
 
 const Chip = ({ img, text, accent = "indigo" }) => (
@@ -50,26 +64,26 @@ export default function TechMindsMarqueeShowcase() {
     <Chip img={r2} text="Data Science" accent="indigo" />,
     <Chip img={r3} text="Web Development" accent="cyan" />,
     <Chip img={r4} text="Cloud Computing" accent="violet" />,
-    <Chip text="App Development" accent="emerald" />,
-    <Chip text="Cybersecurity Basics" accent="amber" />,
+    <Chip img={Md}text="App Development" accent="emerald" />,
+    <Chip img={TalkFortune} text="Cybersecurity Basics" accent="amber" />,
   ];
 
   const row2 = [
-    <Chip text="Mentor-Led Cohorts" accent="indigo" />,
-    <Chip text="Real Projects" accent="pink" />,
-    <Chip text="Career Support" accent="emerald" />,
-    <Chip text="Abuja • Bwari" accent="cyan" />,
-    <Chip text="Live-Online Options" accent="violet" />,
-    <Chip text="Tech Minds Academy" accent="amber" />,
+    <Chip img={Host} text="Mentor-Led Cohorts" accent="indigo" />,
+    <Chip img={Everyone} text="Real Projects" accent="pink" />,
+    <Chip img={Conduct} text="Career Support" accent="emerald" />,
+    <Chip img={Speakers} text="Abuja • Bwari" accent="cyan" />,
+    <Chip img={ClassRoom} text="Live-Online Options" accent="violet" />,
+    <Chip img={Fortune} text="Tech Minds Academy" accent="amber" />,
   ];
 
   const row3 = [
-    <Chip text="24/7 Power Supply" accent="fuchsia" />,
-    <Chip text="Good Internet" accent="sky" />,
-    <Chip text="Friendly Instructors" accent="rose" />,
-    <Chip text="Great Syllabus" accent="lime" />,
-    <Chip text="Workspace & Labs" accent="blue" />,
-    <Chip text="Updated Tools" accent="purple" />,
+    <Chip img={Rachael2} text="24/7 Power Supply" accent="fuchsia" />,
+    <Chip img={SpaceGuy} text="Good Internet" accent="sky" />,
+    <Chip img={James} text="Friendly Instructors" accent="rose" />,
+    <Chip img={Class} text="Great Syllabus" accent="lime" />,
+    <Chip img={Md} text="Workspace & Labs" accent="blue" />,
+    <Chip img={Md} text="Updated Tools" accent="purple" />,
   ];
 
   return (

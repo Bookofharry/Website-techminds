@@ -1,11 +1,39 @@
 import React, { useMemo, useRef, useState } from "react";
 import { Link } from "react-router-dom";
+
 /**
  * Tech Minds Academy — Web Development Page (compact-ready)
- * Usage:
- *   <WebDevelopmentPage />            // normal
- *   <WebDevelopmentPage compact />    // no bottom gap after FAQs
+ * - Next Cohort auto-updates to the first Monday of the upcoming month
  */
+
+// --- Helpers: first Monday logic ---
+function firstMondayOfMonth(year, monthIndex) {
+  // monthIndex: 0 = Jan ... 11 = Dec
+  const d = new Date(year, monthIndex, 1);
+  const day = d.getDay(); // 0=Sun ... 6=Sat
+  const offset = (8 - day) % 7; // days to Monday (if Monday -> 0)
+  d.setDate(1 + offset);
+  d.setHours(0, 0, 0, 0);
+  return d;
+}
+
+function nextFirstMondayFrom(today = new Date()) {
+  const now = new Date(today.getFullYear(), today.getMonth(), today.getDate());
+  const thisMonthFirstMonday = firstMondayOfMonth(now.getFullYear(), now.getMonth());
+  if (thisMonthFirstMonday >= now) return thisMonthFirstMonday;
+
+  // else next month’s first Monday
+  const nextMonth = new Date(now.getFullYear(), now.getMonth() + 1, 1);
+  return firstMondayOfMonth(nextMonth.getFullYear(), nextMonth.getMonth());
+}
+
+function formatCohortDate(d) {
+  return new Intl.DateTimeFormat("en-US", {
+    month: "short",
+    day: "numeric",
+    year: "numeric",
+  }).format(d);
+}
 
 const BRAND_GRADIENT =
   "bg-gradient-to-r from-emerald-800 via-emerald-200 to-emerald-800";
@@ -13,10 +41,11 @@ const BRAND_GRADIENT =
 const WD_META = {
   track: "Web Development",
   level: "Beginner → Intermediate",
-  format: "On-Campus (Bwari) • Online (Live) • Hybrid",
+  format: "• Hybrid",
   durationWeeks: 12,
   weeklyPace: "3 days/week • 2–3 hrs/session",
-  nextCohort: "Nov 4, 2025",
+  // nextCohort will be overridden by computed value below
+  nextCohort: "",
   price: "₦300,000",
 };
 
@@ -144,58 +173,46 @@ const INSTRUCTORS = [
     name: "Fortune Nwakanma",
     role: "Front-end Engineer",
     bio: "Design systems, accessibility & Tailwind craft.",
-    initials: "AO",
-  },
-  {
-    name: "Ifeanyi O.",
-    role: "React Instructor",
-    bio: "Component architecture, forms & routing.",
-    initials: "ZA",
+    initials: "FN",
   },
   {
     name: "Michael Amadi",
     role: "Backend/DevOps (Intro)",
     bio: "APIs, Express basics & deployments.",
-    initials: "IO",
+    initials: "MA",
   },
 ];
 
 const FAQS = [
-  {
-    q: "Do I need coding experience?",
-    a: "No. We start from HTML/CSS and gradually ramp up through JavaScript and React with mentor support.",
-  },
-  {
-    q: "What laptop specs do I need?",
-    a: "At least 8GB RAM and a modern browser. Node.js LTS will be installed in class.",
-  },
-  {
-    q: "Is there a certificate?",
-    a: "Yes—students who complete the projects and capstone receive a Tech Minds Academy certificate.",
-  },
-  {
-    q: "Will we cover backend?",
-    a: "You’ll get an intro to Express, REST, and deployment to ship a full-stack mini project.",
-  },
-  {
-    q: "Career support?",
-    a: "We review portfolios and resumes, and run mock interviews focused on front-end roles.",
-  },
+  { q: "Do I need coding experience?", a: "No. We start from HTML/CSS and gradually ramp up through JavaScript and React with mentor support." },
+  { q: "What laptop specs do I need?", a: "At least 8GB RAM and a modern browser. Node.js LTS will be installed in class." },
+  { q: "Is there a certificate?", a: "Yes—students who complete the projects and capstone receive a Tech Minds Academy certificate." },
+  { q: "Will we cover backend?", a: "You’ll get an intro to Express, REST, and deployment to ship a full-stack mini project." },
+  { q: "Career support?", a: "We review portfolios and resumes, and run mock interviews focused on front-end roles." },
 ];
 
 export default function WebDevelopmentPage({ compact = true, metaOverrides = {} }) {
   const [openId, setOpenId] = useState(MODULES[0].id);
-  const meta = { ...WD_META, ...metaOverrides };
+
+  // Compute upcoming first Monday (this month if still ahead; else next month)
+  const computedNextCohort = useMemo(() => {
+    const next = nextFirstMondayFrom(new Date());
+    return formatCohortDate(next); // e.g., "Nov 3, 2025"
+  }, []);
+
+  const meta = useMemo(
+    () => ({
+      ...WD_META,
+      nextCohort: computedNextCohort,
+      ...metaOverrides, // allow manual override if provided
+    }),
+    [computedNextCohort, metaOverrides]
+  );
 
   const syllabusJSON = useMemo(
     () =>
       JSON.stringify(
-        {
-          meta,
-          outcomes: OUTCOMES,
-          tools: TOOLS.map((t) => t.name),
-          modules: MODULES,
-        },
+        { meta, outcomes: OUTCOMES, tools: TOOLS.map((t) => t.name), modules: MODULES },
         null,
         2
       ),
@@ -220,13 +237,10 @@ export default function WebDevelopmentPage({ compact = true, metaOverrides = {} 
 
   return (
     <main className="min-h-screen bg-gray-50">
-        
+
       {/* Hero */}
       <section className="relative overflow-hidden">
-        <div
-          aria-hidden
-          className={`absolute inset-x-0 -top-24 h-48 opacity-25 blur-3xl ${BRAND_GRADIENT}`}
-        />
+        <div aria-hidden className={`absolute inset-x-0 -top-24 h-48 opacity-25 blur-3xl ${BRAND_GRADIENT}`} />
         <div className="mx-auto max-w-6xl px-4 pt-12 pb-8 sm:px-6 lg:px-8">
           <p className="text-sm font-semibold text-emerald-800/80 tracking-wide">
             Tech Minds Academy — Abuja (Bwari)
@@ -252,13 +266,13 @@ export default function WebDevelopmentPage({ compact = true, metaOverrides = {} 
           {/* Actions */}
           <div className="mt-6 flex flex-wrap gap-3">
             <Link
-              to='/application'
+              to="/application"
               className="rounded-2xl px-4 py-2 text-sm font-semibold text-white bg-gray-900 hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-900/30"
             >
               Apply Now
             </Link>
             <a
-              href="Tel: 2348147328332"
+              href="tel:+2348147328332"
               className="rounded-2xl px-4 py-2 text-sm font-semibold text-gray-900 bg-white border border-gray-200 hover:border-gray-300 focus:outline-none focus:ring-2 focus:ring-emerald-700/20"
             >
               Talk to Admissions
@@ -275,9 +289,7 @@ export default function WebDevelopmentPage({ compact = true, metaOverrides = {} 
           {/* Left: Stats Card */}
           <div className="lg:col-span-5">
             <div className="rounded-2xl border bg-white p-5 sm:p-6 shadow-sm">
-              <h2 className="text-lg font-bold text-gray-900">
-                Program at a Glance
-              </h2>
+              <h2 className="text-lg font-bold text-gray-900">Program at a Glance</h2>
               <dl className="mt-4 grid grid-cols-1 gap-4 text-sm sm:grid-cols-2">
                 <StatRow label="Duration" value={`${meta.durationWeeks} weeks`} />
                 <StatRow label="Level" value={meta.level} />
@@ -300,21 +312,14 @@ export default function WebDevelopmentPage({ compact = true, metaOverrides = {} 
               <h2 className="text-lg font-bold text-gray-900">What you’ll achieve</h2>
               <ul className="mt-3 space-y-2">
                 {OUTCOMES.map((o, i) => (
-                  <li
-                    key={i}
-                    className="flex items-start gap-2 text-gray-700"
-                  >
-                    <span
-                      className={`mt-1 inline-block h-2 w-2 rounded-full ${BRAND_GRADIENT}`}
-                    />
+                  <li key={i} className="flex items-start gap-2 text-gray-700">
+                    <span className={`mt-1 inline-block h-2 w-2 rounded-full ${BRAND_GRADIENT}`} />
                     <span>{o}</span>
                   </li>
                 ))}
               </ul>
 
-              <h3 className="mt-6 text-sm font-semibold text-gray-900">
-                Tools you’ll master
-              </h3>
+              <h3 className="mt-6 text-sm font-semibold text-gray-900">Tools you’ll master</h3>
               <div className="mt-2 flex flex-wrap gap-2">
                 {TOOLS.map((t) => (
                   <ToolPill key={t.name} label={t.name} abbr={t.abbr} />
@@ -351,25 +356,18 @@ export default function WebDevelopmentPage({ compact = true, metaOverrides = {} 
       <section className="mx-auto mt-8 max-w-6xl px-4 sm:px-6 lg:px-8">
         <div className="rounded-2xl border bg-white p-5 sm:p-6 shadow-sm">
           <div className="flex items-center justify-between gap-3">
-            <h2 className="text-xl font-bold text-gray-900">
-              Student Projects (Preview)
-            </h2>
+            <h2 className="text-xl font-bold text-gray-900">Student Projects (Preview)</h2>
             <div className={`h-2 w-24 rounded-full ${BRAND_GRADIENT}`} />
           </div>
 
           <div className="mt-4 overflow-x-auto">
             <div className="min-w-max flex gap-4">
               {PROJECT_GALLERY.map((p, i) => (
-                <article
-                  key={i}
-                  className="w-72 shrink-0 rounded-2xl border bg-white p-4 shadow-sm transition hover:shadow"
-                >
+                <article key={i} className="w-72 shrink-0 rounded-2xl border bg-white p-4 shadow-sm transition hover:shadow">
                   <div className="aspect-video grid place-items-center rounded-xl bg-gray-100 text-sm text-gray-400">
                     Preview
                   </div>
-                  <h3 className="mt-3 text-base font-bold text-gray-900">
-                    {p.title}
-                  </h3>
+                  <h3 className="mt-3 text-base font-bold text-gray-900">{p.title}</h3>
                   <p className="mt-1 text-sm text-gray-600">{p.desc}</p>
                 </article>
               ))}
@@ -393,14 +391,9 @@ export default function WebDevelopmentPage({ compact = true, metaOverrides = {} 
           </div>
         </div>
       </section>
-      
 
-      {/* FAQs (no trailing bottom margin by default) */}
-      <section
-        className={`mx-auto mt-8 max-w-6xl px-4 sm:px-6 lg:px-8 ${
-          compact ? "mb-0" : "mb-12"
-        }`}
-      >
+      {/* FAQs */}
+      <section className={`mx-auto mt-8 max-w-6xl px-4 sm:px-6 lg:px-8 ${compact ? "mb-0" : "mb-12"}`}>
         <div className="rounded-2xl border bg-white p-5 sm:p-6 shadow-sm">
           <div className="flex items-center justify-between gap-3">
             <h2 className="text-xl font-bold text-gray-900">FAQs</h2>
@@ -413,22 +406,16 @@ export default function WebDevelopmentPage({ compact = true, metaOverrides = {} 
             ))}
           </div>
 
-          {/* Actions */}
-          <div className="mt-6 flex flex-wrap gap-3">
-            {/* <button
-              onClick={handlePrint}
-              className="rounded-2xl px-4 py-2 text-sm font-semibold text-white bg-gray-900 hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-900/30"
-            >
+          {/* Actions (optional) */}
+          {/* <div className="mt-6 flex flex-wrap gap-3">
+            <button onClick={handlePrint} className="rounded-2xl px-4 py-2 text-sm font-semibold text-white bg-gray-900 hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-900/30">
               Print Page
             </button>
-            <button
-              onClick={handleExportJSON}
-              className="rounded-2xl px-4 py-2 text-sm font-semibold text-gray-900 bg-white border border-gray-200 hover:border-gray-300 focus:outline-none focus:ring-2 focus:ring-emerald-700/20"
-            >
+            <button onClick={handleExportJSON} className="rounded-2xl px-4 py-2 text-sm font-semibold text-gray-900 bg-white border border-gray-200 hover:border-gray-300 focus:outline-none focus:ring-2 focus:ring-emerald-700/20">
               Export JSON
-            </button> */}
+            </button>
             <a ref={jsonRef} className="hidden" />
-          </div>
+          </div> */}
         </div>
       </section>
     </main>
@@ -449,13 +436,7 @@ function StatRow({ label, value, highlight = false }) {
   return (
     <div>
       <dt className="text-gray-500">{label}</dt>
-      <dd
-        className={`mt-0.5 font-semibold ${
-          highlight ? "text-emerald-800" : "text-gray-900"
-        }`}
-      >
-        {value}
-      </dd>
+      <dd className={`mt-0.5 font-semibold ${highlight ? "text-emerald-800" : "text-gray-900"}`}>{value}</dd>
     </div>
   );
 }
@@ -463,11 +444,7 @@ function StatRow({ label, value, highlight = false }) {
 function ToolPill({ label, abbr }) {
   return (
     <span className="inline-flex items-center gap-2 rounded-2xl border border-gray-200 bg-white px-3 py-1.5 text-xs font-semibold text-gray-900 shadow-sm">
-      <span
-        className={`grid h-6 w-6 place-items-center rounded-xl text-[10px] font-bold text-white ${BRAND_GRADIENT}`}
-      >
-        {abbr}
-      </span>
+      <span className={`grid h-6 w-6 place-items-center rounded-xl text-[10px] font-bold text-white ${BRAND_GRADIENT}`}>{abbr}</span>
       {label}
     </span>
   );
@@ -475,10 +452,7 @@ function ToolPill({ label, abbr }) {
 
 function ModuleCard({ module, index, open, onToggle }) {
   return (
-    <article
-      id={module.id}
-      className="overflow-hidden rounded-2xl border bg-white shadow-sm"
-    >
+    <article id={module.id} className="overflow-hidden rounded-2xl border bg-white shadow-sm">
       <header className="flex items-center justify-between gap-3 px-4 py-3 sm:px-6">
         <div className="min-w-0">
           <h3 className="truncate text-lg font-bold text-gray-900">
@@ -493,37 +467,21 @@ function ModuleCard({ module, index, open, onToggle }) {
           className="inline-flex items-center gap-2 rounded-xl border border-gray-200 bg-white px-3 py-2 text-sm font-semibold text-gray-900 hover:border-gray-300 focus:outline-none focus:ring-2 focus:ring-emerald-700/20"
         >
           {open ? "Hide" : "View"}
-          <svg
-            className={`h-4 w-4 transition-transform ${
-              open ? "rotate-180" : ""
-            }`}
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            strokeWidth="2"
-            fill="none"
-          >
+          <svg className={`h-4 w-4 transition-transform ${open ? "rotate-180" : ""}`} viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2" fill="none">
             <path d="M6 9l6 6 6-6" />
           </svg>
         </button>
       </header>
 
       {open && (
-        <div
-          id={`${module.id}-panel`}
-          className="border-t px-4 py-4 sm:px-6 sm:py-6"
-        >
+        <div id={`${module.id}-panel`} className="border-t px-4 py-4 sm:px-6 sm:py-6">
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
             <div>
               <h4 className="text-sm font-semibold text-gray-900">Lessons</h4>
               <ul className="mt-2 space-y-2">
                 {module.lessons.map((l, i) => (
-                  <li
-                    key={i}
-                    className="flex items-start gap-2 text-gray-700"
-                  >
-                    <span
-                      className={`mt-1 inline-block h-1.5 w-1.5 rounded-full ${BRAND_GRADIENT}`}
-                    />
+                  <li key={i} className="flex items-start gap-2 text-gray-700">
+                    <span className={`mt-1 inline-block h-1.5 w-1.5 rounded-full ${BRAND_GRADIENT}`} />
                     <span>{l}</span>
                   </li>
                 ))}
@@ -534,21 +492,12 @@ function ModuleCard({ module, index, open, onToggle }) {
               <h4 className="text-sm font-semibold text-gray-900">Projects</h4>
               <ul className="mt-2 space-y-2">
                 {(module.projects || []).map((p, i) => (
-                  <li
-                    key={i}
-                    className="flex items-start gap-2 text-gray-700"
-                  >
-                    <span
-                      className={`mt-1 inline-block h-1.5 w-1.5 rounded-full ${BRAND_GRADIENT}`}
-                    />
+                  <li key={i} className="flex items-start gap-2 text-gray-700">
+                    <span className={`mt-1 inline-block h-1.5 w-1.5 rounded-full ${BRAND_GRADIENT}`} />
                     <span>{p}</span>
                   </li>
                 ))}
-                {(!module.projects || module.projects.length === 0) && (
-                  <li className="text-gray-500">
-                    — To be assigned in class —
-                  </li>
-                )}
+                {(!module.projects || module.projects.length === 0) && <li className="text-gray-500">— To be assigned in class —</li>}
               </ul>
             </div>
           </div>
@@ -562,11 +511,7 @@ function InstructorCard({ t }) {
   return (
     <article className="rounded-2xl border bg-white p-4 shadow-sm">
       <div className="flex items-center gap-3">
-        <div
-          className={`grid h-12 w-12 place-items-center rounded-2xl text-sm font-bold text-white ${BRAND_GRADIENT}`}
-        >
-          {t.initials}
-        </div>
+        <div className={`grid h-12 w-12 place-items-center rounded-2xl text-sm font-bold text-white ${BRAND_GRADIENT}`}>{t.initials}</div>
         <div>
           <h3 className="text-base font-bold text-gray-900">{t.name}</h3>
           <p className="text-sm text-gray-600">{t.role}</p>
@@ -589,15 +534,7 @@ function FaqItem({ q, a }) {
         aria-controls={`${id}-panel`}
       >
         <span className="text-sm font-semibold text-gray-900">{q}</span>
-        <svg
-          className={`h-4 w-4 shrink-0 transition-transform ${
-            open ? "rotate-180" : ""
-          }`}
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-          strokeWidth="2"
-          fill="none"
-        >
+        <svg className={`h-4 w-4 shrink-0 transition-transform ${open ? "rotate-180" : ""}`} viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2" fill="none">
           <path d="M6 9l6 6 6-6" />
         </svg>
       </button>

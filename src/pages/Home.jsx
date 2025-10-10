@@ -7,6 +7,7 @@ import Faq from "../compo/loading"
 import Numbers from "../compo/stat"
 import Picture from "../compo/PictureTemplate"
 import PicCarousel from "../compo/progress"
+import FooterPic from "../compo/Footerpic"
 
 
 
@@ -22,6 +23,7 @@ function Home(){
        <Testimonial />
        <Numbers />
        <Faq />
+       <FooterPic/>
        </div>
     )
 }

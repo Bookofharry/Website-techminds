@@ -4,7 +4,8 @@ import App from "../assets/app.png";
 import Web from "../assets/web.png";
 import Kids from "../assets/kidss.png";
 import Cloud from "../assets/cloud.jpeg";
-
+import Data from "../assets/data1.png";
+import Michael from '../assets/michael.jpeg'
 /**
  * Tech Minds Academy — Courses Page
  * Now with rock-solid Syllabus links (internal + external support)
@@ -48,7 +49,7 @@ export default function CoursesPage() {
         lessons: 75,
         price: 400000,
         image:
-          "https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=1600&auto=format&fit=crop",
+          Data,
         tags: ["Python", "Pandas", "Numpy", "ML"],
         instructor: { name: "James ", avatar: "https://i.pravatar.cc/80?img=12" },
         highlight: "Hands-on with real datasets",
@@ -115,7 +116,7 @@ export default function CoursesPage() {
         price: 400000,
         image: App,
         tags: ["React Native", "APIs", "UI/UX"],
-        instructor: { name: "Michael", avatar: "https://i.pravatar.cc/80?img=44" },
+        instructor: { name: "Michael", avatar: Michael},
         highlight: "Build and publish real apps",
         syllabus: [
           { title: "Module 1 • RN Basics", url: "/syllabus/software-engineering/app-development/module-1" },

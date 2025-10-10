@@ -1,24 +1,80 @@
 import React, { useMemo, useRef, useState } from "react";
 import { Link } from "react-router-dom";
+
 /**
- * Tech Minds Academy — App Development Page (compact-ready)
- * Usage:
- *   <AppDevelopmentPage />           // normal
- *   <AppDevelopmentPage compact />   // no bottom gap after FAQs
+ * Tech Minds Academy — App Development Page (auto-cohort)
+ * - nextCohort auto-sets to the FIRST MONDAY of the next available month (Africa/Lagos).
+ * - You can still override via <AppDevelopment metaOverrides={{ nextCohort: "Jan 5, 2026" }} />
  */
+
+/* ------------------------------ Brand Styles ------------------------------ */
 
 const BRAND_GRADIENT =
   "bg-gradient-to-r from-emerald-800 via-emerald-200 to-emerald-800";
 
-const AD_META = {
+/* ------------------------------- Date Utils ------------------------------- */
+
+const TIMEZONE_TZID = "Africa/Lagos";
+
+/** First Monday for a given year & 0-based month. */
+function firstMondayOfMonth(year, monthIndex) {
+  const firstOfMonthUTC = new Date(Date.UTC(year, monthIndex, 1));
+  const weekday = new Date(
+    firstOfMonthUTC.toLocaleString("en-US", { timeZone: TIMEZONE_TZID })
+  ).getDay(); // 0=Sun..6=Sat
+  const offset = (1 - weekday + 7) % 7; // Monday=1
+  const firstMondayUTC = new Date(Date.UTC(year, monthIndex, 1 + offset));
+  // return as Lagos-local Date object
+  return new Date(firstMondayUTC.toLocaleString("en-US", { timeZone: TIMEZONE_TZID }));
+}
+
+/**
+ * Next upcoming FIRST MONDAY (Lagos):
+ * - If today's Lagos date is before this month's first Monday → use this month.
+ * - Else → use next month's first Monday.
+ */
+function getNextFirstMonday(now = new Date()) {
+  const lagosNow = new Date(now.toLocaleString("en-US", { timeZone: TIMEZONE_TZID }));
+  const y = lagosNow.getFullYear();
+  const m = lagosNow.getMonth();
+
+  const fmThis = firstMondayOfMonth(y, m);
+
+  const isBefore =
+    lagosNow.getFullYear() < fmThis.getFullYear() ||
+    (lagosNow.getFullYear() === fmThis.getFullYear() &&
+      (lagosNow.getMonth() < fmThis.getMonth() ||
+        (lagosNow.getMonth() === fmThis.getMonth() &&
+          lagosNow.getDate() < fmThis.getDate())));
+
+  if (isBefore) return fmThis;
+
+  const nextY = m === 11 ? y + 1 : y;
+  const nextM = (m + 1) % 12;
+  return firstMondayOfMonth(nextY, nextM);
+}
+
+function formatDateInLagos(date) {
+  return date.toLocaleDateString("en-US", {
+    timeZone: TIMEZONE_TZID,
+    month: "short",
+    day: "numeric",
+    year: "numeric",
+  });
+}
+
+/* --------------------------------- Meta ---------------------------------- */
+
+const AD_META_BASE = {
   track: "App Development",
   level: "Beginner → Intermediate",
-  format: "On-Campus (Bwari) • Online (Live) • Hybrid",
+  format: "• Hybrid",
   durationWeeks: 14,
   weeklyPace: "3 days/week • 2–3 hrs/session",
-  nextCohort: "Dec 2, 2025",
   price: "₦400,000",
 };
+
+/* ------------------------------ Page Content ------------------------------ */
 
 const OUTCOMES = [
   "Set up a mobile dev environment with Expo & React Native",
@@ -123,9 +179,9 @@ const PROJECT_GALLERY = [
 ];
 
 const INSTRUCTORS = [
-  { name: "Michael Amadi", role: "React Native Engineer", bio: "Navigation, device APIs & production patterns.", initials: "DS" },
-  { name: "Michael Amadi", role: "Front-end → Mobile", bio: "Design systems, accessibility & TypeScript.", initials: "AO" },
-  { name: "Michael Amadi", role: "", bio: "APIs, auth, and deployments.", initials: "IO" },
+  { name: "Michael Amadi", role: "React Native Engineer", bio: "Navigation, device APIs & production patterns.", initials: "MA" },
+  { name: "Michael Amadi", role: "Front-end → Mobile", bio: "Design systems, accessibility & TypeScript.", initials: "MA" },
+  { name: "Michael Amadi", role: "", bio: "APIs, auth, and deployments.", initials: "MA" },
 ];
 
 const FAQS = [
@@ -147,9 +203,23 @@ const FAQS = [
   },
 ];
 
+/* -------------------------------- Component ------------------------------- */
+
 export default function AppDevelopment({ compact = true, metaOverrides = {} }) {
   const [openId, setOpenId] = useState(MODULES[0].id);
-  const meta = { ...AD_META, ...metaOverrides };
+
+  // Compute next cohort date once per mount (Lagos TZ)
+  const computedNextCohort = useMemo(() => formatDateInLagos(getNextFirstMonday()), []);
+
+  // Merge meta with auto nextCohort; allow user overrides
+  const meta = useMemo(
+    () => ({
+      ...AD_META_BASE,
+      nextCohort: computedNextCohort,
+      ...metaOverrides, // override if provided
+    }),
+    [computedNextCohort, metaOverrides]
+  );
 
   const syllabusJSON = useMemo(
     () =>
@@ -207,12 +277,18 @@ export default function AppDevelopment({ compact = true, metaOverrides = {} }) {
 
           {/* Actions */}
           <div className="mt-6 flex flex-wrap gap-3">
-            <Link to="/application" className="rounded-2xl px-4 py-2 text-sm font-semibold text-white bg-gray-900 hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-900/30">
+            <Link
+              to="/application"
+              className="rounded-2xl px-4 py-2 text-sm font-semibold text-white bg-gray-900 hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-900/30"
+            >
               Apply Now
             </Link>
-            <Link to="Tel: +2348147328332" className="rounded-2xl px-4 py-2 text-sm font-semibold text-gray-900 bg-white border border-gray-200 hover:border-gray-300 focus:outline-none focus:ring-2 focus:ring-emerald-700/20">
+            <a
+              href="tel:+2348147328332"
+              className="rounded-2xl px-4 py-2 text-sm font-semibold text-gray-900 bg-white border border-gray-200 hover:border-gray-300 focus:outline-none focus:ring-2 focus:ring-emerald-700/20"
+            >
               Talk to Admissions
-            </Link>
+            </a>
 
             <a ref={jsonRef} className="hidden" />
           </div>
@@ -320,7 +396,7 @@ export default function AppDevelopment({ compact = true, metaOverrides = {} }) {
             <div className={`h-2 w-24 rounded-full ${BRAND_GRADIENT}`} />
           </div>
 
-        <div className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {INSTRUCTORS.map((t) => (
               <InstructorCard key={t.name} t={t} />
             ))}
@@ -328,7 +404,7 @@ export default function AppDevelopment({ compact = true, metaOverrides = {} }) {
         </div>
       </section>
 
-      {/* FAQs (no trailing bottom margin by default) */}
+      {/* FAQs */}
       <section className={`mx-auto mt-8 max-w-6xl px-4 sm:px-6 lg:px-8 ${compact ? "mb-0" : "mb-12"}`}>
         <div className="rounded-2xl border bg-white p-5 sm:p-6 shadow-sm">
           <div className="flex items-center justify-between gap-3">
@@ -342,11 +418,16 @@ export default function AppDevelopment({ compact = true, metaOverrides = {} }) {
             ))}
           </div>
 
-          {/* Actions */}
-          <div className="mt-6 flex flex-wrap gap-3">
-
+          {/* Optional actions */}
+          {/* <div className="mt-6 flex flex-wrap gap-3">
+            <button onClick={handlePrint} className="rounded-2xl px-4 py-2 text-sm font-semibold text-white bg-gray-900 hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-900/30">
+              Print Page
+            </button>
+            <button onClick={handleExportJSON} className="rounded-2xl px-4 py-2 text-sm font-semibold text-gray-900 bg-white border border-gray-200 hover:border-gray-300 focus:outline-none focus:ring-2 focus:ring-emerald-700/20">
+              Export JSON
+            </button>
             <a ref={jsonRef} className="hidden" />
-          </div>
+          </div> */}
         </div>
       </section>
     </main>

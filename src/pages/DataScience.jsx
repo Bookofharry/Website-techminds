@@ -2,22 +2,79 @@ import React, { useMemo, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 
 /**
- * Tech Minds Academy — Data Science Page (compact-ready)
- * Pass `compact` to remove bottom gap before the next component.
- *   <DataSciencePage compact />
+ * Tech Minds Academy — Data Science Page (auto-cohort)
+ * - `nextCohort` auto-sets to the FIRST MONDAY of the next available month (Africa/Lagos).
+ * - You can still override via: <DataSciencePage metaOverrides={{ nextCohort: "Jan 5, 2026" }} />
  */
 
-const BRAND_GRADIENT = "bg-gradient-to-r from-emerald-800 via-emerald-200 to-emerald-800";
+/* ------------------------------ Brand Styles ------------------------------ */
 
-const DS_META = {
+const BRAND_GRADIENT =
+  "bg-gradient-to-r from-emerald-800 via-emerald-200 to-emerald-800";
+
+/* ------------------------------- Date Utils ------------------------------- */
+
+const TIMEZONE_TZID = "Africa/Lagos";
+
+/** First Monday for a given year & 0-based month. */
+function firstMondayOfMonth(year, monthIndex) {
+  const firstOfMonthUTC = new Date(Date.UTC(year, monthIndex, 1));
+  const weekday = new Date(
+    firstOfMonthUTC.toLocaleString("en-US", { timeZone: TIMEZONE_TZID })
+  ).getDay(); // 0=Sun..6=Sat
+  const offset = (1 - weekday + 7) % 7; // Monday=1
+  const firstMondayUTC = new Date(Date.UTC(year, monthIndex, 1 + offset));
+  // return as Lagos-local Date object
+  return new Date(firstMondayUTC.toLocaleString("en-US", { timeZone: TIMEZONE_TZID }));
+}
+
+/**
+ * Next upcoming FIRST MONDAY (Lagos):
+ * - If today's Lagos date is before this month's first Monday → use this month.
+ * - Else → use next month's first Monday.
+ */
+function getNextFirstMonday(now = new Date()) {
+  const lagosNow = new Date(now.toLocaleString("en-US", { timeZone: TIMEZONE_TZID }));
+  const y = lagosNow.getFullYear();
+  const m = lagosNow.getMonth();
+
+  const fmThis = firstMondayOfMonth(y, m);
+
+  const isBefore =
+    lagosNow.getFullYear() < fmThis.getFullYear() ||
+    (lagosNow.getFullYear() === fmThis.getFullYear() &&
+      (lagosNow.getMonth() < fmThis.getMonth() ||
+        (lagosNow.getMonth() === fmThis.getMonth() &&
+          lagosNow.getDate() < fmThis.getDate())));
+
+  if (isBefore) return fmThis;
+
+  const nextY = m === 11 ? y + 1 : y;
+  const nextM = (m + 1) % 12;
+  return firstMondayOfMonth(nextY, nextM);
+}
+
+function formatDateInLagos(date) {
+  return date.toLocaleDateString("en-US", {
+    timeZone: TIMEZONE_TZID,
+    month: "short",
+    day: "numeric",
+    year: "numeric",
+  });
+}
+
+/* --------------------------------- Meta ---------------------------------- */
+
+const DS_META_BASE = {
   track: "Data Science",
   level: "Beginner → Intermediate",
-  format: "On-Campus (Bwari) • Online (Live)",
+  format: "• Hybrid",
   durationWeeks: 12,
   weeklyPace: "3 days/week • 2–3 hrs/session",
-  nextCohort: "Oct 28, 2025",
   price: "₦400,000",
 };
+
+/* ------------------------------ Page Content ------------------------------ */
 
 const OUTCOMES = [
   "Work confidently in Python and Jupyter",
@@ -122,9 +179,8 @@ const PROJECT_GALLERY = [
 ];
 
 const INSTRUCTORS = [
-  { name: "Chidera N.", role: "Lead Data Scientist", bio: "Analytics, dashboards, and experiments.", initials: "CN" },
-  { name: "Ibrahim A.", role: "ML Engineer", bio: "Feature engineering & production basics.", initials: "IA" },
-  { name: "Ngozi E.", role: "Data Analyst", bio: "SQL storytelling & business context.", initials: "NE" },
+  { name: "James Okpara.", role: "Lead Data Scientist", bio: "Analytics, dashboards, and experiments.", initials: "JO" },
+
 ];
 
 const FAQS = [
@@ -134,9 +190,23 @@ const FAQS = [
   { q: "How are classes delivered?", a: "On-campus in Bwari and live online. All sessions are mentor-led with practical labs." },
 ];
 
+/* -------------------------------- Component ------------------------------- */
+
 export default function DataSciencePage({ compact = true, metaOverrides = {} }) {
   const [openId, setOpenId] = useState(MODULES[0].id);
-  const meta = { ...DS_META, ...metaOverrides };
+
+  // Compute next cohort date once per mount (Lagos TZ)
+  const computedNextCohort = useMemo(() => formatDateInLagos(getNextFirstMonday()), []);
+
+  // Merge meta with auto nextCohort; allow user overrides
+  const meta = useMemo(
+    () => ({
+      ...DS_META_BASE,
+      nextCohort: computedNextCohort,
+      ...metaOverrides, // override if provided
+    }),
+    [computedNextCohort, metaOverrides]
+  );
 
   const syllabusJSON = useMemo(
     () =>
@@ -193,14 +263,20 @@ export default function DataSciencePage({ compact = true, metaOverrides = {} }) 
 
           {/* Actions */}
           <div className="mt-6 flex flex-wrap gap-3">
-                          <div className="mt-5 flex flex-wrap gap-3">
-                <Link to="/application" className="inline-flex items-center justify-center rounded-2xl bg-gray-900 px-4 py-2 text-sm font-semibold text-white hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-900/30">
-                  Apply Now
-                </Link>
-                <Link to="/contact" className="inline-flex items-center justify-center rounded-2xl border border-gray-200 bg-white px-4 py-2 text-sm font-semibold text-gray-900 hover:border-gray-300 focus:outline-none focus:ring-2 focus:ring-emerald-700/20">
-                  Talk to Admissions
-                </Link>
-              </div>
+            <div className="mt-5 flex flex-wrap gap-3">
+              <Link
+                to="/application"
+                className="inline-flex items-center justify-center rounded-2xl bg-gray-900 px-4 py-2 text-sm font-semibold text-white hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-900/30"
+              >
+                Apply Now
+              </Link>
+              <Link
+                to="Tel: 08147328332"
+                className="inline-flex items-center justify-center rounded-2xl border border-gray-200 bg-white px-4 py-2 text-sm font-semibold text-gray-900 hover:border-gray-300 focus:outline-none focus:ring-2 focus:ring-emerald-700/20"
+              >
+                Talk to Admissions
+              </Link>
+            </div>
 
             <a ref={jsonRef} className="hidden" />
           </div>
@@ -222,7 +298,6 @@ export default function DataSciencePage({ compact = true, metaOverrides = {} }) 
                 <StatRow label="Next Cohort" value={meta.nextCohort} />
                 <StatRow label="Tuition" value={meta.price} highlight />
               </dl>
-
             </div>
           </div>
 
@@ -312,7 +387,7 @@ export default function DataSciencePage({ compact = true, metaOverrides = {} }) 
         </div>
       </section>
 
-      {/* FAQs (no trailing bottom margin by default) */}
+      {/* FAQs */}
       <section className={`mx-auto mt-8 max-w-6xl px-4 sm:px-6 lg:px-8 ${compact ? "mb-0" : "mb-12"}`}>
         <div className="rounded-2xl border bg-white p-5 sm:p-6 shadow-sm">
           <div className="flex items-center justify-between gap-3">

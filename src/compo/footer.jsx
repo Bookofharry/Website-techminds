@@ -152,18 +152,14 @@ const Footer = ({ onSubscribe }) => {
 
             <address className="mt-6 not-italic text-gray-700">
               <p itemProp="address" itemScope itemType="https://schema.org/PostalAddress">
-                <span className="block" itemProp="streetAddress">G5 Plaza</span>
-                <span className="block">
-                  <span itemProp="addressLocality">Bwari</span>, <span itemProp="addressRegion">Abuja</span>
-                </span>
-                <span className="block" itemProp="addressCountry">Nigeria</span>
+                <span className="block" itemProp="streetAddress">G5 Plaza, Abuja 901101 Nigeria.</span>
               </p>
 
               <p className="mt-3">
-                <a className="text-blue-600 hover:underline" href="tel:+2348147328332" itemProp="telephone">+234 8147328332</a>
+                <a className="text-blue-600 hover:underline" href="tel:+2348147328332" itemProp="telephone">+2348147328332</a>
               </p>
               <p className="mt-1">
-                <a className="text-blue-600 hover:underline" href="mailto:admissions@techmindsacademy.org" itemProp="email">admissions@techmindsacademy.org</a>
+                <a className="text-blue-600 hover:underline" href="mailto:admissions@techmindsacademy.org" itemProp="email">info@techmindsacademy.org</a>
               </p>
 
               <p className="mt-3">

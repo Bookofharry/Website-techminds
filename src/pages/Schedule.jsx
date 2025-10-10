@@ -16,8 +16,9 @@ const FORMATS = ["All Formats", "On-Campus (Bwari)", "Online (Live)", "Hybrid"];
 
 const TEMPLATE_SESSIONS = [
   // Monday
-  mkSession("Web Development", "Beginner", "Hybrid", "HTML & CSS Foundations", "Ada Okon", "Bwari Lab A", "Mon", "10:00", "12:00"),
-  mkSession("Web Development", "Beginner", "Hybrid", "Tailwind: Design Systems", "Ada Okon", "Bwari Lab A", "Mon", "13:00", "15:00"),
+  mkSession("", "Beginner", "Hybrid", "HTML / CSS ", "Fortune Nwakanma", "Bwari Lab A", "Mon", "09:00", "12:00"),
+  mkSession("", "Beginner", "Hybrid", "JavaScript", "Fortune Nwakanma", "Bwari Lab A", "Mon", "13:00", "15:00"),
+  mkSession("", "Intermediate", "Hybrid", "ExpressJS", "Michael Amadi", "Bwari Lab A", "Mon", "14:00", "17:00"),
   // Tuesday
   mkSession("App Development", "Intermediate", "Online (Live)", "React Native Navigation", "David Sule", "Zoom (portal link)", "Tue", "09:00", "11:30"),
   mkSession("Web Development", "Beginner", "Hybrid", "JavaScript Essentials: Arrays & Objects", "Zainab Ali", "Bwari Lab B", "Tue", "12:00", "14:00"),
@@ -25,10 +26,10 @@ const TEMPLATE_SESSIONS = [
   mkSession("Cloud Computing", "Intermediate", "Hybrid", "Deploying to PaaS + HTTPS", "Ifeanyi O.", "Bwari Lab C", "Wed", "10:00", "12:30"),
   // Thursday
   mkSession("Data & Analytics", "Beginner", "On-Campus (Bwari)", "Pandas Basics & CSV Wrangling", "Chidera N.", "Bwari Data Lab", "Thu", "11:00", "13:00"),
-  // Friday
-  mkSession("Web Development", "Beginner", "Hybrid", "React: Components, Props & State", "Zainab Ali", "Bwari Lab B", "Fri", "10:00", "12:30"),
-  // Saturday
-  mkSession("Coding for Kids", "Beginner", "On-Campus (Bwari)", "Scratch Game Jam", "Funke A.", "Kids Studio", "Sat", "10:30", "12:00"),
+  // // Friday
+  // mkSession("Web Development", "Beginner", "Hybrid", "React: Components, Props & State", "Zainab Ali", "Bwari Lab B", "Fri", "10:00", "12:30"),
+  // // Saturday
+  // mkSession("Coding for Kids", "Beginner", "On-Campus (Bwari)", "Scratch Game Jam", "Funke A.", "Kids Studio", "Sat", "10:30", "12:00"),
   // Sunday
   mkSession("Data & Analytics", "Beginner", "On-Campus (Bwari)", "Data Storytelling Workshop", "Chidera N.", "Bwari Data Lab", "Sun", "13:00", "15:00"),
 ];
