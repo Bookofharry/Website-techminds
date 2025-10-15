@@ -191,7 +191,7 @@ const PROJECT_GALLERY = [
 ];
 
 const INSTRUCTORS = [
-  { name: "Harry J .", role: "Cloud/DevOps Engineer", bio: "Terraform, Kubernetes & production pipelines.", initials: "HJ" },
+  { name: "Harry J", role: "Cloud/DevOps Engineer", bio: "Terraform, Kubernetes & production pipelines.", initials: "HJ" },
 
 ];
 
@@ -407,7 +407,7 @@ export default function CloudComputingPage({ compact = true, metaOverrides = {} 
       <section className="mx-auto mt-8 max-w-6xl px-4 sm:px-6 lg:px-8">
         <div className="rounded-2xl border bg-white p-5 sm:p-6 shadow-sm">
           <div className="flex items-center justify-between gap-3">
-            <h2 className="text-xl font-bold text-gray-900">Your Instructors</h2>
+            <h2 className="text-xl font-bold text-gray-900">Your Instructor</h2>
             <div className={`h-2 w-24 rounded-full ${BRAND_GRADIENT}`} />
           </div>
 

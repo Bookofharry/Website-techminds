@@ -5,10 +5,12 @@ import Web from "../assets/web.png";
 import Kids from "../assets/kidss.png";
 import Cloud from "../assets/cloud.jpeg";
 import Data from "../assets/data1.png";
-import Michael from '../assets/michael.jpeg'
+import Michael from "../assets/michael.jpeg";
+import Digital from "../assets/data1.png"; // ⬅️ new (ensure this asset exists)
+
 /**
  * Tech Minds Academy — Courses Page
- * Now with rock-solid Syllabus links (internal + external support)
+ * Now with Digital Marketing included
  */
 
 export default function CoursesPage() {
@@ -20,15 +22,15 @@ export default function CoursesPage() {
         title: "Web Development Bootcamp",
         category: "Web Development",
         level: "Beginner",
-        format: "Onsite",
+        format: "Hybrid",
         rating: 4.8,
         ratingCount: 321,
         duration: "12 weeks",
         lessons: 69,
         price: 300000,
         image: Web,
-        tags: ["HTML", "CSS", "JavaScript", "React"],
-        instructor: { name: "Fortune ", avatar: "https://i.pravatar.cc/80?img=5" },
+        tags: ["HTML", "CSS", "JavaScript", "React", "ExpressJs", "MongoDb", "NextJs"],
+        instructor: { name: "Fortune", avatar: "https://i.pravatar.cc/80?img=5" },
         highlight: "From zero to job-ready with projects",
         syllabus: [
           { title: "Module 1 • Web Foundations", url: "/syllabus/software-engineering/web-development/module-1" },
@@ -42,16 +44,15 @@ export default function CoursesPage() {
         title: "Data Science with Python",
         category: "Data",
         level: "Intermediate",
-        format: "Online",
+        format: "Hybrid",
         rating: 4.7,
         ratingCount: 209,
         duration: "12 weeks",
         lessons: 75,
         price: 400000,
-        image:
-          Data,
+        image: Data,
         tags: ["Python", "Pandas", "Numpy", "ML"],
-        instructor: { name: "James ", avatar: "https://i.pravatar.cc/80?img=12" },
+        instructor: { name: "James", avatar: "https://i.pravatar.cc/80?img=12" },
         highlight: "Hands-on with real datasets",
         syllabus: [
           { title: "Module 1 • Python Refresher", url: "/syllabus/data-science/module-1" },
@@ -61,11 +62,11 @@ export default function CoursesPage() {
         ],
       },
       {
-        id: "cloud-computing", // fixed: removed stray quote
+        id: "cloud-computing",
         title: "Cloud Computing Essentials",
         category: "Cloud",
         level: "Beginner",
-        format: "Onsite",
+        format: "Online",
         rating: 4.6,
         ratingCount: 143,
         duration: "12 weeks",
@@ -73,7 +74,7 @@ export default function CoursesPage() {
         price: 600000,
         image: Cloud,
         tags: ["AWS", "Azure", "DevOps"],
-        instructor: { name: "Harry ", avatar: "https://i.pravatar.cc/80?img=22" },
+        instructor: { name: "Harry", avatar: "https://i.pravatar.cc/80?img=22" },
         highlight: "Deploy, scale, and monitor apps",
         syllabus: [
           { title: "Module 1 • Cloud Basics", url: "/syllabus/cloud-computing/module-1" },
@@ -95,7 +96,7 @@ export default function CoursesPage() {
         price: 150000,
         image: Kids,
         tags: ["Scratch", "Logic", "Creativity"],
-        instructor: { name: "Fortune ", avatar: "https://i.pravatar.cc/80?img=32" },
+        instructor: { name: "Fortune", avatar: "https://i.pravatar.cc/80?img=32" },
         highlight: "Playful projects that teach logic",
         syllabus: [
           { title: "Module 1 • Scratch Basics", url: "/syllabus/coding-for-kids-engineering/module-1" },
@@ -107,22 +108,47 @@ export default function CoursesPage() {
         id: "software-engineering/app-development",
         title: "Mobile App Development",
         category: "App Development",
-        level: "Intermediate",
-        format: "Online",
+        level: "Advanced",
+        format: "Hybrid",
         rating: 4.5,
         ratingCount: 176,
         duration: "14 weeks",
         lessons: 70,
         price: 400000,
         image: App,
-        tags: ["React Native", "APIs", "UI/UX"],
-        instructor: { name: "Michael", avatar: Michael},
+        tags: ["WebDevBasic", "ReactNative", "APIs", "UI/UX"],
+        instructor: { name: "Michael", avatar: Michael },
         highlight: "Build and publish real apps",
         syllabus: [
           { title: "Module 1 • RN Basics", url: "/syllabus/software-engineering/app-development/module-1" },
           { title: "Module 2 • Navigation & State", url: "/syllabus/software-engineering/app-development/module-2" },
           { title: "Module 3 • APIs & Auth", url: "/syllabus/software-engineering/app-development/module-3" },
           { title: "Full PDF", url: "https://cdn.techmindsacademy.org/syllabus/app-development.pdf" },
+        ],
+      },
+      // ---------- NEW COURSE: Digital Marketing (12 weeks) ----------
+      {
+        id: "digital-marketing",
+        title: "Digital Marketing",
+        category: "Digital Marketing",
+        level: "Beginner",
+        format: "Hybrid",
+        rating: 4.7,
+        ratingCount: 162,
+        duration: "12 weeks",
+        lessons: 60,
+        price: 200000,
+        image: Digital, // provide a real asset path
+        tags: ["Strategy", "SEO", "GA4", "Meta Ads", "Google Ads", "Email"],
+        instructor: { name: "Rachael", avatar: "https://i.pravatar.cc/80?img=45" },
+        highlight: "Strategy → SEO → Paid Ads → Analytics & Email — portfolio-ready.",
+        syllabus: [
+          { title: "Module 1 • Strategy, Audience & Funnels", url: "/syllabus/digital-marketing/module-1" },
+          { title: "Module 2 • Content & Copywriting", url: "/syllabus/digital-marketing/module-2" },
+          { title: "Module 3 • SEO (On-Page/Technical)", url: "/syllabus/digital-marketing/module-3" },
+          { title: "Module 4 • Paid Ads: Meta & Google", url: "/syllabus/digital-marketing/module-4" },
+          { title: "Module 5 • Analytics, CRO & Email", url: "/syllabus/digital-marketing/module-5" },
+          { title: "Full PDF", url: "https://cdn.techmindsacademy.org/syllabus/digital-marketing.pdf" },
         ],
       },
     ],
@@ -141,10 +167,7 @@ export default function CoursesPage() {
   // ---------- Filtering & Sorting ----------
   const filtered = useMemo(() => {
     let list = initialCourses.filter((c) => {
-      const matchesQuery = [c.title, c.category, c.tags.join(" ")]
-        .join(" ")
-        .toLowerCase()
-        .includes(query.toLowerCase());
+      const matchesQuery = [c.title, c.category, c.tags.join(" ")].join(" ").toLowerCase().includes(query.toLowerCase());
       const matchesCategory = category === "All" || c.category === category;
       const matchesLevel = level === "All" || c.level === level;
       const matchesFormat = format === "All" || c.format === format;
@@ -196,11 +219,7 @@ export default function CoursesPage() {
           }}
           resultCount={filtered.length}
           hasActiveFilters={
-            category !== "All" ||
-            level !== "All" ||
-            format !== "All" ||
-            sort !== "popular" ||
-            query.trim() !== ""
+            category !== "All" || level !== "All" || format !== "All" || sort !== "popular" || query.trim() !== ""
           }
           onClear={() => {
             setQuery("");
@@ -250,11 +269,9 @@ function CourseHero() {
     <header className="mb-6 rounded-3xl border border-white/60 bg-white/70 p-8 shadow-sm backdrop-blur-md dark:border-white/10 dark:bg-white/5">
       <div className="flex flex-col items-start justify-between gap-6 sm:flex-row sm:items-center">
         <div>
-          <h1 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-3xl">
-            LEARN WITH THE GEEKS
-          </h1>
+          <h1 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-3xl">LEARN WITH THE GEEKS</h1>
           <p className="mt-2 max-w-prose text-sm text-gray-600 dark:text-gray-300">
-            Learn modern tech the practical way—projects, mentorship, and career support in Abuja & online.
+            Learn Modern Tech The Practical Way———projects, mentorship, and career support in Abuja & online.
           </p>
         </div>
         <div className="grid grid-cols-3 gap-4">
@@ -301,9 +318,7 @@ function FiltersBar({
               placeholder="Search courses, tags, topics…"
               className="w-full rounded-2xl border border-gray-200 bg-white px-4 py-2.5 text-sm shadow-sm outline-none transition focus:border-blue-500 focus:ring-2 focus:ring-blue-200 dark:border-white/10 dark:bg-white/10 dark:text-white"
             />
-            <span className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-gray-400">
-              ⌘K
-            </span>
+            <span className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-gray-400">⌘K</span>
           </label>
 
           {/* Category */}
@@ -311,14 +326,14 @@ function FiltersBar({
             value={category}
             onChange={setCategory}
             label="Category"
-            options={["All", "Web Development", "Data", "Cloud", "Kids", "App Development"]}
+            options={["All", "Web Development", "Data", "Cloud", "Kids", "App Development", "Digital Marketing"]}
           />
 
           {/* Level */}
           <Select value={level} onChange={setLevel} label="Level" options={["All", "Beginner", "Intermediate", "Advanced"]} />
 
           {/* Format */}
-          <Select value={format} onChange={setFormat} label="Format" options={["All", "Onsite", "Online"]} />
+          <Select value={format} onChange={setFormat} label="Format" options={["All", "Onsite", "Online", "Hybrid"]} />
         </div>
 
         {/* Sort */}
@@ -342,9 +357,7 @@ function FiltersBar({
 }
 
 function Select({ value, onChange, label, options }) {
-  const opts = Array.isArray(options)
-    ? options.map((o) => (typeof o === "string" ? { label: o, value: o } : o))
-    : [];
+  const opts = Array.isArray(options) ? options.map((o) => (typeof o === "string" ? { label: o, value: o } : o)) : [];
   return (
     <label className="inline-flex items-center gap-2 text-xs text-gray-500 dark:text-gray-400">
       <span className="whitespace-nowrap">{label}</span>
@@ -402,14 +415,14 @@ function CourseCard({ course }) {
     category,
     level,
     format,
-    rating,
-    ratingCount,
+    // rating,
+    // ratingCount,
     duration,
     lessons,
     price,
     image,
     tags,
-    instructor,
+    // instructor,
     highlight,
     syllabus = [],
   } = course;
@@ -436,21 +449,15 @@ function CourseCard({ course }) {
 
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <img src={instructor.avatar} alt="" className="h-7 w-7 rounded-full object-cover" />
-            <span className="text-xs text-gray-600 dark:text-gray-300">{instructor.name}</span>
+            <span>{duration}</span>
           </div>
           <div className="flex items-center gap-2 text-xs text-gray-500 dark:text-gray-400">
-            <span>{duration}</span>
-            <span>•</span>
             <span>{lessons} lessons</span>
           </div>
         </div>
 
         <div className="flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            {/* <RatingStars value={rating} /> */}
-            {/* <span className="text-xs text-gray-500">({ratingCount})</span> */}
-          </div>
+          <div className="flex items-center gap-2">{/* Ratings hidden for brevity */}</div>
           <div className="text-right">
             <div className="text-sm font-bold text-gray-900 dark:text-white">₦{price.toLocaleString()}</div>
             <div className="text-[11px] text-gray-500">one-time/installment</div>
@@ -466,29 +473,16 @@ function CourseCard({ course }) {
 
         <div className="flex items-center gap-3 pt-2">
           <Link
-            to={`${id}}`}
+            to={`${id}`}
             className="inline-flex flex-1 items-center justify-center rounded-2xl bg-blue-600 px-4 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
           >
             Enroll Now
           </Link>
 
-          {/* <p
-            type="button"
-            onClick={() => setOpen(true)}
-            className="inline-flex items-center justify-center rounded-2xl border border-gray-200 bg-white px-4 py-2 text-sm font-semibold text-gray-900 shadow-sm transition hover:border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:border-white/10 dark:bg-white/10 dark:text-white"
-          >
-            Syllabus
-          </p> */}
         </div>
       </div>
 
-      {open && (
-        <SyllabusModal
-          onClose={() => setOpen(false)}
-          title={title}
-          items={syllabus}
-        />
-      )}
+      {open && <SyllabusModal onClose={() => setOpen(false)} title={title} items={syllabus} />}
     </article>
   );
 }
@@ -523,11 +517,7 @@ function Badge({ children, variant = "light" }) {
     dark: "bg-gray-900/90 text-white border-gray-900",
     outline: "bg-white/70 text-gray-800 border-gray-200",
   };
-  return (
-    <span className={`rounded-full border px-2.5 py-1 text-[11px] font-medium backdrop-blur ${styles[variant]}`}>
-      {children}
-    </span>
-  );
+  return <span className={`rounded-full border px-2.5 py-1 text-[11px] font-medium backdrop-blur ${styles[variant]}`}>{children}</span>;
 }
 
 function Tag({ children }) {
@@ -611,16 +601,11 @@ function SyllabusModal({ onClose, title, items = [] }) {
       role="dialog"
       aria-modal="true"
     >
-      <div
-        className="w-full max-w-2xl translate-y-0 rounded-t-3xl bg-white p-6 shadow-xl sm:rounded-3xl dark:bg-gray-900"
-        onClick={stop}
-      >
+      <div className="w-full max-w-2xl translate-y-0 rounded-t-3xl bg-white p-6 shadow-xl sm:rounded-3xl dark:bg-gray-900" onClick={stop}>
         <div className="flex items-start justify-between gap-4">
           <div>
             <h4 className="text-lg font-semibold text-gray-900 dark:text-white">Syllabus • {title}</h4>
-            <p className="mt-1 text-sm text-gray-600 dark:text-gray-300">
-              Open a module or download the full PDF.
-            </p>
+            <p className="mt-1 text-sm text-gray-600 dark:text-gray-300">Open a module or download the full PDF.</p>
           </div>
           <button
             onClick={onClose}
@@ -632,9 +617,7 @@ function SyllabusModal({ onClose, title, items = [] }) {
 
         <ol className="mt-6 grid gap-3 text-sm text-gray-700 dark:text-gray-200">
           {items.length === 0 && (
-            <li className="rounded-2xl border border-gray-200 bg-white p-3 dark:border-white/10 dark:bg-white/10">
-              Syllabus is being prepared. Please check back soon.
-            </li>
+            <li className="rounded-2xl border border-gray-200 bg-white p-3 dark:border-white/10 dark:bg-white/10">Syllabus is being prepared. Please check back soon.</li>
           )}
 
           {items.map((it, idx) => (
@@ -642,13 +625,14 @@ function SyllabusModal({ onClose, title, items = [] }) {
               key={it.url ?? idx}
               className="flex items-center justify-between gap-3 rounded-2xl border border-gray-200 bg-white p-3 transition hover:border-blue-300 dark:border-white/10 dark:bg-white/10"
             >
-              <span className="font-medium">{idx + 1}. {it.title}</span>
+              <span className="font-medium">
+                {idx + 1}. {it.title}
+              </span>
               <SmartLink
                 to={it.url}
                 className="inline-flex items-center gap-1 rounded-lg border border-gray-200 bg-white px-3 py-1.5 text-xs font-semibold text-gray-900 shadow-sm transition hover:border-blue-300 dark:border-white/10 dark:bg-white/10 dark:text-white"
               >
-                Open
-                <span aria-hidden>↗</span>
+                Open <span aria-hidden>↗</span>
               </SmartLink>
             </li>
           ))}

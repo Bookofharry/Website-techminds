@@ -1,5 +1,5 @@
 import "./cta.css"
-
+import { Link } from "react-router-dom";
 
 
 export default function BusinessCtaSection() {
@@ -39,18 +39,18 @@ export default function BusinessCtaSection() {
             className="group inline-flex items-center justify-center rounded-xl bg-blue-600 px-7 py-3 text-white shadow-sm ring-1 ring-black/5 transition hover:bg-blue-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-offset-2"
           >
             <span className="relative">
-              Join Us Now
+              <Link to='/application'>Join Us Now</Link>
               {/* subtle button shine on hover */}
               <span className="pointer-events-none absolute inset-0 rounded-xl altcta-btn-shine group-hover:opacity-100" />
             </span>
           </button>
 
-          <a
-            href="#learn-more"
+          <Link
+            to='/facilities'
             className="inline-flex items-center justify-center rounded-xl px-7 py-3 text-sm font-medium text-gray-700 ring-1 ring-gray-300 hover:bg-gray-50 dark:text-gray-200 dark:ring-white/15 dark:hover:bg-white/5"
           >
             Learn more
-          </a>
+          </Link>
         </div>
 
         {/* Tiny foot caption to show uniqueness */}

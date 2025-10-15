@@ -83,7 +83,7 @@ export default function TechMindsMarqueeShowcase() {
     <Chip img={James} text="Friendly Instructors" accent="rose" />,
     <Chip img={Class} text="Great Syllabus" accent="lime" />,
     <Chip img={Md} text="Workspace & Labs" accent="blue" />,
-    <Chip img={Md} text="Updated Tools" accent="purple" />,
+    <Chip img={TalkFortune} text="Updated Tools" accent="purple" />,
   ];
 
   return (

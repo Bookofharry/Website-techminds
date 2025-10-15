@@ -138,7 +138,7 @@ const Footer = ({ onSubscribe }) => {
             <ul className="mt-6 space-y-4">
               <li><Link to="/contact" className="text-base text-black transition hover:text-blue-600 focus:text-blue-600">Customer Support</Link></li>
               <li><Link to="/faq" className="text-base text-black transition hover:text-blue-600 focus:text-blue-600">FAQs</Link></li>
-              <li><Link to="/terms" className="text-base text-black transition hover:text-blue-600 focus:text-blue-600">Terms & Conditions</Link></li>
+              <li><Link to='/terms' className="text-base text-black transition hover:text-blue-600 focus:text-blue-600">Terms & Conditions</Link></li>
               <li><Link to="/privacy" className="text-base text-black transition hover:text-blue-600 focus:text-blue-600">Privacy Policy</Link></li>
               <li><Link to="/pricing" className="text-base text-black transition hover:text-blue-600 focus:text-blue-600">Admissions & Pricing</Link></li>
              
@@ -156,10 +156,10 @@ const Footer = ({ onSubscribe }) => {
               </p>
 
               <p className="mt-3">
-                <a className="text-blue-600 hover:underline" href="tel:+2348147328332" itemProp="telephone">+2348147328332</a>
+                <a className="text-blue-600 hover:underline" href="tel:+2348147328332" itemProp="telephone">(+234)8147328332</a>
               </p>
               <p className="mt-1">
-                <a className="text-blue-600 hover:underline" href="mailto:admissions@techmindsacademy.org" itemProp="email">info@techmindsacademy.org</a>
+                <a className="text-blue-600 hover:underline" href="mailto:info@techmindsacademy.org" itemProp="email">info@techmindsacademy.org</a>
               </p>
 
               <p className="mt-3">

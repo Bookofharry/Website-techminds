@@ -61,12 +61,10 @@ function Thank() {
           <h2 className="text-3xl font-semibold tracking-tight text-slate-900 sm:text-4xl dark:text-white">
             Our Courses
           </h2>
-          <p className="mt-4 text-base leading-7 text-slate-600 dark:text-slate-300">
-            Hands-on, job-ready courses in Frontend Development, UI/UX, Data
-            Analytics, Cybersecurity, and Product Management—tailored for
-            beginners and upskillers in Abuja. Learn in small cohorts with
-            industry mentors, build real projects, and get career support from
-            day one.
+          <p className="mt-4 text-base leading-7 text-slate-700 dark:text-slate-200">
+              Expertly designed for beginners and career upskillers in Abuja. <br />
+Learn as a Team, Mentor-led cohorts, work on real-world projects.
+<br />Your journey to becoming a Tech-ready professional starts here Now. 
           </p>
         </div>
 

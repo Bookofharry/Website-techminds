@@ -204,7 +204,7 @@ function Kids() {
         {/* Parent quote */}
         <figure className="mt-12 text-center">
           <blockquote className="mx-auto max-w-3xl text-lg text-gray-700">
-            “My daughter built her first Scratch game in week one and now explains
+            “My Son built his first Scratch game in week one and now explains
             loops at dinner. Tech Minds made coding exciting and safe.”
           </blockquote>
           <figcaption className="mt-2 text-sm text-gray-500">— A happy parent in Abuja</figcaption>

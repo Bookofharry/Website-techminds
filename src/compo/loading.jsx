@@ -8,7 +8,7 @@ const Faq = () => {
         q: "I’m a complete beginner. Can I really learn to code at Tech Minds?",
         a: `Absolutely. Our beginner tracks start from zero and focus on hands-on learning.
             You’ll build small projects in your first week and grow to real portfolio projects.
-            We keep classes small and mentor-led so you’re never lost.`,
+            We keep classes interactive and mentor-led so you’re never lost.`,
       },
       {
         q: "Do you offer physical classes in Abuja and online classes too?",

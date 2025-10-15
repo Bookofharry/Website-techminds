@@ -145,7 +145,7 @@ export default function KidsCodeOverview() {
               </svg>
               <h3 className="text-lg font-black text-slate-900 dark:text-white">Simple path for parents</h3>
             </div>
-
+{/* 
             <ol className="mt-4 space-y-3">
               <li className="flex gap-3">
                 <span className="mt-0.5 inline-flex h-6 w-6 items-center justify-center rounded-full bg-[#0b2a6b]/10 text-[12px] font-bold text-[#0b2a6b] ring-1 ring-[#0b2a6b]/20">1</span>
@@ -159,7 +159,7 @@ export default function KidsCodeOverview() {
                 <span className="mt-0.5 inline-flex h-6 w-6 items-center justify-center rounded-full bg-[#0b2a6b]/10 text-[12px] font-bold text-[#0b2a6b] ring-1 ring-[#0b2a6b]/20">3</span>
                 <p className="text-[15px] text-slate-800 dark:text-slate-200"><strong>Weekly Rhythm:</strong> 60–90 mins, once or twice weekly + brief progress notes.</p>
               </li>
-            </ol>
+            </ol> */}
 
             <div className="mt-5 grid grid-cols-2 gap-3 text-[14px]">
               <div className="rounded-xl border border-slate-200 bg-slate-50 p-3 dark:border-slate-700 dark:bg-slate-800/60">

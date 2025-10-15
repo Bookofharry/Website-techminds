@@ -1,5 +1,5 @@
 import React, { useMemo, useState } from "react";
-
+import { Link } from "react-router-dom";
 /**
  * Tech Minds Academy — Pricing
  * - Green/white brand styling
@@ -14,7 +14,7 @@ export default function Pricing() {
   const courses = useMemo(
     () => [
       {
-        id: "web-dev",
+        id: "software-engineering/web-development",
         title: "Web Development",
         price: 300_000,
         blurb:
@@ -41,7 +41,7 @@ export default function Pricing() {
         accent: "from-teal-600 to-emerald-600",
       },
       {
-        id: "cloud",
+        id: "cloud-computing",
         title: "Cloud (DevOps/Cloud)",
         price: 600_000,
         blurb:
@@ -50,7 +50,7 @@ export default function Pricing() {
         accent: "from-emerald-800 to-emerald-600",
       },
       {
-        id: "kids",
+        id: "coding-for-kids-engineering",
         title: "Coding for Kids",
         price: 150_000,
         blurb:
@@ -165,18 +165,18 @@ export default function Pricing() {
 
                 {/* CTA */}
                 <div className="mt-6 flex gap-2">
-                  <a
-                    href={`/apply?course=${encodeURIComponent(c.title)}`}
+                  <Link
+                    to='/application'
                     className="flex-1 inline-flex items-center justify-center rounded-xl bg-emerald-600 text-white font-semibold py-2.5 hover:bg-emerald-700 transition"
                   >
                     Apply Now
-                  </a>
-                  <a
-                    href={`programs/${c.id}`}
+                  </Link>
+                  <Link
+                    to={`/programs/${c.id}`}
                     className="px-4 inline-flex items-center justify-center rounded-xl border border-emerald-200 text-emerald-700 font-medium hover:bg-emerald-50 transition"
                   >
                     Details
-                  </a>
+                  </Link>
                 </div>
               </div>
             </article>
