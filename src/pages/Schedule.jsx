@@ -14,41 +14,95 @@ const FORMATS = ["All Formats", "On-Campus (Bwari)", "Online (Live)", "Hybrid"];
 
 /* ------------------------ Demo Template (repeat weekly) ------------------------ */
 
-const TEMPLATE_SESSIONS = [
-  // Monday
-  mkSession("", "Beginner", "Hybrid", "HTML / CSS ", "Fortune Nwakanma", "Bwari Lab A", "Mon", "09:00", "12:00"),
-  mkSession("", "Beginner", "Hybrid", "JavaScript", "Fortune Nwakanma", "Bwari Lab A", "Mon", "13:00", "15:00"),
-  mkSession("", "Intermediate", "Hybrid", "ExpressJS", "Michael Amadi", "Bwari Lab A", "Mon", "14:00", "17:00"),
-  // Tuesday
-  mkSession("App Development", "Intermediate", "Online (Live)", "React Native Navigation", "David Sule", "Zoom (portal link)", "Tue", "09:00", "11:30"),
-  mkSession("Web Development", "Beginner", "Hybrid", "JavaScript Essentials: Arrays & Objects", "Zainab Ali", "Bwari Lab B", "Tue", "12:00", "14:00"),
-  // Wednesday
-  mkSession("Cloud Computing", "Intermediate", "Hybrid", "Deploying to PaaS + HTTPS", "Ifeanyi O.", "Bwari Lab C", "Wed", "10:00", "12:30"),
-  // Thursday
-  mkSession("Data & Analytics", "Beginner", "On-Campus (Bwari)", "Pandas Basics & CSV Wrangling", "Chidera N.", "Bwari Data Lab", "Thu", "11:00", "13:00"),
-  // // Friday
-  // mkSession("Web Development", "Beginner", "Hybrid", "React: Components, Props & State", "Zainab Ali", "Bwari Lab B", "Fri", "10:00", "12:30"),
-  // // Saturday
-  // mkSession("Coding for Kids", "Beginner", "On-Campus (Bwari)", "Scratch Game Jam", "Funke A.", "Kids Studio", "Sat", "10:30", "12:00"),
-  // Sunday
-  mkSession("Data & Analytics", "Beginner", "On-Campus (Bwari)", "Data Storytelling Workshop", "Chidera N.", "Bwari Data Lab", "Sun", "13:00", "15:00"),
-];
-
 function mkSession(track, level, format, title, instructor, location, day, startHHMM, endHHMM) {
   return { track, level, format, title, instructor, location, day, startHHMM, endHHMM };
 }
 
+const TEMPLATE_SESSIONS = [
+  // Monday
+  mkSession("Web Development", "Beginner", "Hybrid", "HTML / CSS", "Mr Fortune Nwakanma", "Bwari Lab A", "Mon", "10:00", "13:00"),
+  mkSession("Computer Training", "Intermediate", "Hybrid", "Basic Computer Program", "Mr James Okpara", "Bwari Lab A", "Mon", "10:00", "14:30"),
+  mkSession("Web Development", "Beginner", "Hybrid", "JavaScript (Fundamentals)", "Mr Fortune Nwakanma", "Bwari Lab A", "Mon", "13:00", "15:00"),
+  mkSession("Web Development", "Intermediate", "Hybrid", "React Native", "Mr Harry", "online (Google Meet)", "Mon", "09:00", "11:30"),
+  mkSession("Web Development", "Intermediate", "Hybrid", "ExpressJS", "Mr Michael", "Bwari Lab A", "Mon", "10:00", "13:00"),
+  mkSession("App Development", "Intermediate", "Hybrid", "App Development", "Mr Michael", "Bwari Lab A", "Mon", "13:00", "15:30"),
+  mkSession("Data Science", "Intermediate", "Hybrid", "Data Science", "Mr James Okpara", "Bwari Lab A", "Mon", "12:30", "16:00"),
+  
+  
+  mkSession("Web Development", "Beginner", "Hybrid", "HTML / CSS", "Mr Fortune Nwakanma", "Bwari Lab A", "Tue", "10:00", "13:00"),
+  mkSession("Web Development", "Beginner", "Hybrid", "JavaScript ", "Mr Fortune Nwakanma", "Bwari Lab A", "Tue", "13:00", "15:00"),
+  mkSession("Computer Training", "Intermediate", "Hybrid", "Basic Computer Program", "Mr James Okpara", "Bwari Lab A", "Tue", "10:00", "14:30"),
+  mkSession("Web Development", "Intermediate", "Hybrid", "React", "Mr Harry", "online (Google Meet)", "Tue", "09:00", "11:30"),
+  mkSession("App Development", "Intermediate", "Hybrid", "App Development ", "Mr Michael", "Bwari Lab A", "Tue", "13:00", "15:30"),
+  mkSession("Digital Marketing", "Intermediate", "Hybrid", "Digital Marketing", "Ms Rachael", "Bwari Lab A", "Tue", "14:00", "16:00"),
+  
+  
+  
+  mkSession("Web Development", "Beginner", "Hybrid", "HTML / CSS", "Mr Fortune Nwakanma", "Bwari Lab A", "Wed", "10:00", "13:00"),
+  mkSession("Computer Training", "Intermediate", "Hybrid", "Basic Computer Program", "Mr James Okpara", "Bwari Lab A", "Wed", "10:00", "14:30"),
+  mkSession("Web Development", "Beginner", "Hybrid", "JavaScript", "Mr Fortune Nwakanma", "Bwari Lab A", "Wed", "13:00", "15:00"),
+  mkSession("Web Development", "Intermediate", "Hybrid", "React", "Mr Harry", "online (Google Meet)", "Wed", "09:00", "11:30"),
+  mkSession("Web Development", "Intermediate", "Hybrid", "ExpressJS", "Mr Michael", "Bwari Lab A", "Wed", "10:00", "13:00"),
+  mkSession("App Development", "Intermediate", "Hybrid", "App Development", "Mr Michael", "Bwari Lab A", "Wed", "13:00", "15:30"),
+    mkSession("Data Science", "Intermediate", "Hybrid", "Data Science", "Mr James Okpara", "Bwari Lab A", "Wed", "12:30", "16:00"),
+  
+  
+  mkSession("App Development", "Intermediate", "Hybrid", "App Development", "Mr Michael", "Bwari Lab A", "Thu", "13:00", "15:30"),
+  mkSession("Web Development", "Intermediate", "Hybrid", "React Native", "Mr Harry", "online (Google Meet)", "Thu", "09:00", "11:30"),
+  mkSession("Web Development", "Beginner", "Hybrid", "HTML / CSS", "Mr Fortune Nwakanma", "Bwari Lab A", "Thu", "10:00", "13:00"),
+  mkSession("Computer Training", "Intermediate", "Hybrid", "Basic Computer Program", "Mr James Okpara", "Bwari Lab A", "Thu", "10:00", "14:30"),
+  mkSession("Web Development", "Beginner", "Hybrid", "JavaScript ", "Mr Fortune Nwakanma", "Bwari Lab A", "Thu", "13:00", "15:00"),
+
+  
+  mkSession("Web Development", "Beginner", "Hybrid", "HTML / CSS", "Mr Fortune Nwakanma", "Bwari Lab A", "Fri", "10:00", "13:00"),
+  mkSession("Computer Training", "Intermediate", "Hybrid", "Basic Computer Program", "Mr James Okpara", "Bwari Lab A", "Fri", "10:00", "14:30"),
+  mkSession("Web Development", "Beginner", "Hybrid", "JavaScript ", "Mr Fortune Nwakanma", "Bwari Lab A", "Fri", "13:00", "15:00"),
+  mkSession("Digital Marketing", "Intermediate", "Hybrid", "Digital Marketing", "Ms Rachael", "Bwari Lab A", "Fri", "14:00", "16:00"),
+  mkSession("Web Development", "Intermediate", "Hybrid", "React Native", "Mr Harry", "online (Google Meet)", "Fri", "09:00", "11:30"),
+  mkSession("Web Development", "Intermediate", "Hybrid", "ExpressJS", "Mr Michael", "Bwari Lab A", "Fri", "10:00", "13:00"),
+    mkSession("Data Science", "Intermediate", "Hybrid", "Data Science", "Mr James Okpara", "Bwari Lab A", "Fri", "12:30", "16:00"),
+
+
+
+
+
+
+  
+  // // Tuesday
+  // mkSession("App Development", "Intermediate", "Online (Live)", "React Native Navigation", "David Sule", "Zoom (portal link)", "Tue", "09:00", "11:30"),
+  // mkSession("Web Development", "Intermediate", "Hybrid", "ExpressJS", "Michael Amadi", "Bwari Lab A", "Tue", "14:00", "17:00"),
+
+  // // Wednesday
+  // mkSession("Cloud Computing", "Intermediate", "Hybrid", "Deploying to PaaS + HTTPS", "Ifeanyi O.", "Bwari Lab C", "Wed", "10:00", "12:30"),
+  // mkSession("Data & Analytics", "Beginner", "On-Campus (Bwari)", "Pandas Basics & CSV Wrangling", "Chidera N.", "Bwari Data Lab", "Wed", "11:00", "13:00"),
+
+  // // Thursday
+  // mkSession("Web Development", "Beginner", "Hybrid", "JS Essentials: Arrays & Objects", "Zainab Ali", "Bwari Lab B", "Thu", "12:00", "14:00"),
+  // mkSession("Data & Analytics", "Beginner", "On-Campus (Bwari)", "Data Storytelling Workshop", "Chidera N.", "Bwari Data Lab", "Thu", "13:00", "15:00"),
+
+  // // Friday
+  // mkSession("Data & Analytics", "Beginner", "On-Campus (Bwari)", "Data Storytelling Workshop (Capstone)", "Chidera N.", "Bwari Data Lab", "Fri", "13:00", "15:00"),
+];
+
+function pad2(n) { return String(n).padStart(2, "0"); }
+function toISO(d) {
+  return `${d.getFullYear()}-${pad2(d.getMonth()+1)}-${pad2(d.getDate())}T${pad2(d.getHours())}:${pad2(d.getMinutes())}:00`;
+}
+function localDayKey(d) {
+  return `${d.getFullYear()}-${pad2(d.getMonth()+1)}-${pad2(d.getDate())}`;
+}
+
 function generateWeekSessions(weekMonday) {
   const dayOffset = { Mon: 0, Tue: 1, Wed: 2, Thu: 3, Fri: 4, Sat: 5, Sun: 6 };
-  const sessions = TEMPLATE_SESSIONS.map((t, i) => {
+  return TEMPLATE_SESSIONS.map((t, i) => {
     const d = new Date(weekMonday);
-    d.setDate(weekMonday.getDate() + dayOffset[t.day]);
+    d.setDate(weekMonday.getDate() + (dayOffset[t.day] ?? 0));
     const [sh, sm] = t.startHHMM.split(":").map(Number);
     const [eh, em] = t.endHHMM.split(":").map(Number);
-    const start = new Date(d); start.setHours(sh, sm, 0, 0);
-    const end = new Date(d);   end.setHours(eh, em, 0, 0);
+    const start = new Date(d); start.setHours(sh || 0, sm || 0, 0, 0);
+    const end = new Date(d);   end.setHours(eh || 0, em || 0, 0, 0);
     return {
-      id: `tmpl-${d.toISOString().slice(0,10)}-${i}`,
+      id: `tmpl-${localDayKey(d)}-${i}`,
       track: t.track,
       level: t.level,
       format: t.format,
@@ -59,12 +113,6 @@ function generateWeekSessions(weekMonday) {
       end: toISO(end),
     };
   });
-  return sessions;
-}
-
-function toISO(d) {
-  const pad = (n) => String(n).padStart(2, "0");
-  return `${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())}T${pad(d.getHours())}:${pad(d.getMinutes())}:00`;
 }
 
 /* -------------------------------- Utilities -------------------------------- */
@@ -96,7 +144,8 @@ function isOngoing(now, s, e) {
   return now >= s && now <= e;
 }
 function dayKey(d) {
-  return d.toISOString().slice(0, 10);
+  // FIX: use local day key (avoid UTC shift from toISOString)
+  return localDayKey(d);
 }
 
 /* --------------------------- Import / Export helpers --------------------------- */
@@ -110,13 +159,13 @@ function toICS(sessions) {
     "METHOD:PUBLISH",
   ];
   sessions.forEach((s) => {
-    const uid = `${s.id || `${s.start}-${s.title}`}`.replace(/\s+/g, "-") + "@techmindsacademy.org";
-    const dtStart = s.start.replace(/[-:]/g, "").slice(0, 15);
-    const dtEnd = s.end.replace(/[-:]/g, "").slice(0, 15);
-    const summary = escapeICS(`${s.title} — ${s.track}`);
+    const uid = `${(s.id || `${s.start}-${s.title}`).replace(/\s+/g, "-")}@techmindsacademy.org`;
+    const dtStart = (s.start || "").replace(/[-:]/g, "").slice(0, 15);
+    const dtEnd = (s.end || "").replace(/[-:]/g, "").slice(0, 15);
+    const summary = escapeICS(`${s.title || ""} — ${s.track || ""}`);
     const location = escapeICS(s.location || "");
     const description = escapeICS(
-      `Instructor: ${s.instructor || "TBA"}\\nLevel: ${s.level || ""}\\nFormat: ${s.format || ""}`
+      `Instructor: ${s.instructor || "TBA"}\nLevel: ${s.level || ""}\nFormat: ${s.format || ""}`
     );
     lines.push(
       "BEGIN:VEVENT",
@@ -139,7 +188,7 @@ function escapeICS(text) {
 function toCSV(sessions) {
   const header = ["Title", "Track", "Level", "Format", "Instructor", "Location", "Start", "End"];
   const rows = sessions.map((s) => [
-    s.title, s.track, s.level || "", s.format || "", s.instructor || "", s.location || "", s.start, s.end,
+    s.title || "", s.track || "", s.level || "", s.format || "", s.instructor || "", s.location || "", s.start || "", s.end || "",
   ]);
   const escape = (v) => `"${String(v).replace(/"/g, '""')}"`;
   return [header, ...rows].map((r) => r.map(escape).join(",")).join("\n");
@@ -165,19 +214,24 @@ function parseCSV(text) {
     }
   }
   if (field.length || row.length) { row.push(field); rows.push(row); }
-  const [header, ...body] = rows;
-  const idx = Object.fromEntries(header.map((h, i) => [h.trim().toLowerCase(), i]));
-  return body.map((r, j) => ({
-    id: `csv-${j}`,
-    title: r[idx["title"]] || "",
-    track: r[idx["track"]] || "Web Development",
-    level: r[idx["level"]] || "Beginner",
-    format: r[idx["format"]] || "On-Campus (Bwari)",
-    instructor: r[idx["instructor"]] || "TBA",
-    location: r[idx["location"]] || "",
-    start: (r[idx["start"]] || "").slice(0,19),
-    end: (r[idx["end"]] || "").slice(0,19),
-  }));
+  const [header = [], ...body] = rows;
+  const idx = Object.fromEntries(header.map((h, i) => [String(h).trim().toLowerCase(), i]));
+  return body.map((r, j) => {
+    const get = (k) => (r?.[idx[k]] ?? "").toString();
+    const start = get("start").slice(0,19);
+    const end = get("end").slice(0,19);
+    return {
+      id: `csv-${j}`,
+      title: get("title"),
+      track: get("track") || "Web Development",
+      level: get("level") || "Beginner",
+      format: get("format") || "On-Campus (Bwari)",
+      instructor: get("instructor") || "TBA",
+      location: get("location") || "",
+      start,
+      end,
+    };
+  }).filter(e => e.title || e.start);
 }
 
 function parseICS(text) {
@@ -195,11 +249,12 @@ function parseICS(text) {
     const LOCATION = get("LOCATION");
     const DESCRIPTION = get("DESCRIPTION");
 
-    let title = SUMMARY, track = "Web Development";
-    const parts = SUMMARY.split("—");
-    if (parts.length >= 2) {
+    let title = SUMMARY || "";
+    let track = "Web Development";
+    if (SUMMARY && SUMMARY.includes("—")) {
+      const parts = SUMMARY.split("—");
       title = parts[0].trim();
-      track = parts.slice(1).join("—").trim();
+      track = parts.slice(1).join("—").trim() || track;
     }
     const meta = parseDescriptionMeta(DESCRIPTION);
     events.push({
@@ -214,15 +269,15 @@ function parseICS(text) {
       end: icsToISO(DTEND),
     });
   }
-  return events;
+  return events.filter(e => e.title || e.start);
 }
 
 function parseDescriptionMeta(text) {
   const m = {};
-  const lines = decodeICS(text).split("\\n").map((l) => l.trim());
+  const lines = decodeICS(text || "").split("\\n").map((l) => l.trim());
   for (const line of lines) {
     const [k, ...rest] = line.split(":");
-    const v = rest.join(":").trim();
+    const v = (rest.join(":") || "").trim();
     if (/^level$/i.test(k)) m.level = v;
     if (/^format$/i.test(k)) m.format = v;
     if (/^instructor$/i.test(k)) m.instructor = v;
@@ -233,10 +288,11 @@ function decodeICS(text) {
   return String(text).replace(/\\n/g, "\n").replace(/\\,/g, ",").replace(/\\;/g, ";").replace(/\\\\/g, "\\");
 }
 function icsToISO(dt) {
+  if (!dt) return "";
   const clean = dt.replace(/^.*:/, "");
   const y = clean.slice(0,4), m = clean.slice(4,6), d = clean.slice(6,8);
-  const hh = clean.slice(9,11), mm = clean.slice(11,13), ss = clean.slice(13,15);
-  return `${y}-${m}-${d}T${hh}:${mm}:${ss || "00"}`;
+  const hh = clean.slice(9,11) || "00", mm = clean.slice(11,13) || "00", ss = clean.slice(13,15) || "00";
+  return `${y}-${m}-${d}T${hh}:${mm}:${ss}`;
 }
 
 /* --------------------------------- Component --------------------------------- */
@@ -256,7 +312,7 @@ export default function SchedulesPage() {
   const today = new Date();
   const todayId = dayKey(today);
 
-  /* NEW: Always load from top and disable browser scroll restoration */
+  /* Always load from top and disable browser scroll restoration */
   useEffect(() => {
     const prev = window.history.scrollRestoration;
     try { window.history.scrollRestoration = "manual"; } catch {}
@@ -265,10 +321,6 @@ export default function SchedulesPage() {
       try { window.history.scrollRestoration = prev || "auto"; } catch {}
     };
   }, []);
-
-  /* REMOVED: Auto-scroll to Today on mount
-     (We keep the "Jump to Today" button for manual scroll.)
-  */
 
   const filtered = useMemo(() => {
     return sessions
@@ -282,7 +334,7 @@ export default function SchedulesPage() {
         const q = query.trim().toLowerCase();
         const matchesQuery =
           !q ||
-          s.title.toLowerCase().includes(q) ||
+          (s.title || "").toLowerCase().includes(q) ||
           (s.instructor || "").toLowerCase().includes(q) ||
           (s.location || "").toLowerCase().includes(q) ||
           (s.track || "").toLowerCase().includes(q);
@@ -354,44 +406,46 @@ export default function SchedulesPage() {
     if (!url) return;
     try {
       const res = await fetch(url);
-      const contentType = res.headers.get("content-type") || "";
+      const contentType = (res.headers.get("content-type") || "").toLowerCase();
       const text = await res.text();
 
       if (url.endsWith(".json") || contentType.includes("application/json")) {
-        const json = JSON.parse(text);
-        setSessions(normalizeJSON(json));
+        setSessions(normalizeJSON(JSON.parse(text)));
       } else if (url.endsWith(".csv") || contentType.includes("text/csv")) {
         setSessions(parseCSV(text));
       } else if (url.endsWith(".ics") || contentType.includes("text/calendar")) {
         setSessions(parseICS(text));
       } else {
         try {
-          const json = JSON.parse(text);
-          setSessions(normalizeJSON(json));
+          setSessions(normalizeJSON(JSON.parse(text)));
         } catch {
           alert("Unsupported format. Use .json, .csv, or .ics");
         }
       }
       setWeekAnchor(startOfWeek(new Date())); // jump back to current week
-      scrollTop(); // NEW: back to top after import
+      scrollTop();
     } catch (e) {
       alert("Failed to load. Check the URL / CORS permissions.");
     }
   }
 
   function normalizeJSON(data) {
-    const arr = Array.isArray(data) ? data : data.sessions || [];
-    return arr.map((s, i) => ({
-      id: s.id || `json-${i}`,
-      title: s.title,
-      track: s.track || "Web Development",
-      level: s.level || "Beginner",
-      format: s.format || "On-Campus (Bwari)",
-      instructor: s.instructor || "TBA",
-      location: s.location || "",
-      start: s.start.slice(0,19),
-      end: s.end.slice(0,19),
-    }));
+    const arr = Array.isArray(data) ? data : (data?.sessions || []);
+    return arr.map((s, i) => {
+      const start = (s?.start || "").toString().slice(0,19);
+      const end = (s?.end || "").toString().slice(0,19);
+      return {
+        id: s?.id || `json-${i}`,
+        title: s?.title || "",
+        track: s?.track || "Web Development",
+        level: s?.level || "Beginner",
+        format: s?.format || "On-Campus (Bwari)",
+        instructor: s?.instructor || "TBA",
+        location: s?.location || "",
+        start,
+        end,
+      };
+    }).filter(e => e.title || e.start);
   }
 
   function triggerFilePick() {
@@ -404,17 +458,22 @@ export default function SchedulesPage() {
     reader.onload = () => {
       const text = String(reader.result || "");
       const name = (file.name || "").toLowerCase();
-      if (name.endsWith(".json")) {
-        try { setSessions(normalizeJSON(JSON.parse(text))); } catch { alert("Bad JSON file"); }
-      } else if (name.endsWith(".csv")) {
-        setSessions(parseCSV(text));
-      } else if (name.endsWith(".ics")) {
-        setSessions(parseICS(text));
-      } else {
-        alert("Unsupported file type. Use .json, .csv, or .ics");
+      try {
+        if (name.endsWith(".json")) {
+          setSessions(normalizeJSON(JSON.parse(text)));
+        } else if (name.endsWith(".csv")) {
+          setSessions(parseCSV(text));
+        } else if (name.endsWith(".ics")) {
+          setSessions(parseICS(text));
+        } else {
+          alert("Unsupported file type. Use .json, .csv, or .ics");
+          return;
+        }
+        setWeekAnchor(startOfWeek(new Date()));
+        scrollTop();
+      } catch {
+        alert("Could not parse the file.");
       }
-      setWeekAnchor(startOfWeek(new Date()));
-      scrollTop(); // NEW: back to top after file import
     };
     reader.readAsText(file);
     e.target.value = ""; // reset so same file can be re-selected
@@ -455,10 +514,13 @@ export default function SchedulesPage() {
 
             <div className="flex-1" />
 
-            <button onClick={() => {
-              const el = document.getElementById(todayId);
-              if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
-            }} className="rounded-2xl px-4 py-2 text-sm font-semibold text-gray-900 bg-white border border-gray-200 hover:border-gray-300 focus:outline-none focus:ring-2 focus:ring-emerald-700/20">
+            <button
+              onClick={() => {
+                const el = document.getElementById(todayId);
+                if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+              }}
+              className="rounded-2xl px-4 py-2 text-sm font-semibold text-gray-900 bg-white border border-gray-200 hover:border-gray-300 focus:outline-none focus:ring-2 focus:ring-emerald-700/20"
+            >
               Jump to Today
             </button>
 
@@ -468,7 +530,7 @@ export default function SchedulesPage() {
             <button onClick={exportICS} className="rounded-2xl px-4 py-2 text-sm font-semibold text-gray-900 bg-white border border-gray-200 hover:border-gray-300 focus:outline-none focus:ring-2 focus:ring-emerald-700/20">
               Export ICS
             </button>
-            <button onClick={exportCSV} className="rounded-2xl px-4 py-2 text-sm font-semibold text-gray-900 bg-white border border-gray-200 hover:border-gray-300 focus:outline-none focus:ring-2 focus:ring-emerald-700/20">
+              <button onClick={exportCSV} className="rounded-2xl px-4 py-2 text-sm font-semibold text-gray-900 bg-white border border-gray-200 hover:border-gray-300 focus:outline-none focus:ring-2 focus:ring-emerald-700/20">
               Export CSV
             </button>
 
@@ -639,8 +701,32 @@ function SearchInput({ value, onChange }) {
 function Select({ label, value, onChange, options }) {
   const [open, setOpen] = useState(false);
   const id = label.toLowerCase().replace(/\s+/g, "-");
+  const wrapperRef = useRef(null);
+
+  // Close on outside click, Escape, or scroll (prevents sticky bar jumpiness)
+  useEffect(() => {
+    function onDocClick(e) {
+      if (!wrapperRef.current) return;
+      if (!wrapperRef.current.contains(e.target)) setOpen(false);
+    }
+    function onKey(e) {
+      if (e.key === "Escape") setOpen(false);
+    }
+    function onScroll() {
+      setOpen(false);
+    }
+    document.addEventListener("mousedown", onDocClick);
+    document.addEventListener("keydown", onKey);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => {
+      document.removeEventListener("mousedown", onDocClick);
+      document.removeEventListener("keydown", onKey);
+      window.removeEventListener("scroll", onScroll);
+    };
+  }, []);
+
   return (
-    <div className="relative">
+    <div className="relative" ref={wrapperRef}>
       <button
         aria-haspopup="listbox"
         aria-expanded={open}
@@ -656,7 +742,11 @@ function Select({ label, value, onChange, options }) {
       </button>
 
       {open && (
-        <ul role="listbox" aria-labelledby={`${id}-button`} className="absolute z-10 mt-2 w-64 overflow-hidden rounded-2xl border border-gray-200 bg-white py-1 shadow-lg">
+        <ul
+          role="listbox"
+          aria-labelledby={`${id}-button`}
+          className="absolute z-30 mt-2 w-64 max-h-72 overflow-auto rounded-2xl border border-gray-200 bg-white py-1 shadow-lg"
+        >
           {options.map((opt) => {
             const active = opt === value;
             return (
