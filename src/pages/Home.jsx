@@ -8,7 +8,7 @@ import Numbers from "../compo/stat"
 import Picture from "../compo/PictureTemplate"
 import PicCarousel from "../compo/progress"
 import FooterPic from "../compo/Footerpic"
-
+import Image from "../compo/CarouseImage"
 
 
 function Home(){
@@ -16,11 +16,12 @@ function Home(){
        <div> 
         <HeroSplit />
         <Learn />
-        <Picture />
+        <Image />
         <DownloadCta />
        <Thank />
-       <PicCarousel />
+        <Picture />
        <Testimonial />
+       <PicCarousel />
        <Numbers />
        <Faq />
        <FooterPic/>

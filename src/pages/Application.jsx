@@ -1,6 +1,7 @@
 import { useState } from "react";
 import emailjs from '@emailjs/browser';
 import { Link } from "react-router-dom";
+import Down from "../compo/Applycarousel";
 function Application({ onSubmit }) {
   const [values, setValues] = useState({
     name: "",
@@ -22,6 +23,7 @@ function Application({ onSubmit }) {
     "Cloud Computing",
     "Coding for Kids",
     "Data Science",
+    "Digital Marketing",
   ];
 
   // Nigerian states + FCT
@@ -131,6 +133,7 @@ function Application({ onSubmit }) {
 
   return (
     <section className="py-8">
+      <Down />  
       <div className="mx-auto w-full max-w-2xl rounded-3xl border border-slate-200 bg-white/90 p-6 shadow-md backdrop-blur dark:border-slate-800 dark:bg-slate-900/70 sm:p-8">
         {/* Header */}
         <div className="flex items-start justify-between">

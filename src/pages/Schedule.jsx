@@ -20,47 +20,47 @@ function mkSession(track, level, format, title, instructor, location, day, start
 
 const TEMPLATE_SESSIONS = [
   // Monday
-  mkSession("Web Development", "Beginner", "Hybrid", "HTML / CSS", "Mr Fortune Nwakanma", "Bwari Lab A", "Mon", "10:00", "13:00"),
-  mkSession("Computer Training", "Intermediate", "Hybrid", "Basic Computer Program", "Mr James Okpara", "Bwari Lab A", "Mon", "10:00", "14:30"),
-  mkSession("Web Development", "Beginner", "Hybrid", "JavaScript (Fundamentals)", "Mr Fortune Nwakanma", "Bwari Lab A", "Mon", "13:00", "15:00"),
-  mkSession("Web Development", "Intermediate", "Hybrid", "React Native", "Mr Harry", "online (Google Meet)", "Mon", "09:00", "11:30"),
-  mkSession("Web Development", "Intermediate", "Hybrid", "ExpressJS", "Mr Michael", "Bwari Lab A", "Mon", "10:00", "13:00"),
+  mkSession("Web Development", "Beginner", "Hybrid", "HTML / CSS", "Mr Fortune ", "Bwari Lab A", "Mon", "10:00", "13:00"),
+  mkSession("Computer Training", "Beginner", "Hybrid", "Basic Computer Program", "Mr James ", "Bwari Lab A", "Mon", "10:00", "14:30"),
+  mkSession("Web Development", "Intermediate", "Hybrid", "Vanilla JavaScript", "Mr Fortune ", "Bwari Lab A", "Mon", "13:00", "15:00"),
+  mkSession("Web Development", "Intermediate", "Hybrid", "ReactJS", "Mr Harry", "online (Google Meet)", "Mon", "09:00", "11:30"),
+  mkSession("Web Development", "Intermediate", "Hybrid", "ExpressJS", "Mr Michael", "Bwari Lab A", "Mon", "09:30", "12:00"),
   mkSession("App Development", "Intermediate", "Hybrid", "App Development", "Mr Michael", "Bwari Lab A", "Mon", "13:00", "15:30"),
-  mkSession("Data Science", "Intermediate", "Hybrid", "Data Science", "Mr James Okpara", "Bwari Lab A", "Mon", "12:30", "16:00"),
+  mkSession("Data Science", "Intermediate", "Hybrid", "Data Science", "Mr James ", "Bwari Lab A", "Mon", "12:30", "16:00"),
   
   
-  mkSession("Web Development", "Beginner", "Hybrid", "HTML / CSS", "Mr Fortune Nwakanma", "Bwari Lab A", "Tue", "10:00", "13:00"),
-  mkSession("Web Development", "Beginner", "Hybrid", "JavaScript ", "Mr Fortune Nwakanma", "Bwari Lab A", "Tue", "13:00", "15:00"),
-  mkSession("Computer Training", "Intermediate", "Hybrid", "Basic Computer Program", "Mr James Okpara", "Bwari Lab A", "Tue", "10:00", "14:30"),
-  mkSession("Web Development", "Intermediate", "Hybrid", "React", "Mr Harry", "online (Google Meet)", "Tue", "09:00", "11:30"),
+  mkSession("Web Development", "Beginner", "Hybrid", "HTML / CSS", "Mr Fortune ", "Bwari Lab A", "Tue", "10:00", "13:00"),
+  mkSession("Web Development", "Intermediate", "Hybrid", "Vanilla JavaScript ", "Mr Fortune ", "Bwari Lab A", "Tue", "13:00", "15:00"),
+  mkSession("Computer Training", "Beginner", "Hybrid", "Basic Computer Program", "Mr James ", "Bwari Lab A", "Tue", "10:00", "14:30"),
+  mkSession("Web Development", "Intermediate", "Hybrid", "ReactJS", "Mr Harry", "online (Google Meet)", "Tue", "09:00", "11:30"),
   mkSession("App Development", "Intermediate", "Hybrid", "App Development ", "Mr Michael", "Bwari Lab A", "Tue", "13:00", "15:30"),
   mkSession("Digital Marketing", "Intermediate", "Hybrid", "Digital Marketing", "Ms Rachael", "Bwari Lab A", "Tue", "14:00", "16:00"),
   
   
   
-  mkSession("Web Development", "Beginner", "Hybrid", "HTML / CSS", "Mr Fortune Nwakanma", "Bwari Lab A", "Wed", "10:00", "13:00"),
-  mkSession("Computer Training", "Intermediate", "Hybrid", "Basic Computer Program", "Mr James Okpara", "Bwari Lab A", "Wed", "10:00", "14:30"),
-  mkSession("Web Development", "Beginner", "Hybrid", "JavaScript", "Mr Fortune Nwakanma", "Bwari Lab A", "Wed", "13:00", "15:00"),
-  mkSession("Web Development", "Intermediate", "Hybrid", "React", "Mr Harry", "online (Google Meet)", "Wed", "09:00", "11:30"),
-  mkSession("Web Development", "Intermediate", "Hybrid", "ExpressJS", "Mr Michael", "Bwari Lab A", "Wed", "10:00", "13:00"),
+  mkSession("Web Development", "Beginner", "Hybrid", "HTML / CSS", "Mr Fortune ", "Bwari Lab A", "Wed", "10:00", "13:00"),
+  mkSession("Computer Training", "Beginner", "Hybrid", "Basic Computer Program", "Mr James ", "Bwari Lab A", "Wed", "10:00", "14:30"),
+  mkSession("Web Development", "Intermediate", "Hybrid", "Vanilla JavaScript", "Mr Fortune ", "Bwari Lab A", "Wed", "13:00", "15:00"),
+  mkSession("Web Development", "Intermediate", "Hybrid", "ReactJS", "Mr Harry", "online (Google Meet)", "Wed", "09:00", "11:30"),
+  mkSession("Web Development", "Intermediate", "Hybrid", "ExpressJS", "Mr Michael", "Bwari Lab A", "Wed", "09:30", "12:00"),
   mkSession("App Development", "Intermediate", "Hybrid", "App Development", "Mr Michael", "Bwari Lab A", "Wed", "13:00", "15:30"),
-    mkSession("Data Science", "Intermediate", "Hybrid", "Data Science", "Mr James Okpara", "Bwari Lab A", "Wed", "12:30", "16:00"),
+    mkSession("Data Science", "Intermediate", "Hybrid", "Data Science", "Mr James ", "Bwari Lab A", "Wed", "12:30", "16:00"),
   
   
   mkSession("App Development", "Intermediate", "Hybrid", "App Development", "Mr Michael", "Bwari Lab A", "Thu", "13:00", "15:30"),
-  mkSession("Web Development", "Intermediate", "Hybrid", "React Native", "Mr Harry", "online (Google Meet)", "Thu", "09:00", "11:30"),
-  mkSession("Web Development", "Beginner", "Hybrid", "HTML / CSS", "Mr Fortune Nwakanma", "Bwari Lab A", "Thu", "10:00", "13:00"),
-  mkSession("Computer Training", "Intermediate", "Hybrid", "Basic Computer Program", "Mr James Okpara", "Bwari Lab A", "Thu", "10:00", "14:30"),
-  mkSession("Web Development", "Beginner", "Hybrid", "JavaScript ", "Mr Fortune Nwakanma", "Bwari Lab A", "Thu", "13:00", "15:00"),
+  mkSession("Web Development", "Intermediate", "Hybrid", "ReactJS", "Mr Harry", "online (Google Meet)", "Thu", "09:00", "11:30"),
+  mkSession("Web Development", "Beginner", "Hybrid", "HTML / CSS", "Mr Fortune ", "Bwari Lab A", "Thu", "10:00", "13:00"),
+  mkSession("Computer Training", "Intermediate", "Hybrid", "Basic Computer Program", "Mr James ", "Bwari Lab A", "Thu", "10:00", "14:30"),
+  mkSession("Web Development", "Intermediate", "Hybrid", "Vanilla JavaScript ", "Mr Fortune", "Bwari Lab A", "Thu", "13:00", "15:00"),
 
   
-  mkSession("Web Development", "Beginner", "Hybrid", "HTML / CSS", "Mr Fortune Nwakanma", "Bwari Lab A", "Fri", "10:00", "13:00"),
-  mkSession("Computer Training", "Intermediate", "Hybrid", "Basic Computer Program", "Mr James Okpara", "Bwari Lab A", "Fri", "10:00", "14:30"),
-  mkSession("Web Development", "Beginner", "Hybrid", "JavaScript ", "Mr Fortune Nwakanma", "Bwari Lab A", "Fri", "13:00", "15:00"),
+  mkSession("Web Development", "Beginner", "Hybrid", "HTML / CSS", "Mr Fortune", "Bwari Lab A", "Fri", "10:00", "13:00"),
+  mkSession("Computer Training", "Beginner", "Hybrid", "Basic Computer Program", "Mr James", "Bwari Lab A", "Fri", "10:00", "14:30"),
+  mkSession("Web Development", "Intermediate", "Hybrid", "Vanilla JavaScript ", "Mr Fortune ", "Bwari Lab A", "Fri", "13:00", "15:00"),
   mkSession("Digital Marketing", "Intermediate", "Hybrid", "Digital Marketing", "Ms Rachael", "Bwari Lab A", "Fri", "14:00", "16:00"),
-  mkSession("Web Development", "Intermediate", "Hybrid", "React Native", "Mr Harry", "online (Google Meet)", "Fri", "09:00", "11:30"),
-  mkSession("Web Development", "Intermediate", "Hybrid", "ExpressJS", "Mr Michael", "Bwari Lab A", "Fri", "10:00", "13:00"),
-    mkSession("Data Science", "Intermediate", "Hybrid", "Data Science", "Mr James Okpara", "Bwari Lab A", "Fri", "12:30", "16:00"),
+  mkSession("Web Development", "Intermediate", "Hybrid", "ReactJS", "Mr Harry", "online (Google Meet)", "Fri", "09:00", "11:30"),
+  mkSession("Web Development", "Intermediate", "Hybrid", "ExpressJS", "Mr Michael", "Bwari Lab A", "Fri", "09:30", "12:00"),
+  mkSession("Data Science", "Intermediate", "Hybrid", "Data Science", "Mr James ", "Bwari Lab A", "Fri", "12:30", "16:00"),
 
 
 
@@ -520,11 +520,12 @@ export default function SchedulesPage() {
                 if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
               }}
               className="rounded-2xl px-4 py-2 text-sm font-semibold text-gray-900 bg-white border border-gray-200 hover:border-gray-300 focus:outline-none focus:ring-2 focus:ring-emerald-700/20"
-            >
+              >
               Jump to Today
             </button>
 
-            <button onClick={handlePrint} className="rounded-2xl px-4 py-2 text-sm font-semibold text-white bg-gray-900 hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-900/30">
+            {/* <button onClick={handlePrint} className="rounded-2xl px-4 py-2 text-sm font-semibold text-white bg-gray-900 hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-900/30">
+              className="rounded-2xl px-4 py-2 text-sm font-semibold text-gray-900 bg-white border border-gray-200 hover:border-gray-300 focus:outline-none focus:ring-2 focus:ring-emerald-700/20"
               Print
             </button>
             <button onClick={exportICS} className="rounded-2xl px-4 py-2 text-sm font-semibold text-gray-900 bg-white border border-gray-200 hover:border-gray-300 focus:outline-none focus:ring-2 focus:ring-emerald-700/20">
@@ -532,15 +533,15 @@ export default function SchedulesPage() {
             </button>
               <button onClick={exportCSV} className="rounded-2xl px-4 py-2 text-sm font-semibold text-gray-900 bg-white border border-gray-200 hover:border-gray-300 focus:outline-none focus:ring-2 focus:ring-emerald-700/20">
               Export CSV
-            </button>
+            </button> */}
 
             {/* Import */}
-            <button onClick={importFromURL} className="rounded-2xl px-4 py-2 text-sm font-semibold text-gray-900 bg-white border border-gray-200 hover:border-gray-300 focus:outline-none focus:ring-2 focus:ring-emerald-700/20">
+            {/* <button onClick={importFromURL} 
               Import via URL
             </button>
             <button onClick={triggerFilePick} className="rounded-2xl px-4 py-2 text-sm font-semibold text-gray-900 bg-white border border-gray-200 hover:border-gray-300 focus:outline-none focus:ring-2 focus:ring-emerald-700/20">
               Import File (JSON/CSV/ICS)
-            </button>
+            </button> */}
             <input ref={fileInputRef} type="file" accept=".json,.csv,.ics,text/calendar,text/csv,application/json" className="hidden" onChange={onFileChosen} />
 
             <a ref={icsLink} className="hidden" />

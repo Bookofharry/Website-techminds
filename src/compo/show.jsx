@@ -1,4 +1,38 @@
 import Marquee from "./Marque";
+
+
+
+import MikeTeaching from '../assets/images/teaching.jpg';
+import Andrew from '../assets/images/andrew.jpg';
+import Asmua from '../assets/images/asmua.jpg';
+import Chris from '../assets/images/chrisuba.jpg';
+import Classsection from '../assets/images/classsection.jpg';
+import Dataanalytics from '../assets/images/dataanalytics.jpg';
+import Digital from '../assets/images/digital.jpg';
+import Esio from '../assets/images/esio.jpg';
+import Fortune1 from '../assets/images/fortune.jpg';
+import Godwin from '../assets/images/godwin.jpg';
+import Graphicdesign from '../assets/images/graphicdesign.jpg';
+import Instructors from '../assets/images/instructors.jpg';
+import Jame from '../assets/images/jame.jpg';
+import James1 from '../assets/images/james.jpg';
+import Jerry from '../assets/images/jerry.jpg';
+import Laptop from '../assets/images/laptop.jpg';
+import Mike from '../assets/images/mike.jpg';
+import Newstudent from '../assets/images/newstudent.jpg';
+import Rachael from '../assets/images/rachael.jpg';
+import Secretary from '../assets/images/secretary.jpg';
+import Tobi from '../assets/images/tobi.jpg';
+import Webdev from '../assets/images/webdev.jpg';
+
+
+
+
+
+
+
+
+
 import r1 from "../assets/rachael.jpg";
 import r2 from "../assets/instructor.jpeg";
 import r3 from "../assets/class.jpeg";
@@ -65,6 +99,7 @@ export default function TechMindsMarqueeShowcase() {
     <Chip img={r3} text="Web Development" accent="cyan" />,
     <Chip img={r4} text="Cloud Computing" accent="violet" />,
     <Chip img={Md}text="App Development" accent="emerald" />,
+    <Chip img={Esio}text="Digital Marketing" accent="emerald" />,
     <Chip img={TalkFortune} text="Cybersecurity Basics" accent="amber" />,
   ];
 
@@ -73,17 +108,17 @@ export default function TechMindsMarqueeShowcase() {
     <Chip img={Everyone} text="Real Projects" accent="pink" />,
     <Chip img={Conduct} text="Career Support" accent="emerald" />,
     <Chip img={Speakers} text="Abuja • Bwari" accent="cyan" />,
-    <Chip img={ClassRoom} text="Live-Online Options" accent="violet" />,
+    <Chip img={James1} text="Live-Online Options" accent="violet" />,
     <Chip img={Fortune} text="Tech Minds Academy" accent="amber" />,
   ];
 
   const row3 = [
-    <Chip img={Rachael2} text="24/7 Power Supply" accent="fuchsia" />,
+    <Chip img={Godwin} text="24/7 Power Supply" accent="fuchsia" />,
     <Chip img={SpaceGuy} text="Good Internet" accent="sky" />,
     <Chip img={James} text="Friendly Instructors" accent="rose" />,
     <Chip img={Class} text="Great Syllabus" accent="lime" />,
-    <Chip img={Md} text="Workspace & Labs" accent="blue" />,
-    <Chip img={TalkFortune} text="Updated Tools" accent="purple" />,
+    <Chip img={Secretary} text="Workspace & Labs" accent="blue" />,
+    <Chip img={Mike} text="Updated Tools" accent="purple" />,
   ];
 
   return (

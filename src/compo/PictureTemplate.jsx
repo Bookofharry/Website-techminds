@@ -29,7 +29,7 @@ function Picture({
               src={img.src}
               alt={img.alt || `Slide ${i + 1}`}
               loading="lazy"
-              className="h-48 w-72 object-cover rounded-lg"
+              className="h-60 w-120 object-cover rounded-lg"
             />
           </div>
         ))}
