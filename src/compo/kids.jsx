@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const BRAND_GRADIENT =
-  "bg-gradient-to-r from-emerald-800 via-emerald-200 to-emerald-800";
+  "bg-gradient-to-r from-blue-800 via-blue-200 to-blue-800";
 
 function Kids() {
   return (
@@ -16,26 +16,26 @@ function Kids() {
       {/* tiny accent dots (toned to emerald) */}
       <span
         aria-hidden
-        className="absolute left-10 top-12 h-2 w-2 rounded-full bg-emerald-400/80 animate-ping"
+        className="absolute left-10 top-12 h-2 w-2 rounded-full bg-blue-400/80 animate-ping"
       />
       <span
         aria-hidden
-        className="absolute right-12 top-24 h-1.5 w-1.5 rounded-full bg-emerald-300/90 animate-pulse"
+        className="absolute right-12 top-24 h-1.5 w-1.5 rounded-full bg-blue-300/90 animate-pulse"
       />
       <span
         aria-hidden
-        className="absolute left-20 bottom-16 h-1.5 w-1.5 rounded-full bg-emerald-500/70 animate-pulse"
+        className="absolute left-20 bottom-16 h-1.5 w-1.5 rounded-full bg-blue-500/70 animate-pulse"
       />
 
       <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-24">
         {/* Header */}
         <div className="max-w-3xl mx-auto text-center">
-          <span className="inline-flex items-center gap-2 rounded-full bg-emerald-50 px-3 py-1 text-xs font-medium text-emerald-800 ring-1 ring-inset ring-emerald-200">
-            <span className="inline-block h-2 w-2 rounded-full bg-emerald-700 animate-pulse" />
+          <span className="inline-flex items-center gap-2 rounded-full bg-blue-50 px-3 py-1 text-xs font-medium text-blue-800 ring-1 ring-inset ring-blue-200">
+            <span className="inline-block h-2 w-2 rounded-full bg-v-700 animate-pulse" />
             Coding for Kids @ Tech Minds
           </span>
           <h2 className="mt-4 text-3xl font-extrabold leading-tight text-gray-900 sm:text-4xl lg:text-5xl">
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-800 via-emerald-200 to-emerald-800">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-800 via-blue-200 to-blue-800">
               Fun, Creative Coding
             </span>{" "}
             For Curious Minds.
@@ -48,13 +48,13 @@ function Kids() {
 
           {/* tags */}
           <div className="mt-6 flex flex-wrap items-center justify-center gap-2">
-            <span className="inline-flex items-center rounded-full bg-emerald-50 px-3 py-1 text-xs font-medium text-emerald-800 ring-1 ring-inset ring-emerald-200">
+            <span className="inline-flex items-center rounded-full bg-blue-50 px-3 py-1 text-xs font-medium text-blue-800 ring-1 ring-inset ring-blue-200">
               Ages 7–9 (Play & Explore)
             </span>
-            <span className="inline-flex items-center rounded-full bg-emerald-50 px-3 py-1 text-xs font-medium text-emerald-800 ring-1 ring-inset ring-emerald-200">
+            <span className="inline-flex items-center rounded-full bg-blue-50 px-3 py-1 text-xs font-medium text-blue-800 ring-1 ring-inset ring-blue-200">
               Ages 10–12 (Game & Web Basics)
             </span>
-            <span className="inline-flex items-center rounded-full bg-emerald-50 px-3 py-1 text-xs font-medium text-emerald-800 ring-1 ring-inset ring-emerald-200">
+            <span className="inline-flex items-center rounded-full bg-blue-50 px-3 py-1 text-xs font-medium text-blue-800 ring-1 ring-inset ring-blue-200">
               Ages 13–16 (App & Data Basics)
             </span>
           </div>
@@ -113,8 +113,8 @@ function Kids() {
                 <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full border-2 border-gray-200 bg-white shadow-sm">
                   <span className="text-xl font-semibold text-gray-700">{s.n}</span>
                 </div>
-                <div className="mt-4 md:mt-6 flex items-center justify-center gap-2 text-emerald-700">
-                  <span className="rounded-full bg-emerald-50 p-2 ring-1 ring-emerald-200">
+                <div className="mt-4 md:mt-6 flex items-center justify-center gap-2 text-blue-700">
+                  <span className="rounded-full bg-blue-50 p-2 ring-1 ring-blue-200">
                     {s.icon}
                   </span>
                   <h3 className="text-xl font-semibold leading-tight text-gray-900">
@@ -127,7 +127,7 @@ function Kids() {
                 {i < 3 && (
                   <div
                     aria-hidden
-                    className="hidden md:block absolute top-8 right-[-16px] h-0.5 w-8 bg-gradient-to-r from-emerald-200 to-emerald-500/60"
+                    className="hidden md:block absolute top-8 right-[-16px] h-0.5 w-8 bg-gradient-to-r from-blue-200 to-blue-500/60"
                   />
                 )}
               </div>
@@ -152,7 +152,7 @@ function Kids() {
                 key={i}
                 className="group relative overflow-hidden rounded-2xl border border-gray-200 bg-white p-5 shadow-sm transition hover:-translate-y-1 hover:shadow-lg"
               >
-                <div className="absolute inset-x-0 -top-10 h-20 bg-gradient-to-b from-emerald-50 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+                <div className="absolute inset-x-0 -top-10 h-20 bg-gradient-to-b from-blue-50 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
                 <h4 className="text-lg font-semibold text-gray-900">{c.t}</h4>
                 <p className="mt-2 text-sm text-gray-600">{c.d}</p>
                 <div className="mt-4 flex items-center gap-2 text-xs">
@@ -165,19 +165,19 @@ function Kids() {
         </div>
 
         {/* Safety + requirements */}
-        <div className="mt-12 rounded-2xl border border-emerald-200 bg-emerald-50/50 p-6 sm:p-8">
+        <div className="mt-12 rounded-2xl border border-blue-200 bg-blue-50/50 p-6 sm:p-8">
           <div className="flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-center">
             <div>
-              <h4 className="text-lg font-semibold text-emerald-900">Safe, supportive learning</h4>
-              <p className="mt-1 text-sm text-emerald-800">
+              <h4 className="text-lg font-semibold text-blue-900">Safe, supportive learning</h4>
+              <p className="mt-1 text-sm text-blue-800">
                 Small groups, background-checked mentors, kid-safe tools, and parent progress
                 updates every week.
               </p>
             </div>
             <ul className="flex flex-wrap items-center gap-2">
-              <li className="rounded-full bg-white px-3 py-1 text-xs font-medium text-emerald-800 ring-1 ring-emerald-300">Bring a laptop (8GB+)</li>
-              <li className="rounded-full bg-white px-3 py-1 text-xs font-medium text-emerald-800 ring-1 ring-emerald-300">On-campus power & internet</li>
-              <li className="rounded-full bg-white px-3 py-1 text-xs font-medium text-emerald-800 ring-1 ring-emerald-300">Live online option</li>
+              <li className="rounded-full bg-white px-3 py-1 text-xs font-medium text-blue-800 ring-1 ring-blue-300">Bring a laptop (8GB+)</li>
+              <li className="rounded-full bg-white px-3 py-1 text-xs font-medium text-blue-800 ring-1 ring-blue-300">On-campus power & internet</li>
+              <li className="rounded-full bg-white px-3 py-1 text-xs font-medium text-blue-800 ring-1 ring-blue-300">Live online option</li>
             </ul>
           </div>
         </div>
@@ -195,7 +195,7 @@ function Kids() {
           </Link>
           <a
             href="https://mega.nz/file/Y2UCEJ5S#TCxuwPMsD23x61OQRsGmMxAbQnAQRo4N-7EI2un5YsQ"
-            className="inline-flex items-center justify-center rounded-2xl border border-gray-300 bg-white px-5 py-3 text-sm font-semibold text-gray-700 shadow-sm transition hover:-translate-y-0.5 hover:border-gray-400 hover:shadow focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-700/20"
+            className="inline-flex items-center justify-center rounded-2xl border border-gray-300 bg-white px-5 py-3 text-sm font-semibold text-gray-700 shadow-sm transition hover:-translate-y-0.5 hover:border-gray-400 hover:shadow focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-700/20"
           >
             Download parent guide (PDF)
           </a>

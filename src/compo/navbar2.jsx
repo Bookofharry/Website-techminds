@@ -100,6 +100,24 @@ export default function NavBar2() {
             letter-spacing: .02em; margin-top: 2px;
           }
 
+          /* verification badge (scalloped like twitter/x) */
+          .verify-badge {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-left: .35rem;
+            vertical-align: middle;
+            transform: translateY(-1px);
+            border-radius: 999px;
+            line-height: 0;
+            box-shadow: 0 0 0 2px rgba(255,255,255,.85);
+          }
+          .verify-badge svg {
+            width: 18px; height: 18px;
+            filter: drop-shadow(0 1px 1px rgba(0,0,0,.08));
+          }
+          .verify-badge:hover { box-shadow: 0 0 0 2px rgba(59,130,246,.25); }
+
           .nav-links { display: flex; gap: 1.5rem; align-items: center; }
 
           .nav-link {
@@ -126,9 +144,7 @@ export default function NavBar2() {
 
           /* Desktop dropdown */
           .dropdown { position: relative; }
-          .dropdown-btn {
-            display: inline-flex; align-items: center; gap: .35rem; cursor: default;
-          }
+          .dropdown-btn { display: inline-flex; align-items: center; gap: .35rem; cursor: default; }
           .dropdown-menu {
             display: none; position: absolute; top: calc(100% + 10px); left: 0;
             min-width: 260px; background: #fff; border: 1px solid rgba(0,0,0,0.08);
@@ -157,9 +173,7 @@ export default function NavBar2() {
             padding:.6rem .75rem; border-radius:.5rem; border:1px solid rgba(0,0,0,.08);
             background:#f9fafb; font-weight:600; color:#1f2937;
           }
-          .mobile-submenu {
-            display: grid; gap: .4rem; padding:.6rem .25rem 0 .25rem;
-          }
+          .mobile-submenu { display: grid; gap: .4rem; padding:.6rem .25rem 0 .25rem; }
           .mobile-submenu a { padding:.45rem .5rem; border-radius:.4rem; text-decoration:none; color:#111827; }
           .mobile-submenu a:hover { background: rgba(44,35,231,.06); color:#2c23e7ff; }
 
@@ -176,7 +190,28 @@ export default function NavBar2() {
           <Link to="/" className="logo-container" aria-label="Tech Minds Academy Home">
             <img src={Logo} width={64} height={64} alt="Tech Minds Academy logo" />
             <span>
-              <span className="logo-text">Tech Minds Academy</span>
+              <span className="logo-text">
+                Tech Minds Academy
+                {/* scalloped verification badge */}
+                <span className="verify-badge" role="img" aria-label="Verified account" title="Verified">
+                  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    {/* scalloped blob */}
+                    <path
+                      fill="#1DA1F2"
+                      d="M22 12c0 .9-.7 1.6-1.6 1.8.2.9-.2 1.8-1 2.3.3.8.1 1.8-.6 2.4-.7.6-1.6.8-2.4.6-.5.8-1.4 1.2-2.3 1-.2.9-.9 1.6-1.8 1.6s-1.6-.7-1.8-1.6c-.9.2-1.8-.2-2.3-1-.8.3-1.8.1-2.4-.6-.6-.7-.8-1.6-.6-2.4-.8-.5-1.2-1.4-1-2.3-.9-.2-1.6-.9-1.6-1.8s.7-1.6 1.6-1.8c-.2-.9.2-1.8 1-2.3-.3-.8-.1-1.8.6-2.4.7-.6 1.6-.8 2.4-.6.5-.8 1.4-1.2 2.3-1 .2-.9.9-1.6 1.8-1.6s1.6.7 1.8 1.6c.9-.2 1.8.2 2.3 1 .8-.3 1.8-.1 2.4.6.6.7.8 1.6.6 2.4.8.5 1.2 1.4 1 2.3.9.2 1.6.9 1.6 1.8z"
+                    />
+                    {/* check */}
+                    <path
+                      d="M9.2 12.7l1.9 1.9 3.9-3.9"
+                      fill="none"
+                      stroke="#fff"
+                      strokeWidth="2.2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                </span>
+              </span>
               <span className="logo-sub">School of the Geeks</span>
             </span>
           </Link>
@@ -210,7 +245,6 @@ export default function NavBar2() {
                 <Link to="/programs/coding-for-kids-engineering" className="dropdown-item" role="menuitem">
                   Coding for Kids Engineering
                 </Link>
-
               </div>
             </div>
 
