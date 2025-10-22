@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Logo from '../assets/Logo.png';
 import { Link } from "react-router-dom";
-
+import emailjs from '@emailjs/browser';
 const Footer = ({ onSubscribe }) => {
   const year = new Date().getFullYear();
 
@@ -27,6 +27,23 @@ const Footer = ({ onSubscribe }) => {
         // Parent decides what to do with the email
         await onSubscribe(email);
       } else {
+        try{
+          emailjs
+            .send('service_o7p2hyc', 'template_16r9x52',  {email: email}, {
+              publicKey: 'yW3vSEKqFMS3tQwvS',
+            })
+            .then(
+              (response) => {
+                console.log('SUCCESS!', response.status, response.text);
+              },
+              (err) => {
+                console.log('FAILED...', err);
+              },
+            );
+
+        }catch(err){
+            console.log(err)
+        }
         // Default action if no parent callback is provided
         console.log("Newsletter subscribe:", email);
       }

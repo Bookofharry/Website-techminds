@@ -2,11 +2,11 @@ import React from "react";
 
 export default function TermsAndConditions() {
   return (
-    <main className="bg-gradient-to-b from-emerald-50 to-white min-h-screen py-16 px-6 sm:px-12 lg:px-20 text-gray-800">
+    <main className="bg-gradient-to-b from-blue-50 to-white min-h-screen py-16 px-6 sm:px-12 lg:px-20 text-gray-800">
       <div className="max-w-5xl mx-auto">
         {/* Header */}
         <header className="text-center mb-12">
-          <h1 className="text-4xl sm:text-5xl font-extrabold text-emerald-700">
+          <h1 className="text-4xl sm:text-5xl font-extrabold text-blue-700">
             Terms & Conditions
           </h1>
           <p className="mt-3 text-gray-600 text-lg">
@@ -17,7 +17,7 @@ export default function TermsAndConditions() {
 
         {/* Section 1 */}
         <section className="mb-10">
-          <h2 className="text-2xl font-bold text-emerald-600 mb-3">
+          <h2 className="text-2xl font-bold text-blue-600 mb-3">
             1. Introduction
           </h2>
           <p className="text-gray-700 leading-relaxed">
@@ -31,7 +31,7 @@ export default function TermsAndConditions() {
 
         {/* Section 2 */}
         <section className="mb-10">
-          <h2 className="text-2xl font-bold text-emerald-600 mb-3">
+          <h2 className="text-2xl font-bold text-blue-600 mb-3">
             2. Use of Our Services
           </h2>
           <p className="text-gray-700 leading-relaxed">
@@ -45,7 +45,7 @@ export default function TermsAndConditions() {
 
         {/* Section 3 */}
         <section className="mb-10">
-          <h2 className="text-2xl font-bold text-emerald-600 mb-3">
+          <h2 className="text-2xl font-bold text-blue-600 mb-3">
             3. Intellectual Property
           </h2>
           <p className="text-gray-700 leading-relaxed">
@@ -58,7 +58,7 @@ export default function TermsAndConditions() {
 
         {/* Section 4 */}
         <section className="mb-10">
-          <h2 className="text-2xl font-bold text-emerald-600 mb-3">
+          <h2 className="text-2xl font-bold text-blue-600 mb-3">
             4. Enrollment and Payments
           </h2>
           <p className="text-gray-700 leading-relaxed">
@@ -72,7 +72,7 @@ export default function TermsAndConditions() {
 
         {/* Section 5 */}
         <section className="mb-10">
-          <h2 className="text-2xl font-bold text-emerald-600 mb-3">
+          <h2 className="text-2xl font-bold text-blue-600 mb-3">
             5. User Responsibilities
           </h2>
           <ul className="list-disc list-inside text-gray-700 leading-relaxed space-y-2">
@@ -85,7 +85,7 @@ export default function TermsAndConditions() {
 
         {/* Section 6 */}
         <section className="mb-10">
-          <h2 className="text-2xl font-bold text-emerald-600 mb-3">
+          <h2 className="text-2xl font-bold text-blue-600 mb-3">
             6. Privacy and Data Protection
           </h2>
           <p className="text-gray-700 leading-relaxed">
@@ -98,7 +98,7 @@ export default function TermsAndConditions() {
 
         {/* Section 7 */}
         <section className="mb-10">
-          <h2 className="text-2xl font-bold text-emerald-600 mb-3">
+          <h2 className="text-2xl font-bold text-blue-600 mb-3">
             7. Limitation of Liability
           </h2>
           <p className="text-gray-700 leading-relaxed">
@@ -111,7 +111,7 @@ export default function TermsAndConditions() {
 
         {/* Section 8 */}
         <section className="mb-10">
-          <h2 className="text-2xl font-bold text-emerald-600 mb-3">
+          <h2 className="text-2xl font-bold text-blue-600 mb-3">
             8. Updates to These Terms
           </h2>
           <p className="text-gray-700 leading-relaxed">
@@ -123,13 +123,13 @@ export default function TermsAndConditions() {
 
         {/* Contact Section */}
         <section>
-          <h2 className="text-2xl font-bold text-emerald-600 mb-3">
+          <h2 className="text-2xl font-bold text-blue-600 mb-3">
             9. Contact Us
           </h2>
           <p className="text-gray-700 leading-relaxed">
             For any questions about these Terms, please contact us at:
           </p>
-          <p className="mt-3 font-semibold text-emerald-700">
+          <p className="mt-3 font-semibold text-blue-700">
             Tech Minds Academy Bwari, Abuja, Nigeria <br />
             Email: <a href="mailto:info@techmindsacademy.org" className="underline">info@techmindsacademy.org</a> <br />
             Website: <a href="https://techmindsacademy.org" className="underline">www.techmindsacademy.org</a>

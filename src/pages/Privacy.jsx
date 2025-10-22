@@ -10,14 +10,14 @@ import React from "react";
 
 export default function PrivacyPolicy({ lastUpdated = "October 2025" }) {
   return (
-    <main className="min-h-screen bg-gradient-to-b from-emerald-50 to-white text-gray-800">
+    <main className="min-h-screen bg-gradient-to-b from-blue-50 to-white text-gray-800">
       {/* Header */}
-      <header className="px-6 sm:px-12 lg:px-20 py-14 border-b border-emerald-100">
+      <header className="px-6 sm:px-12 lg:px-20 py-14 border-b border-blue-100">
         <div className="max-w-5xl mx-auto text-center">
-          <p className="inline-block rounded-full bg-emerald-100 text-emerald-700 px-3 py-1 text-xs font-semibold tracking-wide">
+          <p className="inline-block rounded-full bg-blue-100 text-blue-700 px-3 py-1 text-xs font-semibold tracking-wide">
             Tech Minds Academy • Privacy
           </p>
-          <h1 className="mt-4 text-4xl sm:text-5xl font-extrabold text-emerald-700">
+          <h1 className="mt-4 text-4xl sm:text-5xl font-extrabold text-blue-700">
             Privacy Policy
           </h1>
           <p className="mt-3 text-gray-600 text-lg">
@@ -35,28 +35,28 @@ export default function PrivacyPolicy({ lastUpdated = "October 2025" }) {
           {/* TOC */}
           <nav
             aria-label="Table of contents"
-            className="mb-10 rounded-xl border border-emerald-100 bg-white/70 backdrop-blur p-5"
+            className="mb-10 rounded-xl border border-blue-100 bg-white/70 backdrop-blur p-5"
           >
-            <h2 className="text-sm font-semibold text-emerald-700 mb-3">On this page</h2>
+            <h2 className="text-sm font-semibold text-blue-700 mb-3">On this page</h2>
             <ol className="grid sm:grid-cols-2 gap-x-6 gap-y-2 text-sm list-decimal list-inside">
-              <li><a className="hover:text-emerald-700 underline underline-offset-2" href="#scope">Scope</a></li>
-              <li><a className="hover:text-emerald-700 underline underline-offset-2" href="#data-we-collect">Data we collect</a></li>
-              <li><a className="hover:text-emerald-700 underline underline-offset-2" href="#how-we-use">How we use data</a></li>
-              <li><a className="hover:text-emerald-700 underline underline-offset-2" href="#lawful-basis">Lawful bases</a></li>
-              <li><a className="hover:text-emerald-700 underline underline-offset-2" href="#sharing">Sharing & disclosure</a></li>
-              <li><a className="hover:text-emerald-700 underline underline-offset-2" href="#cookies">Cookies & analytics</a></li>
-              <li><a className="hover:text-emerald-700 underline underline-offset-2" href="#retention">Data retention</a></li>
-              <li><a className="hover:text-emerald-700 underline underline-offset-2" href="#security">Security</a></li>
-              <li><a className="hover:text-emerald-700 underline underline-offset-2" href="#children">Children’s data</a></li>
-              <li><a className="hover:text-emerald-700 underline underline-offset-2" href="#international">International transfers</a></li>
-              <li><a className="hover:text-emerald-700 underline underline-offset-2" href="#your-rights">Your privacy rights</a></li>
-              <li><a className="hover:text-emerald-700 underline underline-offset-2" href="#contact">Contact us</a></li>
+              <li><a className="hover:text-blue-700 underline underline-offset-2" href="#scope">Scope</a></li>
+              <li><a className="hover:text-blue-700 underline underline-offset-2" href="#data-we-collect">Data we collect</a></li>
+              <li><a className="hover:text-blue-700 underline underline-offset-2" href="#how-we-use">How we use data</a></li>
+              <li><a className="hover:text-blue-700 underline underline-offset-2" href="#lawful-basis">Lawful bases</a></li>
+              <li><a className="hover:text-blue-700 underline underline-offset-2" href="#sharing">Sharing & disclosure</a></li>
+              <li><a className="hover:text-blue-700 underline underline-offset-2" href="#cookies">Cookies & analytics</a></li>
+              <li><a className="hover:text-blue-700 underline underline-offset-2" href="#retention">Data retention</a></li>
+              <li><a className="hover:text-blue-700 underline underline-offset-2" href="#security">Security</a></li>
+              <li><a className="hover:text-blue-700 underline underline-offset-2" href="#children">Children’s data</a></li>
+              <li><a className="hover:text-blue-700 underline underline-offset-2" href="#international">International transfers</a></li>
+              <li><a className="hover:text-blue-700 underline underline-offset-2" href="#your-rights">Your privacy rights</a></li>
+              <li><a className="hover:text-blue-700 underline underline-offset-2" href="#contact">Contact us</a></li>
             </ol>
           </nav>
 
           {/* 1. Scope */}
           <section id="scope" className="mb-10 scroll-mt-24">
-            <h2 className="text-2xl font-bold text-emerald-600 mb-3">1) Scope</h2>
+            <h2 className="text-2xl font-bold text-blue-600 mb-3">1) Scope</h2>
             <p className="leading-relaxed text-gray-700">
               This Privacy Policy describes how <span className="font-semibold">Tech Minds Academy</span> (“we”, “us”, “our”)
               collects, uses, and safeguards personal data when you visit our website, apply or enroll in our
@@ -66,7 +66,7 @@ export default function PrivacyPolicy({ lastUpdated = "October 2025" }) {
 
           {/* 2. Data we collect */}
           <section id="data-we-collect" className="mb-10 scroll-mt-24">
-            <h2 className="text-2xl font-bold text-emerald-600 mb-3">2) Data we collect</h2>
+            <h2 className="text-2xl font-bold text-blue-600 mb-3">2) Data we collect</h2>
             <ul className="list-disc list-inside space-y-2 text-gray-700 leading-relaxed">
               <li><span className="font-semibold">Identity & contact:</span> name, email, phone, country, location (city/state), emergency contact (for minors where applicable).</li>
               <li><span className="font-semibold">Academic & profile:</span> course selections, learning goals, prior experience, submissions, assessment results, certificates.</li>
@@ -79,7 +79,7 @@ export default function PrivacyPolicy({ lastUpdated = "October 2025" }) {
 
           {/* 3. How we use data */}
           <section id="how-we-use" className="mb-10 scroll-mt-24">
-            <h2 className="text-2xl font-bold text-emerald-600 mb-3">3) How we use your data</h2>
+            <h2 className="text-2xl font-bold text-blue-600 mb-3">3) How we use your data</h2>
             <ul className="list-disc list-inside space-y-2 text-gray-700 leading-relaxed">
               <li>To process admissions, manage classes, track progress, and issue certificates.</li>
               <li>To deliver online learning, labs, and student support.</li>
@@ -92,7 +92,7 @@ export default function PrivacyPolicy({ lastUpdated = "October 2025" }) {
 
           {/* 4. Lawful bases */}
           <section id="lawful-basis" className="mb-10 scroll-mt-24">
-            <h2 className="text-2xl font-bold text-emerald-600 mb-3">4) Lawful bases for processing</h2>
+            <h2 className="text-2xl font-bold text-blue-600 mb-3">4) Lawful bases for processing</h2>
             <p className="text-gray-700 leading-relaxed">
               Depending on the context, we rely on one or more of the following: <span className="font-semibold">consent</span>,
               <span className="font-semibold"> contract necessity</span> (to provide your course), <span className="font-semibold">legal obligation</span>,
@@ -103,7 +103,7 @@ export default function PrivacyPolicy({ lastUpdated = "October 2025" }) {
 
           {/* 5. Sharing */}
           <section id="sharing" className="mb-10 scroll-mt-24">
-            <h2 className="text-2xl font-bold text-emerald-600 mb-3">5) Sharing & disclosure</h2>
+            <h2 className="text-2xl font-bold text-blue-600 mb-3">5) Sharing & disclosure</h2>
             <p className="text-gray-700 leading-relaxed">
               We do not sell your personal data. We may share limited data with trusted providers who help us operate
               (e.g., payment processors, LMS, cloud hosting, email/SMS). These providers follow contractual
@@ -114,7 +114,7 @@ export default function PrivacyPolicy({ lastUpdated = "October 2025" }) {
 
           {/* 6. Cookies */}
           <section id="cookies" className="mb-10 scroll-mt-24">
-            <h2 className="text-2xl font-bold text-emerald-600 mb-3">6) Cookies & analytics</h2>
+            <h2 className="text-2xl font-bold text-blue-600 mb-3">6) Cookies & analytics</h2>
             <p className="text-gray-700 leading-relaxed">
               We use cookies or similar technologies to keep you signed in, remember preferences, and measure performance.
               You can control cookies in your browser settings; disabling some may impact features (e.g., login persistence).
@@ -123,7 +123,7 @@ export default function PrivacyPolicy({ lastUpdated = "October 2025" }) {
 
           {/* 7. Retention */}
           <section id="retention" className="mb-10 scroll-mt-24">
-            <h2 className="text-2xl font-bold text-emerald-600 mb-3">7) Data retention</h2>
+            <h2 className="text-2xl font-bold text-blue-600 mb-3">7) Data retention</h2>
             <p className="text-gray-700 leading-relaxed">
               We keep personal data only as long as needed for learning delivery, records, and legal/accounting purposes.
               Typical ranges: student records and certifications up to 5–7 years; support communications 1–3 years; analytics in aggregated form longer without identifying details.
@@ -132,7 +132,7 @@ export default function PrivacyPolicy({ lastUpdated = "October 2025" }) {
 
           {/* 8. Security */}
           <section id="security" className="mb-10 scroll-mt-24">
-            <h2 className="text-2xl font-bold text-emerald-600 mb-3">8) Security</h2>
+            <h2 className="text-2xl font-bold text-blue-600 mb-3">8) Security</h2>
             <p className="text-gray-700 leading-relaxed">
               We implement administrative, technical, and physical safeguards (access controls, encryption in transit,
               least-privilege, back-ups). No method is 100% secure, but we work continuously to protect your data.
@@ -141,7 +141,7 @@ export default function PrivacyPolicy({ lastUpdated = "October 2025" }) {
 
           {/* 9. Children */}
           <section id="children" className="mb-10 scroll-mt-24">
-            <h2 className="text-2xl font-bold text-emerald-600 mb-3">9) Children’s data</h2>
+            <h2 className="text-2xl font-bold text-blue-600 mb-3">9) Children’s data</h2>
             <p className="text-gray-700 leading-relaxed">
               For programs like “Coding for Kids,” we collect only the data needed to deliver training and keep students safe.
               Where required, we obtain consent from a parent/guardian, and we limit communications to class-relevant updates.
@@ -150,7 +150,7 @@ export default function PrivacyPolicy({ lastUpdated = "October 2025" }) {
 
           {/* 10. International transfers */}
           <section id="international" className="mb-10 scroll-mt-24">
-            <h2 className="text-2xl font-bold text-emerald-600 mb-3">10) International data transfers</h2>
+            <h2 className="text-2xl font-bold text-blue-600 mb-3">10) International data transfers</h2>
             <p className="text-gray-700 leading-relaxed">
               Some providers may process data outside Nigeria. When that happens, we take reasonable steps to ensure
               comparable protection through contractual safeguards and reputable vendors.
@@ -159,7 +159,7 @@ export default function PrivacyPolicy({ lastUpdated = "October 2025" }) {
 
           {/* 11. Rights */}
           <section id="your-rights" className="mb-10 scroll-mt-24">
-            <h2 className="text-2xl font-bold text-emerald-600 mb-3">11) Your privacy rights</h2>
+            <h2 className="text-2xl font-bold text-blue-600 mb-3">11) Your privacy rights</h2>
             <ul className="list-disc list-inside space-y-2 text-gray-700 leading-relaxed">
               <li>Access a copy of your personal data we hold.</li>
               <li>Request correction or deletion (where legally permissible).</li>
@@ -174,11 +174,11 @@ export default function PrivacyPolicy({ lastUpdated = "October 2025" }) {
 
           {/* Contact */}
           <section id="contact" className="mb-4 scroll-mt-24">
-            <h2 className="text-2xl font-bold text-emerald-600 mb-3">Contact us</h2>
+            <h2 className="text-2xl font-bold text-blue-600 mb-3">Contact us</h2>
             <p className="text-gray-700 leading-relaxed">
               For privacy questions or requests, reach us at:
             </p>
-            <address className="not-italic mt-3 font-semibold text-emerald-700">
+            <address className="not-italic mt-3 font-semibold text-blue-700">
               Tech Minds Academy — Bwari, Abuja, Nigeria <br />
               Email: <a href="mailto:privacy@techmindsacademy.org" className="underline">privacy@techmindsacademy.org</a> <br />
               Website: <a href="https://techmindsacademy.org" className="underline">www.techmindsacademy.org</a>

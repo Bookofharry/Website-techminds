@@ -5,7 +5,7 @@ import React, { useMemo, useRef, useState, useEffect } from "react";
  * Always loads from top. No auto-scroll to Today on mount.
  */
 
-const BRAND_GRADIENT = "bg-gradient-to-r from-emerald-800 via-emerald-200 to-emerald-800";
+const BRAND_GRADIENT = "bg-gradient-to-r from-blue-800 via-blue-200 to-blue-800";
 const TIMEZONE_TZID = "Africa/Lagos";
 
 const TRACKS = ["All Tracks", "Web Development", "App Development", "Cloud Computing", "Data & Analytics", "Coding for Kids"];
@@ -485,7 +485,7 @@ export default function SchedulesPage() {
       <section className="relative overflow-hidden">
         <div aria-hidden className={`absolute inset-x-0 -top-24 h-48 opacity-25 blur-3xl ${BRAND_GRADIENT}`} />
         <div className="mx-auto max-w-6xl px-4 pt-12 pb-8 sm:px-6 lg:px-8">
-          <p className="text-sm font-semibold text-emerald-800/80 tracking-wide">
+          <p className="text-sm font-semibold text-blue-800/80 tracking-wide">
             Tech Minds Academy — Abuja (Bwari)
           </p>
           <h1 className="mt-2 text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl lg:text-5xl">
@@ -519,7 +519,7 @@ export default function SchedulesPage() {
                 const el = document.getElementById(todayId);
                 if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
               }}
-              className="rounded-2xl px-4 py-2 text-sm font-semibold text-gray-900 bg-white border border-gray-200 hover:border-gray-300 focus:outline-none focus:ring-2 focus:ring-emerald-700/20"
+              className="rounded-2xl px-4 py-2 text-sm font-semibold text-gray-900 bg-white border border-gray-200 hover:border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-700/20"
               >
               Jump to Today
             </button>
@@ -593,14 +593,14 @@ function DaySection({ id, date, sessions, isToday }) {
   return (
     <section id={id} className="mb-6">
       <header className="sticky top-[92px] z-10">
-        <div className={`flex items-center justify-between rounded-2xl border bg-white px-4 py-3 shadow-sm ${isToday ? "border-emerald-200" : ""}`}>
+        <div className={`flex items-center justify-between rounded-2xl border bg-white px-4 py-3 shadow-sm ${isToday ? "border-blue-200" : ""}`}>
           <div className="flex items-baseline gap-3">
             <h2 className="text-lg sm:text-xl font-bold text-gray-900">
               {fmtDate(date, { weekday: "long" })},{" "}
               {fmtDate(date, { day: "numeric", month: "long", year: "numeric" })}
             </h2>
             {isToday && (
-              <span className="inline-flex items-center rounded-full bg-emerald-50 px-2.5 py-0.5 text-xs font-semibold text-emerald-800 border border-emerald-200">
+              <span className="inline-flex items-center rounded-full bg-emerald-50 px-2.5 py-0.5 text-xs font-semibold text-blue-800 border border-blue-200">
                 Today
               </span>
             )}
@@ -668,10 +668,10 @@ function TimeBadge({ start, end, live }) {
   return (
     <span
       className={`inline-flex items-center gap-2 rounded-xl border px-3 py-1.5 text-xs font-semibold ${
-        live ? "text-emerald-800 bg-emerald-50 border-emerald-200" : "text-gray-900 bg-white border-gray-200"
+        live ? "text-blue-800 bg-blue-50 border-blue-200" : "text-gray-900 bg-white border-gray-200"
       }`}
     >
-      <svg className={`h-2.5 w-2.5 ${live ? "text-emerald-600" : "text-gray-400"}`} viewBox="0 0 24 24" fill="currentColor">
+      <svg className={`h-2.5 w-2.5 ${live ? "text-blue-600" : "text-gray-400"}`} viewBox="0 0 24 24" fill="currentColor">
         <circle cx="12" cy="12" r="6" />
       </svg>
       {fmtDate(start, { hour: "2-digit", minute: "2-digit" })} – {fmtDate(end, { hour: "2-digit", minute: "2-digit" })}
@@ -688,7 +688,7 @@ function SearchInput({ value, onChange }) {
         value={value}
         onChange={(e) => onChange(e.target.value)}
         placeholder="Search title, instructor, location…"
-        className="w-full rounded-2xl border border-gray-200 bg-white py-2.5 pl-10 pr-3 text-sm text-gray-900 placeholder:text-gray-400 shadow-sm focus:border-emerald-700 focus:ring-2 focus:ring-emerald-700/20"
+        className="w-full rounded-2xl border border-gray-200 bg-white py-2.5 pl-10 pr-3 text-sm text-gray-900 placeholder:text-gray-400 shadow-sm focus:border-blue-700 focus:ring-2 focus:ring-blue-700/20"
         type="text"
       />
       <svg className="pointer-events-none absolute left-3 top-2.5 h-5 w-5 text-gray-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
@@ -733,7 +733,7 @@ function Select({ label, value, onChange, options }) {
         aria-expanded={open}
         id={`${id}-button`}
         onClick={() => setOpen((v) => !v)}
-        className="inline-flex items-center gap-2 rounded-2xl border border-gray-200 bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm hover:border-gray-300 focus:outline-none focus:ring-2 focus:ring-emerald-700/20"
+        className="inline-flex items-center gap-2 rounded-2xl border border-gray-200 bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm hover:border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-700/20"
       >
         <span className="text-gray-500">{label}:</span>
         <span>{value}</span>
@@ -756,7 +756,7 @@ function Select({ label, value, onChange, options }) {
                   role="option"
                   aria-selected={active}
                   onClick={() => { onChange(opt); setOpen(false); }}
-                  className={`flex w-full items-center justify-between px-3 py-2 text-sm hover:bg-gray-50 ${active ? "font-semibold text-emerald-800" : "text-gray-800"}`}
+                  className={`flex w-full items-center justify-between px-3 py-2 text-sm hover:bg-gray-50 ${active ? "font-semibold text-blue-800" : "text-gray-800"}`}
                 >
                   <span>{opt}</span>
                   {active && (

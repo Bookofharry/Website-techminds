@@ -65,7 +65,7 @@ export default function NotFound() {
 
           {/* Brand footer */}
           <div className="mt-8 flex items-center justify-center gap-2 text-center text-[11px] text-gray-500 dark:text-gray-400">
-            <span className="inline-block h-2 w-2 animate-pulse rounded-full bg-emerald-500/80" />
+            <span className="inline-block h-2 w-2 animate-pulse rounded-full bg-blue-500/80" />
             <span>Tech Minds Academy • Abuja</span>
           </div>
         </div>

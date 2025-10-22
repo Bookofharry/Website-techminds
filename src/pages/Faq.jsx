@@ -18,9 +18,9 @@ import React, { useEffect, useMemo, useRef, useState } from "react";
 
 /* ------------------------------ Brand tokens ------------------------------ */
 const BRAND_GRADIENT =
-  "bg-gradient-to-r from-emerald-100 via-emerald-200 to-emerald-100";
+  "bg-gradient-to-r from-blue-100 via-blue-200 to-blue-100";
 const TEXT_GRADIENT =
-  "bg-gradient-to-r from-emerald-700 via-emerald-500 to-emerald-700 bg-clip-text text-transparent";
+  "bg-gradient-to-r from-blue-700 via-blue-500 to-blue-700 bg-clip-text text-transparent";
 
 /* --------------------------------- Data ---------------------------------- */
 const DEFAULT_CATEGORIES = [
@@ -223,13 +223,13 @@ function Hero({ query, setQuery }) {
       <div className="mx-auto w-full max-w-6xl">
         <div className="grid items-center gap-8 md:grid-cols-2">
           <div>
-            <p className="text-sm font-semibold tracking-wide text-emerald-100">
+            <p className="text-sm font-semibold tracking-wide text-blue-100">
               FAQ • Tech Minds Academy
             </p>
-            <h1 className="mt-2 text-3xl font-extrabold leading-tight text-emerald-900 sm:text-4xl lg:text-5xl">
+            <h1 className="mt-2 text-3xl font-extrabold leading-tight text-blue-900 sm:text-4xl lg:text-5xl">
               Everything you need to know
             </h1>
-            <p className="mt-3 max-w-xl text-emerald-500/90">
+            <p className="mt-3 max-w-xl text-blue-500/90">
               Quick answers about admissions, courses, payments, and
               facilities—on campus in Bwari and live online across Nigeria.
             </p>
@@ -245,9 +245,9 @@ function Hero({ query, setQuery }) {
                 placeholder="Search questions…"
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
-                className="w-full rounded-2xl border-0 bg-white/95 px-5 py-4 pr-12 text-base shadow-lg outline-none ring-1 ring-emerald-700/20 placeholder:text-gray-500 focus:ring-2 focus:ring-emerald-700/40"
+                className="w-full rounded-2xl border-0 bg-white/95 px-5 py-4 pr-12 text-base shadow-lg outline-none ring-1 ring-blue-700/20 placeholder:text-gray-500 focus:ring-2 focus:ring-blue-700/40"
               />
-              <span className="pointer-events-none absolute inset-y-0 right-4 grid place-items-center text-emerald-800/70">
+              <span className="pointer-events-none absolute inset-y-0 right-4 grid place-items-center text-blue-800/70">
                 <svg
                   viewBox="0 0 24 24"
                   className="h-5 w-5"
@@ -271,9 +271,9 @@ function NigeriaStripe() {
   return (
     <div className="pointer-events-none h-1 w-full">
       <div className="grid h-full grid-cols-3">
-        <div className="bg-emerald-700" />
+        <div className="bg-blue-700" />
         <div className="bg-white" />
-        <div className="bg-emerald-700" />
+        <div className="bg-blue-700" />
       </div>
     </div>
   );
@@ -281,7 +281,7 @@ function NigeriaStripe() {
 
 function CategoryChips({ categories, active, setActive, count }) {
   return (
-    <div className="sticky top-0 z-20 border-b border-emerald-900/5 bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/70">
+    <div className="sticky top-0 z-20 border-b border-blue-900/5 bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/70">
       <div className="mx-auto flex w-full max-w-6xl items-center gap-2 overflow-x-auto px-6 py-3 scrollbar-none">
         {categories.map((c) => (
           <button
@@ -290,8 +290,8 @@ function CategoryChips({ categories, active, setActive, count }) {
             className={[
               "shrink-0 rounded-full px-4 py-2 text-sm font-medium transition",
               active === c
-                ? "bg-emerald-700 text-white shadow"
-                : "bg-emerald-50 text-emerald-800 ring-1 ring-emerald-700/15 hover:bg-emerald-100",
+                ? "bg-blue-700 text-white shadow"
+                : "bg-emebluerald-50 text-blue-800 ring-1 ring-blue-700/15 hover:bg-blue-100",
             ].join(" ")}
           >
             {c}
@@ -325,7 +325,7 @@ function FaqItem({ item, onOpen }) {
     <details
       id={`faq-${slug}`}
       ref={ref}
-      className="group rounded-2xl border border-gray-200 bg-white p-5 shadow-sm open:shadow-md open:ring-1 open:ring-emerald-700/15"
+      className="group rounded-2xl border border-gray-200 bg-white p-5 shadow-sm open:shadow-md open:ring-1 open:ring-blue-700/15"
       onToggle={(e) => {
         // When toggled by clicking anywhere on <summary>, update hash without scroll
         if (e.currentTarget.open) onOpen?.(slug);
@@ -348,7 +348,7 @@ function FaqItem({ item, onOpen }) {
           {q}
         </button>
 
-        <span className="shrink-0 rounded-full border border-emerald-700/20 p-1 text-emerald-800 transition group-open:rotate-45">
+        <span className="shrink-0 rounded-full border border-blue-700/20 p-1 text-blue-800 transition group-open:rotate-45">
           <svg
             viewBox="0 0 24 24"
             className="h-4 w-4"
@@ -368,7 +368,7 @@ function FaqItem({ item, onOpen }) {
           {cat.map((t) => (
             <span
               key={t}
-              className="rounded-full bg-emerald-50 px-2.5 py-1 text-xs font-medium text-emerald-900 ring-1 ring-emerald-700/15"
+              className="rounded-full bg-blue-50 px-2.5 py-1 text-xs font-medium text-blue-900 ring-1 ring-blue-700/15"
             >
               {t}
             </span>
@@ -381,8 +381,8 @@ function FaqItem({ item, onOpen }) {
 
 function EmptyState({ query }) {
   return (
-    <div className="grid place-items-center rounded-2xl border border-dashed border-emerald-700/20 bg-white p-10 text-center shadow-sm">
-      <div className="rounded-full bg-emerald-50 p-3 text-emerald-700 ring-1 ring-emerald-700/15">
+    <div className="grid place-items-center rounded-2xl border border-dashed border-blue-700/20 bg-white p-10 text-center shadow-sm">
+      <div className="rounded-full bg-blue-50 p-3 text-blue-700 ring-1 ring-blue-700/15">
         <svg
           viewBox="0 0 24 24"
           className="h-6 w-6"
@@ -420,13 +420,13 @@ function HelpCta({ routes, contact }) {
           <div className="mt-5 flex flex-wrap gap-3">
             <a
               href={routes.contact}
-              className="rounded-xl bg-emerald-700 px-5 py-3 text-sm font-semibold text-white shadow hover:bg-emerald-800 focus:outline-none focus:ring-2 focus:ring-emerald-700/60"
+              className="rounded-xl bg-blue-700 px-5 py-3 text-sm font-semibold text-white shadow hover:bg-blue-800 focus:outline-none focus:ring-2 focus:ring-blue-700/60"
             >
               Contact Support
             </a>
             <a
               href={routes.apply}
-              className="rounded-xl bg-white px-5 py-3 text-sm font-semibold text-emerald-800 ring-1 ring-emerald-700/20 hover:bg-emerald-50"
+              className="rounded-xl bg-white px-5 py-3 text-sm font-semibold text-blue-800 ring-1 ring-blue-700/20 hover:bg-blue-50"
             >
               Apply Now
             </a>
@@ -457,14 +457,14 @@ function ContactCard({ title, value, href, icon: Icon }) {
       href={href}
       className="group flex items-start gap-3 rounded-2xl bg-white p-5 shadow-sm ring-1 ring-gray-200 transition hover:shadow-md"
     >
-      <span className="rounded-xl bg-emerald-50 p-3 text-emerald-800 ring-1 ring-emerald-700/15">
+      <span className="rounded-xl bg-blue-50 p-3 text-blue-800 ring-1 ring-blue-700/15">
         <Icon className="h-5 w-5" />
       </span>
       <span>
         <span className="block text-sm font-semibold text-gray-900">
           {title}
         </span>
-        <span className="block text-sm text-emerald-800 group-hover:underline">
+        <span className="block text-sm text-blue-800 group-hover:underline">
           {value}
         </span>
       </span>

@@ -5,7 +5,7 @@ import React, { useMemo, useState, useRef } from "react";
  * Styling: Tailwind CSS
  */
 
-const BRAND_GRADIENT = "bg-gradient-to-r from-emerald-800 via-emerald-200 to-emerald-800";
+const BRAND_GRADIENT = "bg-gradient-to-r from-blue-800 via-blue-200 to-blue-800";
 
 const DEFAULT_TRACK = "Web Development";
 const TRACKS = [
@@ -435,7 +435,7 @@ export default function SyllabusPage() {
           className={`absolute inset-x-0 -top-24 h-48 opacity-25 blur-3xl ${BRAND_GRADIENT}`}
         />
         <div className="mx-auto max-w-6xl px-4 pt-12 pb-8 sm:px-6 lg:px-8">
-          <p className="text-sm font-semibold text-emerald-800/80 tracking-wide">
+          <p className="text-sm font-semibold text-blue-800/80 tracking-wide">
             Tech Minds Academy — Abuja (Bwari)
           </p>
           <h1 className="mt-2 text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl lg:text-5xl">
@@ -443,11 +443,11 @@ export default function SyllabusPage() {
           </h1>
           <p className="mt-3 max-w-3xl text-gray-600">
             Mentor-led, project-based learning designed to take you from{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-800 via-emerald-200 to-emerald-800">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-800 via-blue-200 to-blue-800">
               fundamentals
             </span>{" "}
             to{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-800 via-emerald-200 to-emerald-800">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-800 via-blue-200 to-blue-800">
               portfolio-ready
             </span>
             .
@@ -463,7 +463,7 @@ export default function SyllabusPage() {
             </button>
             <button
               onClick={handleExportJSON}
-              className="rounded-2xl px-4 py-2 text-sm font-semibold text-gray-900 bg-white border border-gray-200 hover:border-gray-300 focus:outline-none focus:ring-2 focus:ring-emerald-700/20"
+              className="rounded-2xl px-4 py-2 text-sm font-semibold text-gray-900 bg-white border border-gray-200 hover:border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-700/20"
             >
               Export JSON
             </button>
@@ -531,7 +531,7 @@ export default function SyllabusPage() {
                   <li key={m.id}>
                     <a
                       href={`#${m.id}`}
-                      className="group block rounded-xl px-3 py-2 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-emerald-700/20"
+                      className="group block rounded-xl px-3 py-2 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-700/20"
                     >
                       <span className="flex items-center justify-between">
                         <span className="text-sm font-medium text-gray-900">
@@ -577,7 +577,7 @@ function SearchInput({ value, onChange }) {
         value={value}
         onChange={(e) => onChange(e.target.value)}
         placeholder="Search lessons, modules, projects…"
-        className="w-full rounded-2xl border border-gray-200 bg-white py-2.5 pl-10 pr-3 text-sm text-gray-900 placeholder:text-gray-400 shadow-sm focus:border-emerald-700 focus:ring-2 focus:ring-emerald-700/20"
+        className="w-full rounded-2xl border border-gray-200 bg-white py-2.5 pl-10 pr-3 text-sm text-gray-900 placeholder:text-gray-400 shadow-sm focus:border-blue-700 focus:ring-2 focus:ring-blue-700/20"
         type="text"
       />
       <svg className="pointer-events-none absolute left-3 top-2.5 h-5 w-5 text-gray-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
@@ -599,7 +599,7 @@ function Select({ label, value, onChange, options }) {
         aria-expanded={open}
         id={`${id}-button`}
         onClick={() => setOpen((v) => !v)}
-        className="inline-flex items-center gap-2 rounded-2xl border border-gray-200 bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm hover:border-gray-300 focus:outline-none focus:ring-2 focus:ring-emerald-700/20"
+        className="inline-flex items-center gap-2 rounded-2xl border border-gray-200 bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm hover:border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-700/20"
       >
         <span className="text-gray-500">{label}:</span>
         <span>{value}</span>
@@ -621,7 +621,7 @@ function Select({ label, value, onChange, options }) {
                     onChange(opt);
                     setOpen(false);
                   }}
-                  className={`flex w-full items-center justify-between px-3 py-2 text-sm hover:bg-gray-50 ${active ? "font-semibold text-emerald-800" : "text-gray-800"}`}
+                  className={`flex w-full items-center justify-between px-3 py-2 text-sm hover:bg-gray-50 ${active ? "font-semibold text-blue-800" : "text-gray-800"}`}
                 >
                   <span>{opt}</span>
                   {active && (
@@ -652,7 +652,7 @@ function ModuleCard({ module, index }) {
         </div>
         <button
           onClick={() => setOpen((v) => !v)}
-          className="inline-flex items-center gap-2 rounded-xl border border-gray-200 bg-white px-3 py-2 text-sm font-semibold text-gray-900 hover:border-gray-300 focus:outline-none focus:ring-2 focus:ring-emerald-700/20"
+          className="inline-flex items-center gap-2 rounded-xl border border-gray-200 bg-white px-3 py-2 text-sm font-semibold text-gray-900 hover:border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-700/20"
         >
           {open ? "Hide" : "View"}
           <svg className={`h-4 w-4 transition-transform ${open ? "rotate-180" : ""}`} viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2" fill="none">

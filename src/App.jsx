@@ -97,11 +97,7 @@ function App(){
 
 
       </Routes>
-      <Footer onSubscribe={(email) => {
-        // do anything here:
-        // send to API, analytics, show modal, etc.
-       
-      }} />
+      <Footer/>
     
     </BrowserRouter>
   )

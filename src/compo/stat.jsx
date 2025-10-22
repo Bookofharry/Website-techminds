@@ -13,10 +13,10 @@ const Numbers = () => {
             Tech Minds Academy—Abuja (Bwari)
             <br />
             Mentor-led, project-based training in{" "}
-            <span className="font-semibold text-transparent bg-clip-text bg-gradient-to-r from-emerald-800 via-emerald-200 to-emerald-800 opacity-75">
+            <span className="font-semibold text-transparent bg-clip-text bg-gradient-to-r from-blue-800 via-blue-200 to-blue-800 opacity-75">
               DIGITAL
             </span>{" "}
-            <span className="font-semibold text-transparent bg-clip-text bg-gradient-to-r from-emerald-800 via-emerald-200 to-emerald-800 opacity-75">
+            <span className="font-semibold text-transparent bg-clip-text bg-gradient-to-r from-blue-800 via-blue-200 to-blue-800 opacity-75">
               TECHNOLOGY
             </span>
             . <br /> Here’s a quick snapshot of our progress.
