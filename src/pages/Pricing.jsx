@@ -23,6 +23,15 @@ export default function Pricing() {
         accent: "from-emerald-600 to-emerald-500",
       },
       {
+        id: "software-engineering/app-development",
+        title: "App Development",
+        price: 400_000,
+        blurb:
+          "Build mobile apps end-to-end — UI, APIs, auth, testing, and publishing basics.",
+        features: ["Mobile-first projects", "API & auth flows", "Store-ready guidance"],
+        accent: "from-teal-600 to-emerald-500",
+      },
+      {
         id: "digital-marketing",
         title: "Digital Marketing",
         price: 200_000,
@@ -166,7 +175,7 @@ export default function Pricing() {
                 {/* CTA */}
                 <div className="mt-6 flex gap-2">
                   <Link
-                    to='/application'
+                    to="/application"
                     className="flex-1 inline-flex items-center justify-center rounded-xl bg-emerald-600 text-white font-semibold py-2.5 hover:bg-emerald-700 transition"
                   >
                     Apply Now
@@ -223,7 +232,6 @@ export default function Pricing() {
       </section>
 
       {/* Footer */}
-
     </main>
   );
 }

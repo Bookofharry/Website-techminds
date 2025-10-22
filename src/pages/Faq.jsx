@@ -1,13 +1,12 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
 
 /**
- * Tech Minds Academy — FAQ Page (Refactored)
- * Modular, extensible, and highly responsive.
+ * Tech Minds Academy — FAQ Page (No-Refresh Accordion)
  * - Data-driven via props with sensible defaults
  * - Sticky category chips + mobile-friendly horizontal scroll
  * - Debounced search
  * - Deep-linking (URL #hash opens a question)
- * - Accessible accordion using <details>
+ * - Accessible accordion using <details> (no hash navigation on click)
  * - SEO JSON-LD extracted into a component
  * - Green–white–green accents for brand
  *
@@ -151,7 +150,7 @@ export default function FaqPage({
     [faqs]
   );
 
-  // Open item if URL hash matches
+  // Open item if URL hash matches (deep link)
   useEffect(() => {
     const hash = decodeURIComponent(window.location.hash.replace(/^#/, ""));
     if (!hash) return;
@@ -171,12 +170,22 @@ export default function FaqPage({
     return items.filter((f) => {
       const inCat = active === "All" || f.cat?.includes(active);
       const inText =
-        !q ||
-        f.q.toLowerCase().includes(q) ||
-        f.a.toLowerCase().includes(q);
+        !q || f.q.toLowerCase().includes(q) || f.a.toLowerCase().includes(q);
       return inCat && inText;
     });
   }, [items, active, debouncedQuery]);
+
+  const handleOpen = (slug) => {
+    // Update URL hash without triggering scroll/jump
+    if (window?.history?.replaceState) {
+      window.history.replaceState(null, "", `#${slug}`);
+    } else {
+      // Fallback: assign but then immediately restore scroll
+      const { scrollX, scrollY } = window;
+      window.location.hash = slug;
+      window.scrollTo(scrollX, scrollY);
+    }
+  };
 
   return (
     <main className="min-h-screen bg-white text-gray-900">
@@ -195,16 +204,12 @@ export default function FaqPage({
           {filtered.length === 0 ? (
             <EmptyState query={debouncedQuery} />
           ) : (
-            <FaqList
-              items={filtered}
-              onToggle={(slug) => (window.location.hash = slug)}
-            />
+            <FaqList items={filtered} onOpen={handleOpen} />
           )}
         </div>
       </section>
 
       <HelpCta routes={routes} contact={contact} />
-      
 
       <FaqSchema items={items} />
     </main>
@@ -214,17 +219,17 @@ export default function FaqPage({
 /* ------------------------------- Subcomponents ------------------------------ */
 function Hero({ query, setQuery }) {
   return (
-    <section className={`relative ${BRAND_GRADIENT} px-6 py-14 sm:py-20 `}>
+    <section className={`relative ${BRAND_GRADIENT} px-6 py-14 sm:py-20`}>
       <div className="mx-auto w-full max-w-6xl">
         <div className="grid items-center gap-8 md:grid-cols-2">
           <div>
-            <p className="text-sm font-semibold tracking-wide text-emerald-1000">
+            <p className="text-sm font-semibold tracking-wide text-emerald-100">
               FAQ • Tech Minds Academy
             </p>
             <h1 className="mt-2 text-3xl font-extrabold leading-tight text-emerald-900 sm:text-4xl lg:text-5xl">
               Everything you need to know
             </h1>
-            <p className="mt-3 max-w-xl text-emerald-5090">
+            <p className="mt-3 max-w-xl text-emerald-500/90">
               Quick answers about admissions, courses, payments, and
               facilities—on campus in Bwari and live online across Nigeria.
             </p>
@@ -277,7 +282,7 @@ function NigeriaStripe() {
 function CategoryChips({ categories, active, setActive, count }) {
   return (
     <div className="sticky top-0 z-20 border-b border-emerald-900/5 bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/70">
-      <div className="mx-auto flex w-full max-w-6xl items-center gap-2 px-6 py-3 overflow-x-auto scrollbar-none">
+      <div className="mx-auto flex w-full max-w-6xl items-center gap-2 overflow-x-auto px-6 py-3 scrollbar-none">
         {categories.map((c) => (
           <button
             key={c}
@@ -300,37 +305,49 @@ function CategoryChips({ categories, active, setActive, count }) {
   );
 }
 
-function FaqList({ items, onToggle }) {
+function FaqList({ items, onOpen }) {
   return (
     <ul className="grid grid-cols-1 gap-4 sm:gap-5 md:grid-cols-2">
       {items.map((f) => (
         <li key={f.id}>
-          <FaqItem item={f} onToggle={onToggle} />
+          <FaqItem item={f} onOpen={onOpen} />
         </li>
       ))}
     </ul>
   );
 }
 
-function FaqItem({ item, onToggle }) {
+function FaqItem({ item, onOpen }) {
   const { q, a, cat = [], slug } = item;
+  const ref = useRef(null);
+
   return (
     <details
       id={`faq-${slug}`}
+      ref={ref}
       className="group rounded-2xl border border-gray-200 bg-white p-5 shadow-sm open:shadow-md open:ring-1 open:ring-emerald-700/15"
       onToggle={(e) => {
-        if (e.currentTarget.open) onToggle?.(slug);
+        // When toggled by clicking anywhere on <summary>, update hash without scroll
+        if (e.currentTarget.open) onOpen?.(slug);
       }}
     >
       <summary className="flex cursor-pointer list-none items-start justify-between gap-4">
-        <h3 className="text-base font-semibold text-gray-900 sm:text-lg">
-          <a
-            href={`#${slug}`}
-            className={`no-underline hover:underline ${TEXT_GRADIENT}`}
-          >
-            {q}
-          </a>
-        </h3>
+        {/* Button avoids anchor navigation (no hash jump) */}
+        <button
+          type="button"
+          onClick={(e) => {
+            e.preventDefault();
+            const d = ref.current;
+            if (d) {
+              d.open = !d.open;
+              if (d.open) onOpen?.(slug);
+            }
+          }}
+          className={`text-left text-base font-semibold sm:text-lg no-underline hover:underline ${TEXT_GRADIENT}`}
+        >
+          {q}
+        </button>
+
         <span className="shrink-0 rounded-full border border-emerald-700/20 p-1 text-emerald-800 transition group-open:rotate-45">
           <svg
             viewBox="0 0 24 24"
@@ -343,7 +360,9 @@ function FaqItem({ item, onToggle }) {
           </svg>
         </span>
       </summary>
+
       <div className="mt-3 text-sm leading-6 text-gray-700">{a}</div>
+
       {cat.length > 0 && (
         <div className="mt-3 flex flex-wrap gap-2">
           {cat.map((t) => (
@@ -431,8 +450,6 @@ function HelpCta({ routes, contact }) {
     </section>
   );
 }
-
-
 
 function ContactCard({ title, value, href, icon: Icon }) {
   return (

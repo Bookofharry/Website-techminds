@@ -1,4 +1,5 @@
 import Logo from '../assets/Logo.png'
+import Google from '../assets/images/google.png'
 import { Link } from 'react-router-dom'
 function Testimonial(){
     return(
@@ -14,6 +15,10 @@ function Testimonial(){
         <h2 className="mt-4 text-3xl font-bold text-gray-900 sm:text-4xl xl:text-5xl font-pj">
           What Our Past Students say about us
         </h2>
+        <div>
+          <img className="w-52 mt-6 mx-auto" src={Google} alt="Google Reviews" />
+          <span className="mt-2 text-sm font-pj text-gray-600">Rated 4.6/5 based on reviews</span>
+        </div>
       </div>
 
       <div className="mt-8 text-center md:mt-16 md:order-3">
@@ -21,6 +26,7 @@ function Testimonial(){
         <Link  className="pb-2 text-base font-bold leading-7 text-gray-900 transition-all duration-200 border-b-2 border-gray-900 hover:border-gray-600 font-pj focus:outline-none focus:ring-1 focus:ring-gray-900 focus:ring-offset-2 hover:text-gray-600"
 to='https://www.google.com/search?q=Tech+Minds+Academy&stick=H4sIAAAAAAAA_-NgU1I1qDA0MElJSTE3MzFKM7UwMje1MqhItLQ0NbRINTVLSjEzTjIyW8QqFJKanKHgm5mXUqzgmJyYkppbCQDwM4OVPgAAAA&hl=en&mat=CQ8clRqSUkxoElYBYJahaQRf0bS_zcFZdxWYsjaMbYbQRhDVWwgjuYcWonlHwYdUuHsRatDMDr5XtHq8SCoIU3ZTo-Yy1MgAEci6yFi7e3yiKN8p-xYH25gdQ6MZDS8z8A&authuser=4#mpd=~7515472665639197711/customers/reviews'>Check All Google Reviews</Link>
       </div>
+      
 
       <div className="relative mt-10 md:mt-24 md:order-2">
         <div className="absolute -inset-x-1 inset-y-16 md:-inset-x-2 md:-inset-y-6">

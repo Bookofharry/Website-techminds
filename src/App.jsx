@@ -21,6 +21,7 @@ import FaqPage from "./pages/Faq";
 import TermsAndConditions from './pages/Terms'
 import PrivacyPolicy from './pages/Privacy'
 import Pricing from './pages/Pricing'
+import NavBar2 from './compo/navbar2'
 // in your router
 
 
@@ -32,7 +33,7 @@ function App(){
     <ScrollToTop />
       {/* Navigation Bar Needs to be Worked On */}
       <nav>
-        <NavBar/>  
+        <NavBar2/>  
         {/* <MyButton /> */}
       </nav>
 

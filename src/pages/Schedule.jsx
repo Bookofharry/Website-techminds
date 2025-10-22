@@ -26,7 +26,7 @@ const TEMPLATE_SESSIONS = [
   mkSession("Web Development", "Intermediate", "Hybrid", "ReactJS", "Mr Harry", "online (Google Meet)", "Mon", "09:00", "11:30"),
   mkSession("Web Development", "Intermediate", "Hybrid", "ExpressJS", "Mr Michael", "Bwari Lab A", "Mon", "09:30", "12:00"),
   mkSession("App Development", "Intermediate", "Hybrid", "App Development", "Mr Michael", "Bwari Lab A", "Mon", "13:00", "15:30"),
-  mkSession("Data Science", "Intermediate", "Hybrid", "Data Science", "Mr James ", "Bwari Lab A", "Mon", "12:30", "16:00"),
+  mkSession("Data Science", "Intermediate", "Hybrid", "Data Science", "Mr James ", "Bwari Lab A", "Mon", "14:00", "16:00"),
   
   
   mkSession("Web Development", "Beginner", "Hybrid", "HTML / CSS", "Mr Fortune ", "Bwari Lab A", "Tue", "10:00", "13:00"),
@@ -44,7 +44,7 @@ const TEMPLATE_SESSIONS = [
   mkSession("Web Development", "Intermediate", "Hybrid", "ReactJS", "Mr Harry", "online (Google Meet)", "Wed", "09:00", "11:30"),
   mkSession("Web Development", "Intermediate", "Hybrid", "ExpressJS", "Mr Michael", "Bwari Lab A", "Wed", "09:30", "12:00"),
   mkSession("App Development", "Intermediate", "Hybrid", "App Development", "Mr Michael", "Bwari Lab A", "Wed", "13:00", "15:30"),
-    mkSession("Data Science", "Intermediate", "Hybrid", "Data Science", "Mr James ", "Bwari Lab A", "Wed", "12:30", "16:00"),
+    mkSession("Data Science", "Intermediate", "Hybrid", "Data Science", "Mr James ", "Bwari Lab A", "Wed", "14:00", "16:00"),
   
   
   mkSession("App Development", "Intermediate", "Hybrid", "App Development", "Mr Michael", "Bwari Lab A", "Thu", "13:00", "15:30"),
@@ -60,7 +60,7 @@ const TEMPLATE_SESSIONS = [
   mkSession("Digital Marketing", "Intermediate", "Hybrid", "Digital Marketing", "Ms Rachael", "Bwari Lab A", "Fri", "14:00", "16:00"),
   mkSession("Web Development", "Intermediate", "Hybrid", "ReactJS", "Mr Harry", "online (Google Meet)", "Fri", "09:00", "11:30"),
   mkSession("Web Development", "Intermediate", "Hybrid", "ExpressJS", "Mr Michael", "Bwari Lab A", "Fri", "09:30", "12:00"),
-  mkSession("Data Science", "Intermediate", "Hybrid", "Data Science", "Mr James ", "Bwari Lab A", "Fri", "12:30", "16:00"),
+  mkSession("Data Science", "Intermediate", "Hybrid", "Data Science", "Mr James ", "Bwari Lab A", "Fri", "14:00", "16:00"),
 
 
 

@@ -9,7 +9,8 @@ html, body, #root {
   height: 100%;
 }
 body {
-  margin: 0;            /* <-- clears default body margin */
+  margin: 0; 
+  padding: 0;           /* <-- clears default body margin */
 }
 
 /* 2) If you're wrapping Menubar in .card, it adds padding. Remove it or reset it. */
