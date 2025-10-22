@@ -95,8 +95,8 @@ to='https://www.google.com/search?q=Tech+Minds+Academy&stick=H4sIAAAAAAAA_-NgU1I
 
               <div className="flex items-center mt-8">
                 <img
-                  className="flex-shrink-0 object-cover rounded-full w-11 h-11"
-                  src={Logo}
+                  className="flex-shrink-0 object-cover rounded-full w-21 h-11"
+                  src={Google}
                   alt=""
                 />
                 <div className="ml-4">
@@ -132,8 +132,8 @@ My time spent with Tech minds has been amazing the experience is memorable. They
 
               <div className="flex items-center mt-8">
                 <img
-                  className="flex-shrink-0 object-cover rounded-full w-11 h-11"
-                  src={Logo}
+                  className="flex-shrink-0 object-cover rounded-full w-21 h-11"
+                  src={Google}
                   alt=""
                 />
                 <div className="ml-4">
@@ -165,8 +165,8 @@ My time spent with Tech minds has been amazing the experience is memorable. They
 
               <div className="flex items-center mt-8">
                 <img
-                  className="flex-shrink-0 object-cover rounded-full w-11 h-11"
-                  src={Logo}
+                  className="flex-shrink-0 object-cover rounded-full w-21 h-11"
+                  src={Google}
                   alt=""
                 />
                 <div className="ml-4">

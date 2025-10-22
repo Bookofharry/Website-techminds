@@ -120,7 +120,7 @@ function Application({ onSubmit }) {
   const inputBase =
     "block w-full h-11 pr-4 pl-12 py-2.5 text-base font-normal text-gray-900 dark:text-slate-100 bg-white/70 dark:bg-slate-900/70 border rounded-xl placeholder-gray-400 focus:outline-none transition";
   const ok =
-    "border-slate-300 hover:border-slate-400 focus:border-emerald-600 focus:ring-2 focus:ring-emerald-500/30";
+    "border-slate-300 hover:border-slate-400 focus:border-blue-600 focus:ring-2 focus:ring-blue-500/30";
   const err =
     "border-red-400 hover:border-red-500 focus:border-red-500 focus:ring-2 focus:ring-red-400/30";
 
@@ -160,7 +160,7 @@ function Application({ onSubmit }) {
           <div
             role="status"
             aria-live="polite"
-            className="mt-4 flex items-center gap-3 rounded-xl border border-emerald-300 bg-emerald-50 px-4 py-3 text-sm text-emerald-800 dark:border-emerald-700 dark:bg-emerald-900/40 dark:text-emerald-200"
+            className="mt-4 flex items-center gap-3 rounded-xl border border-blue-300 bg-blue-50 px-4 py-3 text-sm text-blue-800 dark:border-blue-700 dark:bg-blue-900/40 dark:text-blue-200"
           >
             <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="2">
               <path d="M20 7L10 17l-6-6" />
@@ -373,16 +373,16 @@ function Application({ onSubmit }) {
                 className={[
                   "relative mt-0.5 inline-flex h-6 w-6 items-center justify-center rounded-md",
                   "border border-slate-300 bg-white shadow-sm dark:border-slate-700/70 dark:bg-slate-800",
-                  "transition-all duration-300 group-hover:border-emerald-400",
-                  "peer-focus-visible:outline peer-focus-visible:outline-2 peer-focus-visible:outline-emerald-500 peer-focus-visible:outline-offset-2",
-                  "peer-checked:border-emerald-600 peer-checked:shadow-[0_0_0_4px_rgba(16,185,129,0.15)]",
+                  "transition-all duration-300 group-hover:border-blue-400",
+                  "peer-focus-visible:outline peer-focus-visible:outline-2 peer-focus-visible:outline-blue-500 peer-focus-visible:outline-offset-2",
+                  "peer-checked:border-blue-600 peer-checked:shadow-[0_0_0_4px_rgba(16,185,129,0.15)]",
                   errors.accept ? "ring-1 ring-red-400/70" : "",
                 ].join(" ")}
               >
                 <svg
                   viewBox="0 0 24 24"
                   className={[
-                    "h-4 w-4 text-emerald-600 dark:text-emerald-400",
+                    "h-4 w-4 text-blue-600 dark:text-blue-400",
                     "transition-transform duration-300",
                     "peer-checked:scale-100 peer-checked:opacity-100",
                     "scale-75 opacity-0",
@@ -402,7 +402,7 @@ function Application({ onSubmit }) {
 
               <span className="text-sm leading-6 text-slate-700 dark:text-slate-300">
                 I agree to the{" "}
-                <Link to="/terms" className="font-semibold text-emerald-700 underline-offset-2 hover:underline dark:text-emerald-400">
+                <Link to="/terms" className="font-semibold text-blue-700 underline-offset-2 hover:underline dark:text-blue-400">
                   Terms &amp; Conditions
                 </Link>{" "}
                 and consent to be contacted about my application.
@@ -424,8 +424,8 @@ function Application({ onSubmit }) {
               disabled={submitting}
               className={[
                 "inline-flex h-12 w-56 items-center justify-center rounded-full",
-                "bg-emerald-600 text-white text-base font-semibold leading-7 shadow-sm transition-all duration-300",
-                "hover:bg-emerald-700 focus:outline-none focus:ring-2 focus:ring-emerald-500",
+                "bg-blue-600 text-white text-base font-semibold leading-7 shadow-sm transition-all duration-300",
+                "hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500",
                 "disabled:cursor-not-allowed disabled:opacity-60",
               ].join(" ")}
             >
